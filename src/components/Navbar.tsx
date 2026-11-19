@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { portfolioData } from "@/data/portfolioData";
 import { ThemeToggle } from "./ThemeToggle";
+import { ZenVQLanguageDock } from "./ZenVQLanguageDock";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 
 export function Navbar() {
@@ -27,7 +28,7 @@ export function Navbar() {
         }`}
       >
         {/* Brand Wordmark */}
-        <a href="#overview" className="flex items-baseline gap-2 group">
+        <a href="#overview" className="flex items-baseline gap-2 group notranslate" translate="no">
           <span className="font-serif text-xl sm:text-2xl tracking-tight text-ink-primary">
             Saif<span className="text-accent">.</span>
           </span>
@@ -49,13 +50,22 @@ export function Navbar() {
           ))}
         </div>
 
-        {/* Right Action Controls */}
-        <div className="flex items-center gap-2.5 sm:gap-3">
+        {/* Right Action Controls (Hard-Locked to LTR with data-zenvq-nav-anchor) */}
+        <div
+          dir="ltr"
+          data-zenvq-nav-anchor="true"
+          className="flex items-center gap-2 sm:gap-2.5"
+        >
+          {/* ZenVQ Universal Multi-Language Dock */}
+          <ZenVQLanguageDock variant="header" theme="engineering" />
+
+          {/* Theme Toggle */}
           <ThemeToggle />
 
+          {/* Contact Action */}
           <a
             href="#contact"
-            className="hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider bg-cta-bg text-cta-text hover:opacity-90 transition-opacity duration-200"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider bg-cta-bg text-cta-text hover:opacity-90 transition-opacity duration-200 font-medium"
           >
             <span>Contact</span>
             <ArrowUpRight className="w-3 h-3" />
@@ -87,6 +97,15 @@ export function Navbar() {
                 {item.label}
               </a>
             ))}
+          </div>
+
+          <div
+            dir="ltr"
+            data-zenvq-nav-anchor="true"
+            className="pt-2 border-t border-border-subtle/50 flex items-center justify-between"
+          >
+            <span className="text-xs font-mono text-ink-muted uppercase">Language</span>
+            <ZenVQLanguageDock variant="mobile" theme="engineering" />
           </div>
 
           <a

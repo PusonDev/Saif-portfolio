@@ -23,6 +23,8 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
         />
+        {/* ZenVQ Universal Live Translation Engine */}
+        <script src="/lib/zenvq-translate.js" defer></script>
       </head>
       <body className="font-sans antialiased bg-canvas text-ink-primary min-h-screen flex flex-col">
         {children}
