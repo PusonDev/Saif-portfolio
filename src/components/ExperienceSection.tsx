@@ -3,134 +3,156 @@
 import React from "react";
 import { portfolioData } from "@/data/portfolioData";
 import { motion } from "framer-motion";
-import { Briefcase, GraduationCap, CheckCircle2, Globe, Heart } from "lucide-react";
+import { History, Globe, Heart } from "lucide-react";
 
 export function ExperienceSection() {
-  const { experience, education, languages, interests } = portfolioData;
+  const { experience, education, capabilities } = portfolioData;
 
   return (
-    <section id="experience" className="py-20 px-4 max-w-5xl mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-        {/* Experience Column */}
-        <div className="space-y-6">
-          <div className="flex flex-col gap-2">
-            <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-mint-400">
-              <Briefcase className="w-3.5 h-3.5" />
-              <span>Production Track</span>
+    <section id="experience" className="py-20 sm:py-28 px-5 sm:px-8 max-w-5xl mx-auto w-full">
+      {/* Section Header */}
+      <div className="mb-12 pb-6 border-b border-border-subtle">
+        <div className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-accent mb-1.5">
+          <History className="w-3.5 h-3.5" />
+          <span>Curriculum & Capabilities</span>
+        </div>
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-ink-primary">
+          Editorial background & motion credentials.
+        </h2>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14">
+        {/* Left Column: Experience & Education Timeline (7 Cols) */}
+        <div className="lg:col-span-7 space-y-12">
+          {/* Work Experience */}
+          <div className="space-y-6">
+            <h3 className="text-xs font-mono uppercase tracking-widest text-ink-muted border-b border-border-subtle pb-2">
+              Production Experience
+            </h3>
+
+            <div className="space-y-4">
+              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                <div>
+                  <h4 className="text-base font-bold text-ink-primary">
+                    {experience.role}
+                  </h4>
+                  <p className="text-xs font-mono text-accent">
+                    {experience.company} ({experience.handle})
+                  </p>
+                </div>
+                <span className="font-mono text-[11px] text-ink-muted">
+                  {experience.period}
+                </span>
+              </div>
+
+              <ul className="space-y-2.5 pt-1">
+                {experience.points.map((point, idx) => (
+                  <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-ink-secondary leading-relaxed">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent/70 shrink-0 mt-2" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <h2 className="text-2xl font-bold tracking-tight text-white">
-              Work Experience
-            </h2>
           </div>
 
-          <div className="space-y-4">
-            {experience.map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.2 }}
-                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="rounded-2xl bg-zinc-900/60 border border-white/[0.08] p-6 space-y-4 specular-edge glow-card"
-              >
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-3 border-b border-white/[0.06]">
-                  <div>
-                    <h3 className="font-semibold text-base text-zinc-100">
-                      {item.role}
-                    </h3>
-                    <p className="text-xs font-mono text-mint-400">
-                      {item.company}
-                    </p>
+          {/* Education & Training */}
+          <div className="space-y-6">
+            <h3 className="text-xs font-mono uppercase tracking-widest text-ink-muted border-b border-border-subtle pb-2">
+              Education & Training
+            </h3>
+
+            <div className="space-y-6">
+              {education.map((item, idx) => (
+                <div key={idx} className="space-y-1">
+                  <div className="flex items-baseline justify-between">
+                    <h4 className="text-sm font-semibold text-ink-primary">
+                      {item.title}
+                    </h4>
+                    <span className="font-mono text-[11px] text-ink-muted">
+                      {item.year}
+                    </span>
                   </div>
-                  <span className="text-xs font-mono text-zinc-400 bg-white/5 px-2.5 py-1 rounded-md w-fit">
-                    {item.period}
-                  </span>
+                  <p className="text-xs font-mono text-ink-secondary">
+                    {item.institution}
+                  </p>
+                  <p className="text-xs text-ink-muted leading-relaxed pt-0.5">
+                    {item.description}
+                  </p>
                 </div>
-
-                <p className="text-xs text-zinc-300 leading-relaxed">
-                  {item.description}
-                </p>
-
-                <ul className="space-y-2 pt-1">
-                  {item.highlights.map((highlight, hIdx) => (
-                    <li key={hIdx} className="flex items-start gap-2 text-xs text-zinc-400 leading-relaxed">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-mint-400 shrink-0 mt-0.5" />
-                      <span>{highlight}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Education & Background Column */}
-        <div className="space-y-6">
-          <div className="flex flex-col gap-2">
-            <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-mint-400">
-              <GraduationCap className="w-3.5 h-3.5" />
-              <span>Academic & Training</span>
-            </div>
-            <h2 className="text-2xl font-bold tracking-tight text-white">
-              Education & Background
-            </h2>
-          </div>
-
-          <div className="space-y-4">
-            {education.map((edu, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.2 }}
-                transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="rounded-2xl bg-zinc-900/60 border border-white/[0.08] p-6 space-y-2 specular-edge glow-card"
-              >
-                <div className="flex items-center justify-between">
-                  <h3 className="font-semibold text-sm text-zinc-100">
-                    {edu.title}
-                  </h3>
-                  <span className="text-xs font-mono text-mint-400 bg-mint-400/10 px-2 py-0.5 rounded">
-                    {edu.year}
+        {/* Right Column: Craft Index (5 Cols) */}
+        <div className="lg:col-span-5 space-y-8 lg:border-l lg:border-border-subtle lg:pl-10">
+          {/* Row 1: Primary Creative Suite */}
+          <div className="space-y-3">
+            <h3 className="text-xs font-mono uppercase tracking-widest text-ink-muted">
+              Primary Creative Suite
+            </h3>
+            <div className="flex flex-col gap-2">
+              {capabilities.primarySuite.map((tool) => (
+                <div
+                  key={tool}
+                  className="px-3.5 py-2 rounded-xl border border-border-subtle bg-surface-1 flex items-center justify-between text-xs font-medium text-ink-primary"
+                >
+                  <span>{tool}</span>
+                  <span className="font-mono text-[10px] text-accent uppercase tracking-wider">
+                    Official
                   </span>
                 </div>
-                <p className="text-xs font-mono text-zinc-400">
-                  {edu.institution}
-                </p>
-                <p className="text-xs text-zinc-400 leading-relaxed">
-                  {edu.details}
-                </p>
-              </motion.div>
-            ))}
+              ))}
+            </div>
+          </div>
 
-            {/* Languages & Interests */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <div className="rounded-2xl bg-zinc-900/40 border border-white/[0.06] p-4 space-y-2">
-                <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-zinc-300">
-                  <Globe className="w-3.5 h-3.5 text-mint-400" />
-                  <span>Languages</span>
-                </div>
-                <div className="flex flex-wrap gap-1.5">
-                  {languages.map((lang) => (
-                    <span key={lang} className="text-[11px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-300">
-                      {lang}
-                    </span>
-                  ))}
-                </div>
+          {/* Row 2: Core Competencies */}
+          <div className="space-y-3">
+            <h3 className="text-xs font-mono uppercase tracking-widest text-ink-muted">
+              Core Competencies
+            </h3>
+            <div className="flex flex-wrap gap-1.5">
+              {capabilities.competencies.map((comp) => (
+                <span
+                  key={comp}
+                  className="px-2.5 py-1 rounded-md text-[11px] font-mono border border-border-subtle bg-surface-2 text-ink-secondary"
+                >
+                  {comp}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Row 3: Personal Profile */}
+          <div className="space-y-4 pt-2 border-t border-border-subtle">
+            {/* Languages */}
+            <div className="space-y-2">
+              <div className="flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-ink-muted">
+                <Globe className="w-3.5 h-3.5 text-accent" />
+                <span>Languages</span>
               </div>
+              <div className="flex flex-wrap gap-1.5">
+                {capabilities.languages.map((lang) => (
+                  <span key={lang} className="text-xs text-ink-secondary">
+                    {lang}
+                  </span>
+                ))}
+              </div>
+            </div>
 
-              <div className="rounded-2xl bg-zinc-900/40 border border-white/[0.06] p-4 space-y-2">
-                <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-zinc-300">
-                  <Heart className="w-3.5 h-3.5 text-mint-400" />
-                  <span>Interests</span>
-                </div>
-                <div className="flex flex-wrap gap-1.5">
-                  {interests.map((interest) => (
-                    <span key={interest} className="text-[11px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-300">
-                      {interest}
-                    </span>
-                  ))}
-                </div>
+            {/* Interests */}
+            <div className="space-y-2">
+              <div className="flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-ink-muted">
+                <Heart className="w-3.5 h-3.5 text-accent" />
+                <span>Interests</span>
+              </div>
+              <div className="flex flex-wrap gap-2 text-xs text-ink-secondary">
+                {capabilities.interests.map((interest) => (
+                  <span key={interest}>
+                    {interest}
+                  </span>
+                ))}
               </div>
             </div>
           </div>

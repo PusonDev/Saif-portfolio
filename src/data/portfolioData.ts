@@ -1,160 +1,156 @@
-export interface ProjectItem {
+export interface ShowcaseWork {
   id: string;
+  index: string;
   title: string;
+  italicTitle?: string;
   category: string;
   description: string;
-  tags: string[];
-  metrics?: string;
-  demoUrl?: string;
-  featured?: boolean;
+  tools: string[];
+  link: string;
+  isFlagship?: boolean;
 }
 
-export interface SkillCategory {
+export interface WorkflowStep {
+  step: string;
   title: string;
-  skills: string[];
+  description: string;
+  tools: string;
 }
 
 export interface ExperienceItem {
-  role: string;
-  company: string;
   period: string;
-  description: string;
-  highlights: string[];
+  role: string;
+  company?: string;
+  handle: string;
+  points: string[];
 }
 
 export interface EducationItem {
+  year: string;
   title: string;
   institution: string;
-  year: string;
-  details: string;
+  description: string;
 }
 
-export interface PortfolioData {
+export const portfolioData = {
   profile: {
-    fullName: string;
-    name: string;
-    role: string;
-    headline: string;
-    bio: string;
-    location: string;
-    availability: string;
-    email: string;
-    phone: string;
-    instagram: string;
-    instagramHandle: string;
-    avatar: string;
-    stats: { label: string; value: string }[];
-  };
-  navigation: { label: string; href: string }[];
-  skills: SkillCategory[];
-  projects: ProjectItem[];
-  experience: ExperienceItem[];
-  education: EducationItem[];
-  languages: string[];
-  interests: string[];
-}
-
-export const portfolioData: PortfolioData = {
-  profile: {
-    fullName: "MD SAIFUDDIN",
-    name: "Saif",
+    fullName: "MD Saifuddin",
+    firstName: "Saif",
     role: "Motion Designer",
-    headline: "Visual Storytelling, Dynamic Kinetic Typography and Modern Motion Graphics",
-    bio: "Creative and detail-oriented Motion Designer specializing in transforming concepts into clean, modern motion graphics for digital and social media platforms using Adobe After Effects, Illustrator and Photoshop.",
+    availabilityText: "Available for Freelance Motion Projects",
     location: "Uttara, Dhaka, Bangladesh",
-    availability: "Available for Freelance & Select Projects",
+    cityCountry: "Dhaka, BD",
     email: "madas3709@gmail.com",
     phone: "+880 1876 422 288",
-    instagram: "https://www.instagram.com/motion.bysaif/",
+    phoneTel: "tel:+8801876422288",
+    whatsappUrl: "https://wa.me/8801876422288",
+    instagramUrl: "https://www.instagram.com/motion.bysaif/",
     instagramHandle: "@motion.bysaif",
     avatar: "/images/saif-profile.jpg",
-    stats: [
-      { label: "Core Focus", value: "Motion & FX" },
-      { label: "Design Tools", value: "Ae · Ai · Ps" },
-      { label: "Visual Delivery", value: "4K / 60 FPS" },
-      { label: "Client SLA", value: "<15 Min" }
-    ]
+    bio: "Creative and detail-oriented Motion Designer focused on visual storytelling, dynamic typography and engaging video content. Transforming concepts into clean, modern motion graphics for digital and social media platforms using Adobe After Effects, Illustrator and Photoshop.",
+    metadataItems: [
+      { label: "Focus", value: "Kinetic Typography & Reels" },
+      { label: "Suite", value: "After Effects · Illustrator · Photoshop" },
+      { label: "Location", value: "Dhaka, Bangladesh" },
+      { label: "Handle", value: "@motion.bysaif" },
+    ],
   },
   navigation: [
-    { label: "Overview", href: "#overview" },
-    { label: "Works", href: "#works" },
-    { label: "Skills", href: "#skills" },
-    { label: "Experience", href: "#experience" },
-    { label: "Contact", href: "#contact" }
+    { label: "Selected Work", href: "#works" },
+    { label: "Process", href: "#process" },
+    { label: "Background", href: "#experience" },
   ],
-  skills: [
+  works: [
     {
-      title: "Motion & Design Tools",
-      skills: ["Adobe After Effects", "Adobe Illustrator", "Adobe Photoshop"]
-    },
-    {
-      title: "Core Competencies",
-      skills: ["Motion Design", "Kinetic Typography", "Visual Storytelling", "Video Editing", "Graphic Design"]
-    },
-    {
-      title: "Professional Skills",
-      skills: ["Creative Thinking", "Time Management", "Adaptability", "Continuous Learning"]
-    }
-  ],
-  projects: [
-    {
-      id: "motion-typography",
-      title: "Kinetic Typography & Narrative Flow",
+      id: "kinetic-typography",
+      index: "01",
+      title: "Kinetic Typography & Narrative",
+      italicTitle: "Flow",
       category: "Kinetic Animation",
-      description: "Expressive text choreography synchronized with rhythmic visual pacing, modern easing curves and punchy typographic hierarchy.",
-      tags: ["After Effects", "Kinetic Typography", "Visual Flow"],
-      metrics: "Custom Keyframe Easing",
-      demoUrl: "https://www.instagram.com/motion.bysaif/",
-      featured: true
+      description: "Expressive text choreography, rhythmic pacing and custom easing engineered in After Effects.",
+      tools: ["After Effects", "Kinetic Typography", "Visual Storytelling"],
+      link: "https://www.instagram.com/motion.bysaif/",
+      isFlagship: true,
     },
     {
-      id: "brand-motion-assets",
-      title: "Brand Motion & Social Media Assets",
-      category: "Social Media Motion",
-      description: "Short-form high-impact motion creative packages engineered for Instagram reels, product launches and digital brand campaigns.",
-      tags: ["Illustrator", "After Effects", "Short-Form"],
-      metrics: "Tailored for High Retention",
-      demoUrl: "https://www.instagram.com/motion.bysaif/",
-      featured: true
+      id: "social-reels",
+      index: "02",
+      title: "Short-Form Social Reels & Brand",
+      italicTitle: "Motion",
+      category: "Social Storytelling",
+      description: "Scroll-stopping short-form motion assets tailored for Instagram reels and digital brands.",
+      tools: ["After Effects", "Illustrator", "Video Editing"],
+      link: "https://www.instagram.com/motion.bysaif/",
+      isFlagship: false,
     },
     {
-      id: "smooth-transitions-vfx",
-      title: "Dynamic Transitions & Visual Effects",
-      category: "VFX & Compositing",
-      description: "End-to-end motion workflows including vector asset preparation, seamless camera whips, glow dynamics and final rendering.",
-      tags: ["After Effects", "Photoshop", "Compositing"],
-      metrics: "Seamless Render Pipeline",
-      demoUrl: "https://www.instagram.com/motion.bysaif/",
-      featured: true
-    }
-  ],
-  experience: [
+      id: "transitions-vfx",
+      index: "03",
+      title: "Dynamic Transitions & Visual",
+      italicTitle: "Effects",
+      category: "Compositing & VFX",
+      description: "Seamless transitions, layered vector preparation and polished visual effects workflows.",
+      tools: ["After Effects", "Photoshop", "Graphic Design"],
+      link: "https://www.instagram.com/motion.bysaif/",
+      isFlagship: false,
+    },
+  ] as ShowcaseWork[],
+  process: [
     {
-      role: "Freelance Motion Designer",
-      company: "Personal & Creative Projects (@motion.bysaif)",
-      period: "2026 – Present",
-      description: "Managing complete end-to-end motion graphics and video editing workflows for digital platforms.",
-      highlights: [
-        "Design and animate high-impact motion graphics, kinetic typography, smooth transitions and visual effects using Adobe After Effects.",
-        "Produce engaging short-form video content and visual storytelling assets tailored for social media platforms.",
-        "Manage end-to-end motion production workflows, including concept ideation, graphic asset preparation in Illustrator and Photoshop, animation and final rendering."
-      ]
-    }
-  ],
+      step: "01",
+      title: "Concept & Storyboarding",
+      description: "Translating rough briefs and scripts into clear visual direction, pacing and narrative rhythm.",
+      tools: "Visual Direction",
+    },
+    {
+      step: "02",
+      title: "Graphic Asset Prep",
+      description: "Building crisp vector shapes, kinetic typography hierarchy and layered artwork in Illustrator and Photoshop.",
+      tools: "Illustrator · Photoshop",
+    },
+    {
+      step: "03",
+      title: "Motion & Keyframe Animation",
+      description: "Bringing typography, camera transitions and VFX to life with customized cubic-bezier easing in After Effects.",
+      tools: "After Effects",
+    },
+    {
+      step: "04",
+      title: "Refinement & Final Render",
+      description: "Polishing micro-timing curves, color grading passes and exporting crisp, platform-ready video files.",
+      tools: "Render Pipeline",
+    },
+  ] as WorkflowStep[],
+  experience: {
+    period: "2026 – Present",
+    role: "Freelance Motion Designer",
+    company: "Personal & Creative Projects",
+    handle: "@motion.bysaif",
+    points: [
+      "Designs and animates high-impact motion graphics, kinetic typography, smooth transitions and visual effects using Adobe After Effects.",
+      "Produces engaging short-form video content and visual storytelling assets tailored for social media platforms.",
+      "Manages end-to-end motion production workflows: concept ideation, graphic asset preparation in Illustrator and Photoshop, animation and final rendering.",
+    ],
+  } as ExperienceItem,
   education: [
     {
+      year: "2025",
       title: "IELTS Preparation Course",
       institution: "British Council",
-      year: "2025",
-      details: "Completed structured English communication and language proficiency training."
+      description: "Completed structured English communication and language proficiency training.",
     },
     {
+      year: "2024",
       title: "Higher Secondary Certificate (HSC)",
       institution: "Milestone College",
-      year: "2024",
-      details: "Completed higher secondary curriculum with academic excellence."
-    }
-  ],
-  languages: ["Bangla (Native)", "English (Working Proficiency)"],
-  interests: ["Motion Design", "Technology", "Gaming", "Movies"]
+      description: "Completed higher secondary curriculum with academic excellence.",
+    },
+  ] as EducationItem[],
+  capabilities: {
+    primarySuite: ["Adobe After Effects", "Adobe Illustrator", "Adobe Photoshop"],
+    competencies: ["Motion Design", "Kinetic Typography", "Visual Storytelling", "Video Editing", "Graphic Design"],
+    strengths: ["Creative Thinking", "Time Management", "Adaptability", "Continuous Learning"],
+    languages: ["Bangla (Native)", "English (Working Proficiency)"],
+    interests: ["Motion Design", "Technology", "Gaming", "Movies"],
+  },
 };
