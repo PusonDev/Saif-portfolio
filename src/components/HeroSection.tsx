@@ -117,15 +117,15 @@ export function HeroSection() {
           transition={{ duration: 0.85, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           className="lg:col-span-5 flex justify-center lg:justify-end"
         >
-          <div className="w-full max-w-xs sm:max-w-sm editorial-portrait-frame rounded-2xl shadow-xl">
+          <div className="w-full max-w-xs sm:max-w-sm editorial-portrait-frame rounded-2xl shadow-xl group">
             <div className="relative aspect-[4/5] w-full overflow-hidden bg-surface-2">
               <Image
                 src={profile.avatar}
                 alt={profile.fullName}
                 fill
                 priority
-                className="object-cover object-top grayscale-[15%] contrast-[105%]"
-                sizes="(max-width: 640px) 280px, (max-width: 1024px) 320px, 360px"
+                className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                sizes="(max-width: 640px) 320px, (max-width: 1024px) 380px, 420px"
               />
             </div>
 
