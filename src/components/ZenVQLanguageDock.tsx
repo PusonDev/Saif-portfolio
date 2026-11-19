@@ -302,13 +302,13 @@ export function ZenVQLanguageDock({
           style={{
             direction: "ltr",
             unicodeBidi: "isolate",
-            backgroundColor: "var(--bg-surface-1)",
+            backgroundColor: "var(--bg-surface-solid)",
           }}
-          className={`notranslate absolute ${
+          className={`notranslate fixed sm:absolute ${
             dropDirection === "up"
-              ? "bottom-full mb-2.5 right-0 w-72 sm:w-80 max-w-[calc(100vw-1.5rem)]"
-              : "top-full mt-2.5 right-0 w-72 sm:w-80 max-w-[calc(100vw-1.5rem)]"
-          } rounded-2xl border border-border-strong p-3.5 z-50 animate-in fade-in zoom-in-95 duration-150 shadow-2xl text-ink-primary`}
+              ? "bottom-20 left-3 right-3 sm:bottom-full sm:left-auto sm:right-0 sm:mb-2.5"
+              : "top-16 left-3 right-3 sm:top-full sm:left-auto sm:right-0 sm:mt-2.5"
+          } sm:w-80 rounded-2xl border border-border-strong p-3.5 z-50 animate-in fade-in zoom-in-95 duration-150 shadow-2xl text-ink-primary`}
         >
           {/* Section 1: Quick Theme Mode Switcher Strip */}
           <div className="pb-2.5 mb-2.5 border-b border-border-subtle flex items-center justify-between">

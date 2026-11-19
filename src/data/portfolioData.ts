@@ -7,29 +7,28 @@ export interface ShowcaseWork {
   description: string;
   tools: string[];
   link: string;
-  isFlagship?: boolean;
+  aspectRatio: "16:9" | "9:16" | "layered";
 }
 
-export interface WorkflowStep {
+export interface CapabilityItem {
+  index: string;
+  title: string;
+  description: string;
+  tools: [string, string];
+  highlight: string;
+}
+
+export interface ProcessCadenceStep {
   step: string;
   title: string;
   description: string;
+  deliverable: string;
   tools: string;
 }
 
-export interface ExperienceItem {
-  period: string;
-  role: string;
-  company?: string;
-  handle: string;
-  points: string[];
-}
-
-export interface EducationItem {
-  year: string;
-  title: string;
-  institution: string;
-  description: string;
+export interface FAQItem {
+  question: string;
+  answer: string;
 }
 
 export const portfolioData = {
@@ -46,302 +45,167 @@ export const portfolioData = {
     whatsappUrl: "https://wa.me/8801876422288",
     instagramUrl: "https://www.instagram.com/motion.bysaif/",
     instagramHandle: "@motion.bysaif",
-    avatar: "/images/saif-workstation.jpg",
-    bio: "Creative and detail-oriented Motion Designer focused on visual storytelling, dynamic typography and engaging video content. Transforming concepts into clean, modern motion graphics for digital and social media platforms using Adobe After Effects, Illustrator and Photoshop.",
+    resumePdfUrl: "/MD-SAIFUDDIN-Resume.pdf",
+    avatar: "/images/saif-workstation.webp",
+    bio: "Motion Designer crafting kinetic typography, short-form social reels and visual storytelling for brands, founders and creators using Adobe After Effects, Illustrator and Photoshop.",
     metadataItems: [
-      { label: "Focus", value: "Kinetic Typography & Reels" },
-      { label: "Suite", value: "After Effects · Illustrator · Photoshop" },
-      { label: "Location", value: "Dhaka, Bangladesh" },
-      { label: "Handle", value: "@motion.bysaif" },
+      { label: "Core Suite", value: "After Effects · Illustrator · Photoshop" },
+      { label: "Motion Focus", value: "Kinetic Typography & 9:16 Reels" },
+      { label: "Pacing Method", value: "Custom Graph Editor Easing" },
+      { label: "Location", value: "Uttara, Dhaka, Bangladesh" },
     ],
   },
   navigation: [
-    { label: "Selected Work", href: "#works" },
+    { label: "Showcase", href: "#works" },
+    { label: "Easing Lab", href: "#playground" },
     { label: "Capabilities", href: "#services" },
-    { label: "Playground", href: "#playground" },
     { label: "Process", href: "#process" },
-    { label: "FAQs", href: "#faqs" },
+    { label: "Scope", href: "#contact" },
   ],
   works: [
     {
       id: "kinetic-typography",
       index: "01",
-      title: "Kinetic Typography & Narrative",
+      title: "Kinetic Typography & Brand Storytelling",
       italicTitle: "Flow",
       category: "Kinetic Animation",
-      description: "Expressive text choreography, rhythmic pacing and custom easing engineered in After Effects.",
-      tools: ["After Effects", "Kinetic Typography", "Visual Storytelling"],
+      description: "Expressive text choreography, weighted cubic-bezier easing curves and clean narrative hierarchy in After Effects.",
+      tools: ["After Effects", "Kinetic Timing"],
       link: "https://www.instagram.com/motion.bysaif/",
-      isFlagship: true,
+      aspectRatio: "16:9",
     },
     {
       id: "social-reels",
       index: "02",
-      title: "Short-Form Social Reels & Brand",
-      italicTitle: "Motion",
-      category: "Social Storytelling",
-      description: "Scroll-stopping short-form motion assets tailored for Instagram reels and digital brands.",
-      tools: ["After Effects", "Illustrator", "Video Editing"],
+      title: "High-Retention Social Reels",
+      italicTitle: "Hooks",
+      category: "Vertical Video",
+      description: "Scroll-stopping vertical motion assets built for the critical first 3 seconds on Instagram Reels and YouTube Shorts.",
+      tools: ["After Effects", "Illustrator"],
       link: "https://www.instagram.com/motion.bysaif/",
-      isFlagship: false,
+      aspectRatio: "9:16",
     },
     {
       id: "transitions-vfx",
       index: "03",
-      title: "Dynamic Transitions & Visual",
-      italicTitle: "Effects",
-      category: "Compositing & VFX",
-      description: "Seamless transitions, layered vector preparation and polished visual effects workflows.",
-      tools: ["After Effects", "Photoshop", "Graphic Design"],
+      title: "Vector Staging & Transitions",
+      italicTitle: "Depth",
+      category: "Compositing",
+      description: "Custom layered vector artwork prepared from scratch in Illustrator, animated with clean camera moves and alpha reveals.",
+      tools: ["Illustrator", "After Effects"],
       link: "https://www.instagram.com/motion.bysaif/",
-      isFlagship: false,
+      aspectRatio: "layered",
     },
   ] as ShowcaseWork[],
-  process: [
-    {
-      step: "01",
-      title: "Concept & Storyboarding",
-      description: "Translating rough briefs and scripts into clear visual direction, pacing and narrative rhythm.",
-      tools: "Visual Direction",
-    },
-    {
-      step: "02",
-      title: "Graphic Asset Prep",
-      description: "Building crisp vector shapes, kinetic typography hierarchy and layered artwork in Illustrator and Photoshop.",
-      tools: "Illustrator · Photoshop",
-    },
-    {
-      step: "03",
-      title: "Motion & Keyframe Animation",
-      description: "Bringing typography, camera transitions and VFX to life with customized cubic-bezier easing in After Effects.",
-      tools: "After Effects",
-    },
-    {
-      step: "04",
-      title: "Refinement & Final Render",
-      description: "Polishing micro-timing curves, color grading passes and exporting crisp, platform-ready video files.",
-      tools: "Render Pipeline",
-    },
-  ] as WorkflowStep[],
-  experience: {
-    period: "2026 – Present",
-    role: "Freelance Motion Designer",
-    company: "Personal & Creative Projects",
-    handle: "@motion.bysaif",
-    points: [
-      "Designs and animates high-impact motion graphics, kinetic typography, smooth transitions and visual effects using Adobe After Effects.",
-      "Produces engaging short-form video content and visual storytelling assets tailored for social media platforms.",
-      "Manages end-to-end motion production workflows: concept ideation, graphic asset preparation in Illustrator and Photoshop, animation and final rendering.",
-    ],
-  } as ExperienceItem,
-  education: [
-    {
-      year: "2025",
-      title: "IELTS Preparation Course",
-      institution: "British Council",
-      description: "Completed structured English communication and language proficiency training.",
-    },
-    {
-      year: "2024",
-      title: "Higher Secondary Certificate (HSC)",
-      institution: "Milestone College",
-      description: "Completed higher secondary curriculum with academic excellence.",
-    },
-  ] as EducationItem[],
-  capabilities: {
-    primarySuite: ["Adobe After Effects", "Adobe Illustrator", "Adobe Photoshop"],
-    competencies: ["Motion Design", "Kinetic Typography", "Visual Storytelling", "Video Editing", "Graphic Design"],
-    strengths: ["Creative Thinking", "Time Management", "Adaptability", "Continuous Learning"],
-    languages: ["Bangla (Native)", "English (Working Proficiency)"],
-    interests: ["Motion Design", "Technology", "Gaming", "Movies"],
-  },
-  services: [
+  capabilities: [
     {
       index: "01",
       title: "Kinetic Typography & Titles",
-      description: "Expressive text choreography, weighted cubic-bezier easing and custom keyframe pacing engineered in After Effects.",
+      description: "Expressive text choreography, weighted easing curves and clean narrative hierarchy engineered in After Effects.",
       tools: ["After Effects", "Kinetic Timing"],
       highlight: "Custom Easing",
     },
     {
       index: "02",
-      title: "High-Retention Social Reels",
-      description: "Scroll-stopping vertical 9:16 motion graphics built to hold viewer attention during the critical first 3 seconds.",
+      title: "9:16 High-Retention Reels",
+      description: "Vertical motion assets tailored for Instagram Reels, YouTube Shorts and high-impact product launches.",
       tools: ["After Effects", "Illustrator"],
-      highlight: "9:16 Vertical",
+      highlight: "Vertical Masters",
     },
     {
       index: "03",
-      title: "Vector Asset Design & Staging",
-      description: "Creating clean vector artwork, layered compositions and typographic assets in Illustrator before animation.",
+      title: "Vector Staging & Visual Transitions",
+      description: "Custom layered artwork prepared from scratch in Illustrator and Photoshop before timeline keyframing.",
       tools: ["Illustrator", "Photoshop"],
       highlight: "Zero Pixelation",
     },
     {
       index: "04",
-      title: "Transitions & Visual Effects",
-      description: "Seamless motion cuts, layered mask reveals and polished compositing passes that keep narrative momentum high.",
-      tools: ["After Effects", "Compositing"],
-      highlight: "Seamless Cuts",
+      title: "Multi-Platform Masters & Clean .AEP",
+      description: "Lossless ProRes and lightweight web MP4 exports in 9:16 and 16:9 with organized project source folders.",
+      tools: ["Media Encoder", "ProRes / H.264"],
+      highlight: "Production Ready",
+    },
+  ] as CapabilityItem[],
+  processCadence: [
+    {
+      step: "01",
+      title: "Brief & Visual Direction",
+      description: "Analyzing script narrative, pacing benchmarks and typography moodboard before opening project files.",
+      deliverable: "Visual Direction Sheet",
+      tools: "Concept Framing",
     },
     {
-      index: "05",
-      title: "Color Grading & Frame Polish",
-      description: "Stylized cinema color treatment, texture overlays and contrast balancing to give video projects an editorial look.",
-      tools: ["Photoshop", "After Effects"],
-      highlight: "Editorial Grade",
+      step: "02",
+      title: "Vector & Typography Prep",
+      description: "Designing vector artwork, text styles and layered assets in Illustrator and Photoshop for crisp scaling.",
+      deliverable: "Layered Vector Artboards",
+      tools: "Illustrator · Photoshop",
     },
     {
-      index: "06",
-      title: "Multi-Platform Render Master",
-      description: "Exporting lossless, lightweight video files optimized for Instagram, YouTube Shorts, web landing pages and ads.",
-      tools: ["Media Encoder", "MP4 / ProRes"],
-      highlight: "Fast Web Loading",
+      step: "03",
+      title: "Keyframe Animation",
+      description: "Handcrafting motion curves in After Effects with graph editor easing, alpha masks and kinetic camera flow.",
+      deliverable: "Motion Sequence V1",
+      tools: "After Effects",
     },
-  ],
-  comparison: {
-    headers: ["Quality Benchmark", "MD Saifuddin", "Pre-Made Templates", "Marketplace Freelancers"],
-    rows: [
+    {
+      step: "04",
+      title: "Voiceover Sync & Final Masters",
+      description: "Locking visual hits to spoken narration beats, rendering 4K/1080p outputs and packaging organized .AEP files.",
+      deliverable: "Masters + Clean Source",
+      tools: "Media Encoder",
+    },
+  ] as ProcessCadenceStep[],
+  credentials: {
+    experience: {
+      role: "Freelance Motion Designer",
+      handle: "@motion.bysaif",
+      period: "2026 – Present",
+      points: [
+        "Animates kinetic typography, social reels and graphic sequences in Adobe After Effects.",
+        "Prepares vector assets, layered typography and color grading passes in Illustrator and Photoshop.",
+        "Manages end-to-end delivery from initial concept framing to multi-platform exports and source handover.",
+      ],
+    },
+    education: [
       {
-        feature: "Custom Typography Choreography",
-        saif: "Handcrafted keyframes with custom easing curves",
-        templates: "Rigid cookie-cutter presets that look generic",
-        freelancers: "Basic linear keyframes with jittery timing",
+        year: "2025",
+        institution: "British Council",
+        title: "IELTS Preparation Course",
+        description: "Completed structured English communication and language proficiency training.",
       },
       {
-        feature: "End-to-End Asset Preparation",
-        saif: "Layered vectors designed from scratch in Illustrator",
-        templates: "None (requires user to design own assets)",
-        freelancers: "Low-resolution raster images pasted into comp",
-      },
-      {
-        feature: "Format Adaptation",
-        saif: "Native multi-aspect masters (9:16 vertical + 16:9 widescreen)",
-        templates: "Single locked resolution, awkward mobile crop",
-        freelancers: "Stretched or black-barred exports",
-      },
-      {
-        feature: "Direct Communication",
-        saif: "Direct WhatsApp & Email access with rapid response",
-        templates: "Zero support (automated download link)",
-        freelancers: "Delayed replies and language barrier friction",
-      },
-      {
-        feature: "Clean Project Files (.AEP)",
-        saif: "Organized folders, labeled layers and named compositions",
-        templates: "Messy spaghetti nodes with missing plugin errors",
-        freelancers: "Locked or flattened video files without source",
+        year: "2024",
+        institution: "Milestone College",
+        title: "Higher Secondary Certificate (HSC)",
+        description: "Completed higher secondary curriculum with academic excellence.",
       },
     ],
+    languages: "Bangla (Native) · English (Working Proficiency)",
+    guarantees: [
+      "Handcrafted Graph Editor keyframe easing on every cut",
+      "Organized .AEP source folder handover upon completion",
+      "Native 9:16 vertical and 16:9 widescreen format delivery",
+      "Direct designer communication via WhatsApp and Email",
+    ],
   },
-  creativeTools: [
-    {
-      name: "Adobe After Effects",
-      role: "Motion Engine & Keyframe Suite",
-      description: "Primary canvas for kinetic typography, camera moves, shape morphs, track mattes and graph editor easing.",
-      tags: ["Graph Editor", "Track Mattes", "Expressions"],
-    },
-    {
-      name: "Adobe Illustrator",
-      role: "Vector Architecture & Asset Lab",
-      description: "Precision vector drawing, typographic layout drafting and layered asset preparation ready for timeline import.",
-      tags: ["Vector Paths", "Typography", "Color Palettes"],
-    },
-    {
-      name: "Adobe Photoshop",
-      role: "Matte Painting & Frame Polish",
-      description: "Texture synthesis, frame color balancing, photo touch-ups and matte background creation.",
-      tags: ["Color Balancing", "Texture Polish", "Compositing"],
-    },
-    {
-      name: "Adobe Media Encoder",
-      role: "Export & Bitrate Optimization",
-      description: "Precision H.264, ProRes and WebM compression ensuring razor-sharp video playback at minimal file sizes.",
-      tags: ["H.264 / ProRes", "Web Optimization", "Color Fidelity"],
-    },
-  ],
-  industries: [
-    {
-      index: "01",
-      title: "Tech Founders & SaaS Products",
-      description: "Product teaser animations, feature walkthroughs and interface motion that explain complex workflows simply.",
-      icon: "Cpu",
-    },
-    {
-      index: "02",
-      title: "Content Creators & Digital Channels",
-      description: "High-retention social reels, hook typography and kinetic captions built to boost watch time and engagement.",
-      icon: "Play",
-    },
-    {
-      index: "03",
-      title: "Digital Agencies & Design Studios",
-      description: "White-label motion execution, kinetic brand guidelines and animation support for high-stakes client campaigns.",
-      icon: "Briefcase",
-    },
-    {
-      index: "04",
-      title: "E-Commerce & DTC Brands",
-      description: "Dynamic product launch teasers, motion ad creatives and kinetic typography promos designed for conversion.",
-      icon: "ShoppingBag",
-    },
-    {
-      index: "05",
-      title: "Explainers & Educational Media",
-      description: "Visual storytelling breakdowns, documentary text overlays and clean graphic animations that teach effectively.",
-      icon: "BookOpen",
-    },
-  ],
-  testimonials: [
-    {
-      quote: "Saif transformed our rough script into a captivating kinetic motion sequence. His attention to typographic weight and timing gave our brand the modern edge we needed.",
-      author: "Tanvir Ahmed",
-      role: "Creative Director",
-      company: "Apex Media",
-      project: "Product Teaser Motion",
-      rating: "5.0",
-    },
-    {
-      quote: "The reel Saif delivered generated our highest retention rate this quarter. The typography flowed naturally with the pacing, and the project files were exceptionally clean.",
-      author: "Rahim Chowdhury",
-      role: "Digital Producer",
-      company: "Velox Studio",
-      project: "9:16 Viral Reel Series",
-      rating: "5.0",
-    },
-    {
-      quote: "Fast turnaround, great communication and true artistic taste. Saif understands motion curve physics without needing micromanagement.",
-      author: "Kamrul Hasan",
-      role: "Brand Lead",
-      company: "Nordic Wave",
-      project: "Brand Motion Assets",
-      rating: "5.0",
-    },
-  ],
   faqs: [
     {
-      question: "What software suite do you use for your motion design projects?",
-      answer: "I work primarily in Adobe After Effects for keyframe animation, kinetic typography and visual effects, paired with Adobe Illustrator and Photoshop for vector asset preparation and color grading.",
+      question: "What software suite do you use for motion design?",
+      answer: "I work in Adobe After Effects for keyframe animation and kinetic typography, paired with Adobe Illustrator and Photoshop for vector asset preparation and color grading.",
     },
     {
-      question: "What is your typical turnaround time for a short-form motion reel?",
-      answer: "A standard 30 to 60-second kinetic reel typically takes 2 to 4 business days from storyboard confirmation to final master, with rush 48-hour delivery available for priority projects.",
+      question: "What is your typical turnaround time for a motion project?",
+      answer: "Standard 30 to 60-second kinetic reels take 2 to 4 business days from storyboard confirmation to final master. Rush 48-hour delivery is available for priority launches.",
     },
     {
-      question: "What do you need from me before we begin animating?",
-      answer: "To get started smoothly, I need your script or voiceover track, brand color guidelines or logos (in vector format like AI or SVG), and any reference links that represent the visual style you envision.",
+      question: "Do you deliver organized project source files (.AEP)?",
+      answer: "Yes. Every completed commission includes the fully organized Adobe After Effects project file (.aep) along with linked vector assets and font references.",
     },
     {
-      question: "Do you deliver raw project source files (.AEP)?",
-      answer: "Yes. Upon project completion, I can provide the fully organized Adobe After Effects project file (.aep) along with all linked vector assets and font references.",
+      question: "In what resolutions and aspect ratios do you export?",
+      answer: "I export in full 1080p and 4K ProRes or web-optimized H.264, tailored for both 9:16 vertical (Instagram Reels, Shorts) and 16:9 widescreen (Web, YouTube).",
     },
-    {
-      question: "In what formats and resolutions do you deliver final video files?",
-      answer: "I export in full 1080p or 4K resolution optimized for both 9:16 vertical (Instagram Reels, TikTok, YouTube Shorts) and 16:9 widescreen (Web, YouTube, Presentations) using ProRes or high-bitrate H.264.",
-    },
-    {
-      question: "How do we collaborate and communicate during the project?",
-      answer: "We communicate directly via WhatsApp and Email with structured review milestones, ensuring quick turnaround and zero bureaucratic delays.",
-    },
-  ],
+  ] as FAQItem[],
 };

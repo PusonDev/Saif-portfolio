@@ -2,10 +2,57 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "MD Saifuddin — Motion Designer",
-  description: "Portfolio of MD Saifuddin, Motion Designer specializing in visual storytelling, dynamic kinetic typography and short-form video content.",
-  keywords: ["Motion Designer", "Kinetic Typography", "After Effects", "Visual Storytelling", "Video Editing", "Dhaka Bangladesh"],
-  authors: [{ name: "MD Saifuddin" }],
+  metadataBase: new URL("https://saif.zenvq.com"),
+  title: "MD Saifuddin — Motion Designer | Kinetic Typography & Social Reels",
+  description: "Portfolio of MD Saifuddin, Motion Designer crafting kinetic typography, short-form reels and visual storytelling in Adobe After Effects, Illustrator and Photoshop.",
+  keywords: [
+    "MD Saifuddin",
+    "Motion Designer",
+    "Kinetic Typography",
+    "After Effects",
+    "Social Reels",
+    "Visual Storytelling",
+    "Dhaka Bangladesh",
+    "Motion Graphics",
+  ],
+  authors: [{ name: "MD Saifuddin", url: "https://saif.zenvq.com" }],
+  creator: "MD Saifuddin",
+  alternates: {
+    canonical: "https://saif.zenvq.com",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://saif.zenvq.com",
+    title: "MD Saifuddin — Motion Designer | Kinetic Typography & Reels",
+    description: "Portfolio of MD Saifuddin, Motion Designer crafting kinetic typography, short-form reels and visual storytelling in Adobe Creative Suite.",
+    siteName: "MD Saifuddin Motion Portfolio",
+    images: [
+      {
+        url: "/images/saif-workstation.webp",
+        width: 1024,
+        height: 686,
+        alt: "MD Saifuddin at Motion Design Workstation",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MD Saifuddin — Motion Designer",
+    description: "Motion Designer crafting kinetic typography, short-form social reels and visual storytelling.",
+    images: ["/images/saif-workstation.webp"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -13,6 +60,89 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const jsonLdData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://saif.zenvq.com/#person",
+        name: "MD Saifuddin",
+        givenName: "Saifuddin",
+        familyName: "MD",
+        jobTitle: "Motion Designer",
+        url: "https://saif.zenvq.com",
+        image: "https://saif.zenvq.com/images/saif-workstation.webp",
+        email: "mailto:madas3709@gmail.com",
+        telephone: "+8801876422288",
+        sameAs: [
+          "https://www.instagram.com/motion.bysaif/",
+          "https://zenvq.com",
+        ],
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Uttara",
+          addressRegion: "Dhaka",
+          addressCountry: "Bangladesh",
+        },
+        knowsAbout: [
+          "Motion Design",
+          "Kinetic Typography",
+          "Adobe After Effects",
+          "Adobe Illustrator",
+          "Adobe Photoshop",
+          "Short-Form Video Editing",
+        ],
+      },
+      {
+        "@type": "Service",
+        "@id": "https://saif.zenvq.com/#service",
+        name: "Motion Design & Kinetic Typography Production",
+        provider: {
+          "@id": "https://saif.zenvq.com/#person",
+        },
+        serviceType: "Motion Graphics Design",
+        areaServed: "Worldwide",
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Motion Design Services",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Kinetic Typography & Titles",
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "9:16 High-Retention Social Reels",
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Vector Staging & Visual Transitions",
+              },
+            },
+          ],
+        },
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://saif.zenvq.com/#website",
+        url: "https://saif.zenvq.com",
+        name: "MD Saifuddin — Motion Designer",
+        description: "Official portfolio of MD Saifuddin, Motion Designer based in Dhaka, Bangladesh.",
+        publisher: {
+          "@id": "https://saif.zenvq.com/#person",
+        },
+      },
+    ],
+  };
+
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <head>
@@ -23,8 +153,13 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
         />
-        {/* Preload High-Priority Studio Portrait */}
-        <link rel="preload" as="image" href="/images/saif-workstation.jpg" />
+        {/* Preload High-Priority Studio Workstation WebP Asset */}
+        <link rel="preload" as="image" href="/images/saif-workstation.webp" type="image/webp" />
+        {/* Advanced JSON-LD Structured Data for AI Search Engines & Google Knowledge Graph */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
+        />
         {/* ZenVQ Universal Live Translation Engine */}
         <script src="/lib/zenvq-translate.js" defer></script>
       </head>

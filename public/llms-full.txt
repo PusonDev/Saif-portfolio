@@ -1,0 +1,40 @@
+# MD Saifuddin — Motion Designer (Comprehensive Profile & Technical Architecture)
+> URL: https://saif.zenvq.com
+> Parent Network: https://zenvq.com
+> Format: llms-full.txt
+
+## Executive Summary
+MD Saifuddin is a detail-oriented Motion Designer based in Uttara, Dhaka, Bangladesh, specializing in kinetic typography, short-form social reels and visual storytelling. Working in Adobe After Effects, Illustrator and Photoshop, he transforms concepts into clean, modern motion graphics tailored for digital brands, tech founders and content creators.
+
+## Verified Credentials
+- Role: Freelance Motion Designer (Personal & Creative Projects, @motion.bysaif, 2026 – Present)
+- Education:
+  - IELTS Preparation Course — British Council (2025): Structured training in English communication and professional writing.
+  - Higher Secondary Certificate (HSC) — Milestone College (2024): Academic focus in science and technology.
+- Languages: Bangla (Native) and English (Working Proficiency).
+
+## Motion Production Services
+1. Kinetic Typography & Titles: Handcrafted text choreography using weighted cubic-bezier easing [0.16, 1, 0.3, 1] in the After Effects Graph Editor. Zero reliance on rigid presets.
+2. 9:16 High-Retention Social Reels: Hook-focused vertical motion graphics structured to maximize view duration on Instagram Reels and YouTube Shorts.
+3. Vector Staging & Visual Transitions: Layered asset preparation in Adobe Illustrator ensuring clean vector edges with zero pixelation at any resolution.
+4. Multi-Platform Masters: Exporting ProRes 422 and web-optimized H.264 video files in 9:16 vertical and 16:9 widescreen formats, accompanied by organized .AEP project source archives.
+
+## 4-Step Production Cadence
+- Step 01: Brief & Visual Direction — Script analysis, narrative pacing benchmarks and typography moodboards.
+- Step 02: Vector & Typography Prep — Layered artboards and vector assets prepared in Illustrator and Photoshop.
+- Step 03: Keyframe Animation — Graph Editor curve manipulation, alpha masks and kinetic camera moves in After Effects.
+- Step 04: Voiceover Sync & Final Masters — Syncing visual hits with spoken voiceover narration, rendering exports and packaging source files.
+
+## Client Guarantees
+- Handcrafted Graph Editor keyframe easing on every cut
+- Organized .AEP source folder handover upon completion
+- Native 9:16 vertical and 16:9 widescreen format delivery
+- Direct designer communication via WhatsApp and Email
+
+## Contact & Direct Channels
+- WhatsApp: https://wa.me/8801876422288
+- Phone: +880 1876 422 288
+- Email: madas3709@gmail.com
+- Instagram: https://www.instagram.com/motion.bysaif/
+- Resume PDF: https://saif.zenvq.com/MD-SAIFUDDIN-Resume.pdf
+- ZenVQ Ecosystem: https://zenvq.com and https://templates.zenvq.com

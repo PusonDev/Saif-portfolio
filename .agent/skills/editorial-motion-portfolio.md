@@ -16,12 +16,12 @@ This document governs the design system, typography, motion physics and content 
 - Keep maximum reading container width strictly locked at `max-w-5xl mx-auto px-5 sm:px-8`.
 - Zero visual clutter, zero squeezed columns and zero edge touching.
 
-### Law 2 — Zero AI Slop
+### Law 2 — Zero Visual Artifacts & Editorial Authenticity
 - **Zero neon glows:** Strictly ban cyan, neon green or garish purple gradient halos.
 - **Zero bracket labels:** Never write fake tech tags like `[BRACKET // SLASH]` or `[01 // SLA]`.
 - **Zero developer jargon:** MD Saifuddin is a **Motion Designer**. Strictly ban words like `runtime`, `architecture`, `stack`, `SLA`, `production database` or `backend`.
 - **Zero emojis in UI chrome:** Use crisp, minimalist 1.5px stroke `lucide-react` icons only.
-- **Zero Oxford comma:** Never write `, and ` or `, & `. Always write `A, B and C`.
+- **Zero Oxford comma:** Never write `, and` or `, &`. Always write `A, B and C`.
 
 ### Law 3 — Authentic Motion Physics
 - Use filmic, weighted cubic-bezier easing (`ease: [0.16, 1, 0.3, 1]`, duration `0.65s–0.85s`) for masked reveals and interactive transitions.

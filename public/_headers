@@ -1,5 +1,5 @@
 # ==============================================================================
-# Cloudflare Pages Edge Performance & Security Headers - Saif Portfolio
+# Cloudflare Pages Edge Performance & Security Headers - Saif Motion Portfolio
 # ==============================================================================
 
 # Next.js Static Hashed Chunks, Images & Media (Immutable 1-Year Cache)
@@ -19,28 +19,37 @@
   Cache-Control: public, max-age=31536000, immutable
   X-Content-Type-Options: nosniff
 
-/*.jpg
-  Cache-Control: public, max-age=31536000, immutable
-  X-Content-Type-Options: nosniff
-
 /*.webp
   Cache-Control: public, max-age=31536000, immutable
   X-Content-Type-Options: nosniff
 
-/*.png
-  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
   X-Content-Type-Options: nosniff
 
 /*.svg
   Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
   X-Content-Type-Options: nosniff
 
-# Global HTML Edge Caching & Security
+/*.pdf
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+  Content-Disposition: inline
+
+/llms.txt
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+  Content-Type: text/plain; charset=utf-8
+
+/llms-full.txt
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+  Content-Type: text/plain; charset=utf-8
+
+# Global HTML Edge Caching & OWASP Security Headers
 /*
   Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=604800
   X-DNS-Prefetch-Control: on
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
-  Content-Security-Policy: frame-ancestors 'self' https://templates.zenvq.com https://tools.zenvq.com https://*.zenvq.com;
+  X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), vr=()
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Content-Security-Policy: frame-ancestors 'self' https://templates.zenvq.com https://tools.zenvq.com https://*.zenvq.com;
