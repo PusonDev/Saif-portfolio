@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import { portfolioData } from "@/data/portfolioData";
-import { ThemeToggle } from "./ThemeToggle";
 import { ZenVQLanguageDock } from "./ZenVQLanguageDock";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 
@@ -56,11 +55,8 @@ export function Navbar() {
           data-zenvq-nav-anchor="true"
           className="flex items-center gap-2 sm:gap-2.5"
         >
-          {/* ZenVQ Universal Multi-Language Dock */}
-          <ZenVQLanguageDock variant="header" theme="engineering" />
-
-          {/* Theme Toggle */}
-          <ThemeToggle />
+          {/* Unified Dual-Feature Control: Language Selector + Theme Toggle Combined */}
+          <ZenVQLanguageDock variant="header" />
 
           {/* Contact Action */}
           <a
@@ -104,8 +100,8 @@ export function Navbar() {
             data-zenvq-nav-anchor="true"
             className="pt-2 border-t border-border-subtle/50 flex items-center justify-between"
           >
-            <span className="text-xs font-mono text-ink-muted uppercase">Language</span>
-            <ZenVQLanguageDock variant="mobile" theme="engineering" />
+            <span className="text-xs font-mono text-ink-muted uppercase">Preferences</span>
+            <ZenVQLanguageDock variant="mobile" />
           </div>
 
           <a
