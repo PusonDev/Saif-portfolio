@@ -162,16 +162,16 @@ export function HeroSection() {
 
         {/* Right Column: Seamless Studio Portrait Frame (6 Cols on Desktop) */}
         <div className="lg:col-span-6 flex justify-center lg:justify-end w-full">
-          <div className="w-full max-w-[320px] sm:max-w-md lg:max-w-none relative group overflow-hidden rounded-2xl border border-white/[0.05] bg-white/[0.015]">
-            <div className="relative aspect-[4/5] w-full overflow-hidden">
+          <div className="w-full max-w-[340px] sm:max-w-lg lg:max-w-none relative group overflow-hidden rounded-2xl border border-white/[0.05] bg-white/[0.015]">
+            <div className="relative aspect-[4/3] w-full overflow-hidden">
               <Image
                 src={profile.avatar}
-                alt={`${profile.fullName} — Motion Designer`}
-                width={824}
-                height={1024}
+                alt={`${profile.fullName} — Motion Designer at Studio Workstation`}
+                width={1024}
+                height={768}
                 priority
-                className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                sizes="(max-width: 640px) 320px, (max-width: 1024px) 440px, 460px"
+                className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 560px"
               />
               {/* Seamless Canvas Vignette Fade */}
               <div className="portrait-vignette" />
@@ -184,7 +184,7 @@ export function HeroSection() {
                 <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
                 <span className="text-ink-primary font-medium">{profile.fullName}</span>
               </div>
-              <span className="text-ink-secondary">Motion Designer · Dhaka</span>
+              <span className="text-ink-secondary">Motion Designer · Studio Workstation</span>
             </div>
           </div>
         </div>

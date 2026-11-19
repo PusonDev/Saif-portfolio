@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { LaserCursor } from "@/components/LaserCursor";
+import { TorchlightOverlay } from "@/components/TorchlightOverlay";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://saif.zenvq.com"),
@@ -34,9 +36,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/images/saif-portrait.webp",
-        width: 824,
-        height: 1024,
-        alt: "MD Saifuddin — Motion Designer",
+        width: 1024,
+        height: 768,
+        alt: "MD Saifuddin — Motion Designer at Studio Workstation",
       },
     ],
   },
@@ -163,15 +165,42 @@ export default function RootLayout({
         />
         {/* Preload High-Priority Studio Portrait WebP Asset */}
         <link rel="preload" as="image" href="/images/saif-portrait.webp" type="image/webp" />
+        {/* Instant Hash Sanitizer: Strips #overview or any stale anchor so the URL is always cleanly https://saif.zenvq.com/ */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  function sanitizeUrl() {
+                    if (window.location.hash) {
+                      var h = window.location.hash.toLowerCase();
+                      if (h.indexOf('overview') !== -1 || h === '#') {
+                        window.history.replaceState(null, '', window.location.pathname + window.location.search);
+                      }
+                    }
+                  }
+                  sanitizeUrl();
+                  window.addEventListener('hashchange', sanitizeUrl);
+                  window.addEventListener('DOMContentLoaded', sanitizeUrl);
+                  window.addEventListener('load', sanitizeUrl);
+                } catch(e) {}
+              })();
+            `,
+          }}
+        />
         {/* Advanced JSON-LD Structured Data for AI Search Engines and Google Knowledge Graph */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
         />
+        {/* ZenVQ Precision Laser Cursor Engine */}
+        <script src="/lib/zenvq-laser.js" data-auto-laser="true" data-theme="motion" defer></script>
         {/* ZenVQ Universal Live Translation Engine */}
         <script src="/lib/zenvq-translate.js" defer></script>
       </head>
       <body className="font-sans antialiased bg-canvas text-ink-primary min-h-screen flex flex-col">
+        <LaserCursor theme="motion" />
+        <TorchlightOverlay />
         {children}
       </body>
     </html>

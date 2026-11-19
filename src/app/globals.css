@@ -187,3 +187,22 @@ body {
     display: none !important;
   }
 }
+
+/* ZenVQ Precision Laser Cursor Optimization */
+@media (hover: hover) and (pointer: fine) {
+  html.zenvq-laser-active,
+  html.zenvq-laser-active body,
+  html.zenvq-laser-active a,
+  html.zenvq-laser-active button,
+  html.zenvq-laser-active [role="button"],
+  html.zenvq-laser-active [data-interactive],
+  html.zenvq-laser-active .cursor-pointer {
+    cursor: none !important;
+  }
+
+  html.zenvq-laser-active input,
+  html.zenvq-laser-active textarea,
+  html.zenvq-laser-active [contenteditable="true"] {
+    cursor: text !important;
+  }
+}
