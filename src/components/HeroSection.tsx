@@ -73,7 +73,7 @@ export function HeroSection() {
   ];
 
   return (
-    <section className="relative pt-18 sm:pt-24 pb-4 px-4 sm:px-8 max-w-5xl mx-auto w-full">
+    <section className="relative pt-24 sm:pt-28 lg:pt-32 pb-4 px-4 sm:px-8 max-w-5xl mx-auto w-full">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-10 items-center">
         {/* Left Column: Core Narrative (6 Cols on Desktop) */}
         <div className="lg:col-span-6 flex flex-col items-start gap-4 sm:gap-5">
@@ -166,7 +166,7 @@ export function HeroSection() {
             <div className="relative aspect-[4/3] w-full overflow-hidden">
               <Image
                 src={profile.avatar}
-                alt={`${profile.fullName} — Motion Designer at Studio Workstation`}
+                alt={`${profile.fullName} — Motion Designer`}
                 width={1024}
                 height={768}
                 priority
@@ -184,7 +184,7 @@ export function HeroSection() {
                 <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
                 <span className="text-ink-primary font-medium">{profile.fullName}</span>
               </div>
-              <span className="text-ink-secondary">Motion Designer · Studio Workstation</span>
+              <span className="text-ink-secondary">Motion Designer · Uttara, Dhaka</span>
             </div>
           </div>
         </div>

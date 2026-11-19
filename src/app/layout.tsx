@@ -35,10 +35,10 @@ export const metadata: Metadata = {
     siteName: "MD Saifuddin Motion Portfolio",
     images: [
       {
-        url: "/images/saif-portrait.webp?v=studio",
+        url: "/images/saif-portrait.webp?v=20261120",
         width: 1024,
         height: 768,
-        alt: "MD Saifuddin — Motion Designer at Studio Workstation",
+        alt: "MD Saifuddin — Motion Designer",
       },
     ],
   },
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "MD Saifuddin — Motion Designer",
     description: "Motion Designer crafting kinetic typography, short-form social reels and visual storytelling.",
-    images: ["/images/saif-portrait.webp?v=studio"],
+    images: ["/images/saif-portrait.webp?v=20261120"],
   },
   robots: {
     index: true,
@@ -77,7 +77,7 @@ export default function RootLayout({
         familyName: "MD",
         jobTitle: "Motion Designer",
         url: "https://saif.zenvq.com",
-        image: "https://saif.zenvq.com/images/saif-portrait.webp?v=studio",
+        image: "https://saif.zenvq.com/images/saif-portrait.webp?v=20261120",
         email: "mailto:madas3709@gmail.com",
         telephone: "+8801876422288",
         sameAs: [
@@ -164,7 +164,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
         />
         {/* Preload High-Priority Studio Portrait WebP Asset */}
-        <link rel="preload" as="image" href="/images/saif-portrait.webp?v=studio" type="image/webp" />
+        <link rel="preload" as="image" href="/images/saif-portrait.webp?v=20261120" type="image/webp" />
         {/* Instant Hash Sanitizer: Strips #overview or any stale anchor so the URL is always cleanly https://saif.zenvq.com/ */}
         <script
           dangerouslySetInnerHTML={{
