@@ -177,7 +177,7 @@ export function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Right Column: Dark Luxury Workstation Frame (6 Cols on Desktop) */}
+        {/* Right Column: Dark Luxury Portrait Frame (6 Cols on Desktop) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -187,14 +187,14 @@ export function HeroSection() {
           <div className="w-full max-w-lg lg:max-w-none luxury-card rounded-2xl shadow-xl group overflow-hidden">
             <div className="specular-top-light" />
 
-            <div className="relative aspect-[4/5] w-full overflow-hidden bg-surface-2">
+            <div className="relative aspect-[4/3] w-full overflow-hidden bg-surface-2">
               <Image
                 src={profile.avatar}
-                alt={`${profile.fullName} at Motion Design Studio Workstation`}
+                alt={`${profile.fullName} — Motion Designer`}
                 width={1024}
-                height={686}
+                height={768}
                 priority
-                className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 500px, 540px"
               />
             </div>
@@ -205,7 +205,7 @@ export function HeroSection() {
                 <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
                 <span className="text-ink-primary font-medium">{profile.fullName}</span>
               </div>
-              <span className="text-ink-secondary">Studio Workstation · Dhaka</span>
+              <span className="text-ink-secondary">Motion Designer · Dhaka</span>
             </div>
           </div>
         </motion.div>

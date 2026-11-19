@@ -46,7 +46,7 @@ export const portfolioData = {
     instagramUrl: "https://www.instagram.com/motion.bysaif/",
     instagramHandle: "@motion.bysaif",
     resumePdfUrl: "/MD-SAIFUDDIN-Resume.pdf",
-    avatar: "/images/saif-workstation.webp",
+    avatar: "/images/saif-portrait.webp",
     bio: "Motion Designer crafting UI motion graphics, SaaS animations, logo animations, kinetic typography and promotional reels for SaaS products, gaming brands and social platforms.",
     summary: "Creative and detail-oriented Motion Designer focused on visual storytelling, dynamic typography and engaging video content. Skilled in Adobe After Effects, Illustrator and Photoshop to transform concepts into clean, modern motion graphics for digital and social media platforms.",
     metadataItems: [
