@@ -23,6 +23,8 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
         />
+        {/* Preload High-Priority Studio Portrait */}
+        <link rel="preload" as="image" href="/images/saif-studio-motion.jpg" />
         {/* ZenVQ Universal Live Translation Engine */}
         <script src="/lib/zenvq-translate.js" defer></script>
       </head>

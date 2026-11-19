@@ -46,7 +46,7 @@ export const portfolioData = {
     whatsappUrl: "https://wa.me/8801876422288",
     instagramUrl: "https://www.instagram.com/motion.bysaif/",
     instagramHandle: "@motion.bysaif",
-    avatar: "/images/saif-profile.jpg",
+    avatar: "/images/saif-studio-motion.jpg",
     bio: "Creative and detail-oriented Motion Designer focused on visual storytelling, dynamic typography and engaging video content. Transforming concepts into clean, modern motion graphics for digital and social media platforms using Adobe After Effects, Illustrator and Photoshop.",
     metadataItems: [
       { label: "Focus", value: "Kinetic Typography & Reels" },
