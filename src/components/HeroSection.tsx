@@ -18,9 +18,9 @@ export function HeroSection() {
 
   return (
     <section id="overview" className="relative pt-32 sm:pt-40 pb-16 sm:pb-24 px-5 sm:px-8 max-w-5xl mx-auto w-full">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-        {/* Left Column (7 Cols on Desktop) */}
-        <div className="lg:col-span-7 flex flex-col items-start gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-10 items-center">
+        {/* Left Column: Core Narrative (6 Cols on Desktop) */}
+        <div className="lg:col-span-6 flex flex-col items-start gap-6">
           {/* Availability Eyebrow */}
           <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full border border-border-subtle bg-surface-1 text-ink-secondary text-xs">
             <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
@@ -110,29 +110,32 @@ export function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Right Column: Tailored Editorial Portrait (5 Cols on Desktop) */}
+        {/* Right Column: Tailored Motion Workstation Frame (6 Cols on Desktop) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.85, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="lg:col-span-5 flex justify-center lg:justify-end"
+          className="lg:col-span-6 flex justify-center lg:justify-end w-full"
         >
-          <div className="w-full max-w-xs sm:max-w-sm editorial-portrait-frame rounded-2xl shadow-xl group">
-            <div className="relative aspect-[4/5] w-full overflow-hidden bg-surface-2">
+          <div className="w-full max-w-lg lg:max-w-none editorial-portrait-frame rounded-2xl shadow-xl group">
+            <div className="relative aspect-[3/2] w-full overflow-hidden bg-surface-2">
               <Image
                 src={profile.avatar}
-                alt={profile.fullName}
+                alt={`${profile.fullName} at Motion Design Studio Workstation`}
                 fill
                 priority
                 className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                sizes="(max-width: 640px) 320px, (max-width: 1024px) 380px, 420px"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 500px, 540px"
               />
             </div>
 
             {/* Editorial Caption Strip */}
             <div className="px-4 py-3 border-t border-border-subtle bg-surface-1 flex items-center justify-between text-[11px] font-mono tracking-wider uppercase text-ink-muted">
-              <span className="text-ink-primary font-medium">{profile.fullName}</span>
-              <span>{profile.role}</span>
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                <span className="text-ink-primary font-medium">{profile.fullName}</span>
+              </div>
+              <span className="text-ink-secondary">Studio Workstation · Dhaka</span>
             </div>
           </div>
         </motion.div>
