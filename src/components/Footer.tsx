@@ -16,7 +16,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="border-t border-white/[0.05] bg-canvas py-6 px-5 sm:px-8 mt-auto select-none">
+    <footer className="border-t border-white/[0.05] bg-canvas py-6 px-4 sm:px-8 mt-auto select-none">
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-ink-muted">
         {/* Left: Copyright & Location */}
         <div className="flex items-center gap-2">

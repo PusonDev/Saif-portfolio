@@ -10,7 +10,7 @@ import { PrecisionCursor } from "@/components/PrecisionCursor";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-canvas text-ink-primary flex flex-col justify-between selection:bg-accent selection:text-zinc-950">
+    <main className="min-h-screen bg-canvas text-ink-primary flex flex-col justify-between selection:bg-accent selection:text-zinc-950 overflow-x-hidden w-full">
       {/* Precision Cursor (Leaf Client Component) */}
       <PrecisionCursor />
 

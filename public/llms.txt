@@ -16,10 +16,10 @@
 Creative and detail-oriented Motion Designer focused on visual storytelling, dynamic typography and engaging video content. Skilled in Adobe After Effects, Illustrator and Photoshop to transform concepts into clean, modern motion graphics for digital and social media platforms.
 
 ## Core Capabilities & Services
-1. UI Motion & SaaS Animation: Interactive product teasers, dashboard walkthroughs and clean UI motion engineered in After Effects for SaaS product launches.
-2. Kinetic Typography & Logo Animation: Expressive text choreography, custom brand logo reveals and weighted Graph Editor easing curves.
-3. Gaming & Social Promotional Reels: High-retention 9:16 vertical and 16:9 widescreen promotional videos tailored for gaming brands, creators and social platforms.
-4. Vector Staging & Media Encoder Masters: End-to-end vector preparation in Illustrator and Photoshop to crisp multi-platform ProRes/MP4 exports and organized .AEP source archives.
+1. SaaS Product Walkthroughs: Interactive dashboard previews, feature walkthroughs and crisp interface motion designed for conversion.
+2. Dynamic Kinetic Typography: Expressive editorial text animation and brand reveals choreographed with weighted keyframe velocity.
+3. High-Retention Social Reels: Vertical 9:16 and 16:9 promotional hooks engineered for gaming creators, digital brands and viral feeds.
+4. Vector Staging and Clean Handoff: Multi-layer asset prep in Illustrator and Photoshop exported to crisp ProRes/MP4 with organized .AEP source files.
 
 ## Production Suite
 - Animation & Motion Engine: Adobe After Effects (Graph Editor, expressions, track mattes, shape morphs)

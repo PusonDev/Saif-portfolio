@@ -18,18 +18,29 @@ export function Navbar() {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 flex justify-center px-4 sm:px-6 pt-3 transition-all duration-300">
+    <header className="fixed top-0 left-0 right-0 z-40 flex justify-center px-3 sm:px-6 pt-2.5 sm:pt-3 transition-all duration-300">
       <nav
-        className={`w-full max-w-5xl h-14 transition-all duration-300 rounded-full px-4 sm:px-6 flex items-center justify-between border ${
+        className={`w-full max-w-5xl h-13 sm:h-14 transition-all duration-300 rounded-full px-3.5 sm:px-6 flex items-center justify-between border ${
           isScrolled
             ? "bg-canvas/90 backdrop-blur-xl border-border-strong shadow-lg"
             : "bg-surface-1/90 backdrop-blur-md border-border-subtle"
         }`}
       >
         {/* Brand Wordmark + Universal Return Gateway */}
-        <div className="flex items-center gap-3">
-          <a href="#overview" className="flex items-baseline gap-1.5 group notranslate" translate="no">
-            <span className="font-serif text-xl sm:text-2xl tracking-tight text-ink-primary">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <a
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+              if (window.location.hash) {
+                history.replaceState(null, "", window.location.pathname);
+              }
+            }}
+            className="flex items-baseline gap-1.5 group notranslate cursor-pointer"
+            translate="no"
+          >
+            <span className="font-serif text-lg sm:text-2xl tracking-tight text-ink-primary">
               Saif<span className="text-accent">.</span>
             </span>
             <span className="hidden sm:inline-block font-mono text-[11px] text-ink-muted uppercase tracking-wider">
@@ -51,7 +62,7 @@ export function Navbar() {
         </div>
 
         {/* Center Desktop Navigation Links */}
-        <div className="hidden md:flex items-center gap-6 lg:gap-7">
+        <div className="hidden md:flex items-center gap-5 lg:gap-7">
           {portfolioData.navigation.map((item) => (
             <a
               key={item.href}
@@ -67,7 +78,7 @@ export function Navbar() {
         <div
           dir="ltr"
           data-zenvq-nav-anchor="true"
-          className="flex items-center gap-2 sm:gap-2.5"
+          className="flex items-center gap-1.5 sm:gap-2.5"
         >
           {/* Unified Language & Theme Dock */}
           <ZenVQLanguageDock variant="header" />
@@ -85,9 +96,10 @@ export function Navbar() {
           {/* Start Project CTA */}
           <a
             href="#contact"
-            className="inline-flex items-center gap-1 px-2.5 sm:px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs font-mono uppercase tracking-wider bg-cta-bg text-cta-text hover:opacity-90 transition-opacity duration-200 font-medium shadow-xs shrink-0"
+            className="hidden xs:inline-flex items-center gap-1 px-2.5 sm:px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs font-mono uppercase tracking-wider bg-cta-bg text-cta-text hover:opacity-90 transition-opacity duration-200 font-medium shadow-xs shrink-0"
           >
-            <span>Start Project</span>
+            <span className="hidden sm:inline">Start Project</span>
+            <span className="sm:hidden">Start</span>
             <ArrowUpRight className="w-3 h-3 shrink-0" />
           </a>
 
@@ -96,7 +108,7 @@ export function Navbar() {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             type="button"
             aria-label="Toggle mobile navigation menu"
-            className="md:hidden w-8 h-8 rounded-full border border-border-subtle bg-surface-2 flex items-center justify-center text-ink-primary cursor-pointer"
+            className="md:hidden w-8 h-8 rounded-full border border-border-subtle bg-surface-2 flex items-center justify-center text-ink-primary cursor-pointer shrink-0"
           >
             {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           </button>

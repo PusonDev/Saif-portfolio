@@ -169,7 +169,7 @@ export function ProjectInquirySection() {
   };
 
   return (
-    <section id="contact" className="py-10 sm:py-14 px-5 sm:px-8 max-w-5xl mx-auto w-full scroll-mt-20">
+    <section id="contact" className="py-10 sm:py-14 px-4 sm:px-8 max-w-5xl mx-auto w-full scroll-mt-20">
       {/* Schema.org FAQPage structured data */}
       <script
         type="application/ld+json"
@@ -177,9 +177,9 @@ export function ProjectInquirySection() {
       />
 
       {/* Section Header */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-5 sm:mb-7 pb-4 border-b border-white/[0.05]">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2.5 mb-5 sm:mb-7 pb-4 border-b border-white/[0.05]">
         <div className="space-y-1">
-          <div className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-accent">
+          <div className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-accent">
             <Sliders className="w-3.5 h-3.5" />
             <span>06 / Project Scoper and Contact</span>
           </div>
@@ -188,17 +188,17 @@ export function ProjectInquirySection() {
           </h2>
         </div>
 
-        <span className="text-xs font-mono uppercase tracking-wider text-ink-muted">
+        <span className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-ink-muted">
           Direct Project Brief · Quick Answers
         </span>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 items-start">
         {/* =========================================================================
             LEFT COLUMN: Direct Interactive Scoping Widget (7 Cols)
             ========================================================================= */}
         <div className="lg:col-span-7">
-          <div className="rounded-2xl sm:rounded-3xl p-6 sm:p-7 border border-white/[0.05] bg-white/[0.015] relative overflow-hidden space-y-5">
+          <div className="rounded-2xl sm:rounded-3xl p-5 sm:p-7 border border-white/[0.05] bg-white/[0.015] relative overflow-hidden space-y-4 sm:space-y-5">
             <div className="specular-top-light" />
 
             <div className="flex items-center justify-between pb-3 border-b border-white/[0.05] text-xs font-mono">
@@ -306,7 +306,7 @@ export function ProjectInquirySection() {
                   placeholder="e.g. Alex Vance"
                   value={clientName}
                   onChange={(e) => setClientName(e.target.value)}
-                  className="w-full px-3.5 py-2 rounded-lg bg-white/[0.02] border border-white/[0.06] text-sm text-ink-primary placeholder:text-ink-muted focus:outline-hidden focus:border-accent"
+                  className="w-full px-3.5 py-2 rounded-lg bg-white/[0.02] border border-white/[0.06] text-base sm:text-sm text-ink-primary placeholder:text-ink-muted focus:outline-hidden focus:border-accent"
                 />
               </div>
 
@@ -319,7 +319,7 @@ export function ProjectInquirySection() {
                   placeholder="e.g. +1 555... or name@co.com"
                   value={contactHandle}
                   onChange={(e) => setContactHandle(e.target.value)}
-                  className="w-full px-3.5 py-2 rounded-lg bg-white/[0.02] border border-white/[0.06] text-sm text-ink-primary placeholder:text-ink-muted focus:outline-hidden focus:border-accent"
+                  className="w-full px-3.5 py-2 rounded-lg bg-white/[0.02] border border-white/[0.06] text-base sm:text-sm text-ink-primary placeholder:text-ink-muted focus:outline-hidden focus:border-accent"
                 />
               </div>
             </div>
@@ -333,7 +333,7 @@ export function ProjectInquirySection() {
                 placeholder="Mention script length, visual references or project goals..."
                 value={projectBrief}
                 onChange={(e) => setProjectBrief(e.target.value)}
-                className="w-full px-3.5 py-2 rounded-lg bg-white/[0.02] border border-white/[0.06] text-sm text-ink-primary placeholder:text-ink-muted focus:outline-hidden focus:border-accent resize-none"
+                className="w-full px-3.5 py-2 rounded-lg bg-white/[0.02] border border-white/[0.06] text-base sm:text-sm text-ink-primary placeholder:text-ink-muted focus:outline-hidden focus:border-accent resize-none"
               />
             </div>
 

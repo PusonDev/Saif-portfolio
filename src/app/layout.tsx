@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://saif.zenvq.com"),
   title: "MD Saifuddin — Motion Designer | UI Motion, SaaS Animation and Kinetic Typography",
-  description: "Portfolio of MD Saifuddin, Motion Designer crafting UI motion graphics, SaaS animations, logo animations, kinetic typography and promotional reels for SaaS products, gaming brands and social platforms.",
+  description: "Portfolio of MD Saifuddin, Motion Designer crafting high-retention motion graphics, kinetic typography and digital product sequences in After Effects for SaaS products, gaming brands and content creators.",
   keywords: [
     "MD Saifuddin",
     "Motion Designer",

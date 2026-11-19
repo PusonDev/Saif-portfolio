@@ -19,11 +19,11 @@ MD Saifuddin is a creative and detail-oriented Motion Designer based in Uttara, 
 - Interests: Motion Design, Technology, Gaming and Movies.
 
 ## Motion Production Services
-1. UI Motion & SaaS Animation: Interactive product teasers, dashboard walkthroughs and clean UI motion built for SaaS launches using custom Graph Editor keyframe curves.
-2. Kinetic Typography & Logo Animation: Handcrafted text choreography and brand logo reveals using weighted cubic-bezier easing [0.16, 1, 0.3, 1] in After Effects. Zero reliance on rigid presets.
-3. Gaming & Social Promotional Reels: Hook-focused 9:16 vertical and 16:9 widescreen motion graphics structured to maximize view duration on Instagram Reels, YouTube Shorts and gaming channels.
-4. Vector Staging & Visual Transitions: Layered asset preparation in Adobe Illustrator and Photoshop ensuring clean vector edges with zero pixelation at any resolution.
-5. Multi-Platform Masters: Exporting ProRes 422 and web-optimized H.264 video files via Adobe Media Encoder in 9:16 vertical and 16:9 widescreen formats, accompanied by organized .AEP project source archives.
+1. SaaS Product Walkthroughs: Interactive dashboard previews, feature walkthroughs and crisp interface motion designed for conversion using custom Graph Editor curves.
+2. Dynamic Kinetic Typography: Expressive editorial text animation and brand reveals choreographed with weighted keyframe velocity [0.16, 1, 0.3, 1] in After Effects. Zero rigid presets.
+3. High-Retention Social Reels: Hook-focused 9:16 vertical and 16:9 widescreen motion graphics structured to maximize view duration on Instagram Reels, YouTube Shorts and gaming channels.
+4. Vector Staging and Clean Handoff: Multi-layer asset prep in Illustrator and Photoshop exported to crisp ProRes/MP4 with organized .AEP source files.
+5. Multi-Platform Masters: Exporting ProRes 422 and web-optimized H.264 video files via Adobe Media Encoder in 9:16 vertical and 16:9 widescreen formats.
 
 ## 4-Step Production Cadence
 - Step 01: Brief & Visual Direction — Script analysis, narrative pacing benchmarks and typography moodboards.

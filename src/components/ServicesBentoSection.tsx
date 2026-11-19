@@ -16,11 +16,11 @@ export function ServicesBentoSection() {
   };
 
   return (
-    <section id="services" className="py-10 sm:py-14 px-5 sm:px-8 max-w-5xl mx-auto w-full scroll-mt-20">
+    <section id="services" className="py-10 sm:py-14 px-4 sm:px-8 max-w-5xl mx-auto w-full scroll-mt-20">
       {/* Section Header */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-5 sm:mb-7 pb-4 border-b border-white/[0.05]">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2.5 mb-5 sm:mb-7 pb-4 border-b border-white/[0.05]">
         <div className="space-y-1">
-          <div className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-accent">
+          <div className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-accent">
             <LayoutGrid className="w-3.5 h-3.5" />
             <span>04 / Capabilities</span>
           </div>
@@ -29,13 +29,13 @@ export function ServicesBentoSection() {
           </h2>
         </div>
 
-        <span className="text-xs font-mono uppercase tracking-wider text-ink-muted">
+        <span className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-ink-muted">
           After Effects · Illustrator · Photoshop · Media Encoder
         </span>
       </div>
 
       {/* 2x2 Open Swiss Hairline Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-6">
         {capabilities.map((cap, idx) => (
           <motion.div
             key={cap.index}
@@ -43,7 +43,7 @@ export function ServicesBentoSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.12 }}
             transition={{ duration: 0.55, delay: idx * 0.06, ease: [0.16, 1, 0.3, 1] }}
-            className="rounded-2xl p-6 sm:p-7 border border-white/[0.05] bg-white/[0.015] hover:bg-white/[0.025] transition-colors flex flex-col justify-between group relative overflow-hidden"
+            className="rounded-2xl p-5 sm:p-7 border border-white/[0.05] bg-white/[0.015] hover:bg-white/[0.025] transition-colors flex flex-col justify-between group relative overflow-hidden"
           >
             {/* 1px Top Specular Edge Light */}
             <div className="specular-top-light" />
