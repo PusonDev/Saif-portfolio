@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "node run-build.js dev -p 3006",
     "build": "node run-build.js build",
-    "start": "node run-build.js start -p 3006"
+    "start": "node run-build.js start -p 3006",
+    "deploy": "node run-build.js build && npx wrangler pages deploy out --project-name=saif"
   },
   "dependencies": {
     "clsx": "^2.1.1",
