@@ -17,6 +17,21 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const id = href.replace(/^#/, "");
+      const target = document.getElementById(id);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+      if (window.location.hash) {
+        window.history.replaceState(null, "", window.location.pathname);
+      }
+      setMobileMenuOpen(false);
+    }
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-40 flex justify-center px-3 sm:px-6 pt-2.5 sm:pt-3 transition-all duration-300">
       <nav
@@ -67,7 +82,8 @@ export function Navbar() {
             <a
               key={item.href}
               href={item.href}
-              className="text-xs font-mono tracking-wider text-ink-secondary hover:text-ink-primary transition-colors duration-200 uppercase"
+              onClick={(e) => handleNavClick(e, item.href)}
+              className="text-xs font-mono tracking-wider text-ink-secondary hover:text-ink-primary transition-colors duration-200 uppercase cursor-pointer"
             >
               {item.label}
             </a>
@@ -96,7 +112,8 @@ export function Navbar() {
           {/* Start Project CTA */}
           <a
             href="#contact"
-            className="hidden xs:inline-flex items-center gap-1 px-2.5 sm:px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs font-mono uppercase tracking-wider bg-cta-bg text-cta-text hover:opacity-90 transition-opacity duration-200 font-medium shadow-xs shrink-0"
+            onClick={(e) => handleNavClick(e, "#contact")}
+            className="hidden xs:inline-flex items-center gap-1 px-2.5 sm:px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs font-mono uppercase tracking-wider bg-cta-bg text-cta-text hover:opacity-90 transition-opacity duration-200 font-medium shadow-xs shrink-0 cursor-pointer"
           >
             <span className="hidden sm:inline">Start Project</span>
             <span className="sm:hidden">Start</span>
@@ -123,8 +140,8 @@ export function Navbar() {
               <a
                 key={item.href}
                 href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-sm font-mono tracking-wider text-ink-secondary hover:text-ink-primary uppercase py-1 border-b border-border-subtle/50"
+                onClick={(e) => handleNavClick(e, item.href)}
+                className="text-sm font-mono tracking-wider text-ink-secondary hover:text-ink-primary uppercase py-1 border-b border-border-subtle/50 cursor-pointer"
               >
                 {item.label}
               </a>
