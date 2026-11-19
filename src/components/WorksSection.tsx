@@ -3,20 +3,20 @@
 import React, { useState } from "react";
 import { portfolioData } from "@/data/portfolioData";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Play, Layers, Sparkles, Monitor, Smartphone, Film } from "lucide-react";
+import { ArrowUpRight, Smartphone, Layers, Film } from "lucide-react";
 
 export function WorksSection() {
-  const { works, profile } = portfolioData;
+  const { profile } = portfolioData;
 
   const [kineticPlay, setKineticPlay] = useState(0);
 
   const KINETIC_PHRASES = ["EASING", "HIERARCHY", "RETENTION", "STORY"];
 
   return (
-    <section id="works" className="py-20 sm:py-28 px-5 sm:px-8 max-w-5xl mx-auto w-full">
+    <section id="works" className="py-10 sm:py-14 px-5 sm:px-8 max-w-5xl mx-auto w-full scroll-mt-20">
       {/* Section Header */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14 pb-6 border-b border-border-subtle">
-        <div className="space-y-1.5">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-5 sm:mb-7 pb-4 border-b border-white/[0.05]">
+        <div className="space-y-1">
           <div className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-accent">
             <Film className="w-3.5 h-3.5" />
             <span>02 / Motion Showcase</span>
@@ -37,16 +37,16 @@ export function WorksSection() {
         </a>
       </div>
 
-      <div className="space-y-12">
+      <div className="space-y-6 sm:space-y-8">
         {/* =========================================================================
             ITEM 1: 3D Widescreen Studio Display Frame (16:9) — Kinetic Typography
             ========================================================================= */}
         <motion.div
-          initial={{ opacity: 0, y: 35, rotateX: 6, scale: 0.98 }}
-          whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
+          initial={{ opacity: 0, y: 25, scale: 0.99 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: false, amount: 0.12 }}
-          transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
-          className="luxury-card rounded-2xl sm:rounded-3xl p-6 sm:p-10 border border-border-subtle bg-surface-1 shadow-2xl relative overflow-hidden group perspective-stage"
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/[0.05] bg-white/[0.015] hover:bg-white/[0.025] transition-colors relative overflow-hidden group perspective-stage"
         >
           <div className="specular-top-light" />
 
@@ -57,24 +57,24 @@ export function WorksSection() {
                 <span className="font-mono text-xs text-accent uppercase tracking-widest">
                   01 /
                 </span>
-                <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-surface-2 text-ink-muted border border-border-subtle">
+                <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-white/[0.03] text-ink-muted border border-white/[0.06]">
                   Widescreen 16:9
                 </span>
               </div>
 
               <h3 className="text-xl sm:text-2xl font-bold text-ink-primary tracking-tight">
-                UI Motion, SaaS Animation & Kinetic Typography
+                UI Motion, SaaS Animation and Kinetic Typography
               </h3>
 
               <p className="text-xs sm:text-sm text-ink-secondary leading-relaxed font-normal">
                 Interactive SaaS product interface motion and kinetic typography choreography engineered in After Effects.
               </p>
 
-              <div className="flex flex-wrap gap-2 pt-2">
+              <div className="flex flex-wrap gap-2 pt-1">
                 {["After Effects", "UI Motion", "SaaS Animation"].map((t, i) => (
                   <span
                     key={i}
-                    className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-md bg-surface-2 text-ink-muted border border-border-subtle"
+                    className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-md bg-white/[0.03] text-ink-muted border border-white/[0.06]"
                   >
                     {t}
                   </span>
@@ -96,9 +96,9 @@ export function WorksSection() {
 
             {/* Right: Authentic 3D Widescreen Studio Display */}
             <div className="lg:col-span-7 flex justify-center">
-              <div className="w-full max-w-lg rounded-xl border border-border-strong bg-[#0B0B0E] p-2.5 shadow-2xl transition-transform duration-700 group-hover:rotate-x-2 group-hover:scale-[1.02]">
+              <div className="w-full max-w-lg rounded-xl border border-white/[0.08] bg-[#0B0B0E] p-2.5 shadow-2xl transition-transform duration-700 group-hover:rotate-x-2 group-hover:scale-[1.02]">
                 {/* Hardware Bezel Header */}
-                <div className="flex items-center justify-between px-3 py-1.5 border-b border-border-subtle text-[10px] font-mono text-ink-muted">
+                <div className="flex items-center justify-between px-3 py-1.5 border-b border-white/[0.06] text-[10px] font-mono text-ink-muted">
                   <div className="flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-red-500/80" />
                     <span className="w-2 h-2 rounded-full bg-yellow-500/80" />
@@ -120,9 +120,9 @@ export function WorksSection() {
                   <div className="relative z-10 text-center space-y-1">
                     <motion.div
                       key={kineticPlay}
-                      initial={{ y: 40, opacity: 0 }}
+                      initial={{ y: 35, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
-                      transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+                      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                       className="text-2xl sm:text-4xl font-bold tracking-tight text-white"
                     >
                       CHOREOGRAPHED{" "}
@@ -144,7 +144,7 @@ export function WorksSection() {
                 </div>
 
                 {/* Hardware Stand Neck */}
-                <div className="w-16 h-2.5 mx-auto bg-zinc-800 rounded-b border-t-0 border border-zinc-700/50 mt-0.5" />
+                <div className="w-16 h-2 mx-auto bg-zinc-800 rounded-b border-t-0 border border-zinc-700/50 mt-0.5" />
               </div>
             </div>
           </div>
@@ -153,30 +153,30 @@ export function WorksSection() {
         {/* =========================================================================
             ITEM 2 & 3: 3D Mobile Smartphone (9:16) + 3D Layered Comp Frame
             ========================================================================= */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
           {/* Card 2: 3D Mobile Smartphone Frame (9:16) */}
           <motion.div
-            initial={{ opacity: 0, y: 35, rotateX: 6, scale: 0.98 }}
-            whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
+            initial={{ opacity: 0, y: 25, scale: 0.99 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: false, amount: 0.12 }}
-            transition={{ duration: 0.85, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="luxury-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-border-subtle bg-surface-1 shadow-2xl relative overflow-hidden group flex flex-col justify-between"
+            transition={{ duration: 0.7, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+            className="rounded-2xl sm:rounded-3xl p-6 sm:p-7 border border-white/[0.05] bg-white/[0.015] hover:bg-white/[0.025] transition-colors relative overflow-hidden group flex flex-col justify-between"
           >
             <div className="specular-top-light" />
 
-            <div className="space-y-4 mb-6">
+            <div className="space-y-3 mb-4">
               <div className="flex items-center justify-between">
                 <span className="font-mono text-xs text-accent uppercase tracking-widest">
                   02 /
                 </span>
-                <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-surface-2 text-ink-muted border border-border-subtle flex items-center gap-1">
+                <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-white/[0.03] text-ink-muted border border-white/[0.06] flex items-center gap-1">
                   <Smartphone className="w-3 h-3 text-accent" />
                   <span>Vertical 9:16</span>
                 </span>
               </div>
 
               <h3 className="text-lg sm:text-xl font-bold text-ink-primary tracking-tight">
-                Promotional Reels for Gaming Brands & Social Platforms
+                Promotional Reels for Gaming Brands and Social Platforms
               </h3>
 
               <p className="text-xs sm:text-sm text-ink-secondary leading-relaxed font-normal">
@@ -185,25 +185,25 @@ export function WorksSection() {
             </div>
 
             {/* Realistic 3D Smartphone Frame (9:16) */}
-            <div className="flex justify-center my-4">
-              <div className="w-48 sm:w-52 rounded-[28px] border-[3px] border-zinc-700/80 bg-black p-2 shadow-2xl relative transition-transform duration-700 group-hover:scale-105 group-hover:-rotate-1">
+            <div className="flex justify-center my-3">
+              <div className="w-44 sm:w-48 rounded-[26px] border-[2.5px] border-zinc-700/80 bg-black p-2 shadow-2xl relative transition-transform duration-700 group-hover:scale-105 group-hover:-rotate-1">
                 {/* Dynamic Camera Island */}
-                <div className="w-16 h-3.5 bg-zinc-900 rounded-full mx-auto mb-2 flex items-center justify-end pr-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-zinc-800" />
+                <div className="w-14 h-3 bg-zinc-900 rounded-full mx-auto mb-2 flex items-center justify-end pr-1.5">
+                  <span className="w-1 h-1 rounded-full bg-zinc-800" />
                 </div>
 
                 {/* 9:16 Screen Area */}
-                <div className="relative aspect-[9/16] w-full rounded-[20px] bg-zinc-950 overflow-hidden flex flex-col justify-between p-3.5 border border-white/5">
+                <div className="relative aspect-[9/16] w-full rounded-[18px] bg-zinc-950 overflow-hidden flex flex-col justify-between p-3.5 border border-white/5">
                   <div className="flex justify-between items-center text-[9px] font-mono text-zinc-400">
                     <span className="text-accent font-semibold">REEL 01</span>
                     <span>0:03 HOOK</span>
                   </div>
 
                   <div className="text-center space-y-1">
-                    <div className="text-xs font-mono uppercase tracking-widest text-accent">
+                    <div className="text-[10px] font-mono uppercase tracking-widest text-accent">
                       FIRST 3 SECONDS
                     </div>
-                    <div className="text-lg font-bold text-white tracking-tight leading-tight">
+                    <div className="text-base sm:text-lg font-bold text-white tracking-tight leading-tight">
                       HOLD VISUAL <br />
                       <span className="font-serif italic text-accent">ATTENTION.</span>
                     </div>
@@ -222,7 +222,7 @@ export function WorksSection() {
               </div>
             </div>
 
-            <div className="mt-4 pt-4 border-t border-border-subtle flex items-center justify-between">
+            <div className="mt-4 pt-3.5 border-t border-white/[0.05] flex items-center justify-between">
               <span className="text-xs font-mono text-ink-muted">After Effects · Short-Form · Gaming Brands</span>
               <a
                 href={profile.instagramUrl}
@@ -237,27 +237,27 @@ export function WorksSection() {
 
           {/* Card 3: 3D Layered Comp Studio Frame */}
           <motion.div
-            initial={{ opacity: 0, y: 35, rotateX: 6, scale: 0.98 }}
-            whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
+            initial={{ opacity: 0, y: 25, scale: 0.99 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: false, amount: 0.12 }}
-            transition={{ duration: 0.85, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="luxury-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-border-subtle bg-surface-1 shadow-2xl relative overflow-hidden group flex flex-col justify-between"
+            transition={{ duration: 0.7, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
+            className="rounded-2xl sm:rounded-3xl p-6 sm:p-7 border border-white/[0.05] bg-white/[0.015] hover:bg-white/[0.025] transition-colors relative overflow-hidden group flex flex-col justify-between"
           >
             <div className="specular-top-light" />
 
-            <div className="space-y-4 mb-6">
+            <div className="space-y-3 mb-4">
               <div className="flex items-center justify-between">
                 <span className="font-mono text-xs text-accent uppercase tracking-widest">
                   03 /
                 </span>
-                <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-surface-2 text-ink-muted border border-border-subtle flex items-center gap-1">
+                <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-white/[0.03] text-ink-muted border border-white/[0.06] flex items-center gap-1">
                   <Layers className="w-3 h-3 text-accent" />
                   <span>Layered Comp</span>
                 </span>
               </div>
 
               <h3 className="text-lg sm:text-xl font-bold text-ink-primary tracking-tight">
-                Logo Animations, Vector Staging & Transitions
+                Logo Animations, Vector Staging and Transitions
               </h3>
 
               <p className="text-xs sm:text-sm text-ink-secondary leading-relaxed font-normal">
@@ -266,10 +266,10 @@ export function WorksSection() {
             </div>
 
             {/* 3D Stacked Layered Artboard Visual */}
-            <div className="flex justify-center items-center my-6">
-              <div className="relative w-full max-w-[280px] h-48 preserve-3d transition-transform duration-700 group-hover:rotate-y-3 group-hover:scale-105">
+            <div className="flex justify-center items-center my-4">
+              <div className="relative w-full max-w-[260px] h-44 preserve-3d transition-transform duration-700 group-hover:rotate-y-3 group-hover:scale-105">
                 {/* Layer 3 (Back) */}
-                <div className="absolute inset-x-4 top-0 h-36 rounded-xl border border-zinc-700/40 bg-zinc-900/60 p-3 transform -translate-y-2 scale-95 shadow-md">
+                <div className="absolute inset-x-4 top-0 h-32 rounded-xl border border-zinc-700/40 bg-zinc-900/60 p-3 transform -translate-y-2 scale-95 shadow-md">
                   <div className="flex justify-between text-[9px] font-mono text-zinc-500">
                     <span>LAYER 03: COLOR MATTE</span>
                     <span>PS COLOR</span>
@@ -277,7 +277,7 @@ export function WorksSection() {
                 </div>
 
                 {/* Layer 2 (Middle) */}
-                <div className="absolute inset-x-2 top-4 h-36 rounded-xl border border-zinc-700/60 bg-zinc-900/80 p-3 transform translate-y-0 scale-98 shadow-lg">
+                <div className="absolute inset-x-2 top-3 h-32 rounded-xl border border-zinc-700/60 bg-zinc-900/80 p-3 transform translate-y-0 scale-98 shadow-lg">
                   <div className="flex justify-between text-[9px] font-mono text-zinc-400">
                     <span>LAYER 02: VECTOR PATHS</span>
                     <span>AI VECTORS</span>
@@ -285,7 +285,7 @@ export function WorksSection() {
                 </div>
 
                 {/* Layer 1 (Front Active) */}
-                <div className="absolute inset-x-0 top-8 h-36 rounded-xl border border-accent/40 bg-zinc-950 p-4 transform translate-y-2 shadow-2xl flex flex-col justify-between">
+                <div className="absolute inset-x-0 top-6 h-32 rounded-xl border border-accent/40 bg-zinc-950 p-3.5 transform translate-y-2 shadow-2xl flex flex-col justify-between">
                   <div className="flex justify-between text-[10px] font-mono text-accent">
                     <span>LAYER 01: CAMERA TRANSITION</span>
                     <span>AE COMP</span>
@@ -303,7 +303,7 @@ export function WorksSection() {
               </div>
             </div>
 
-            <div className="mt-4 pt-4 border-t border-border-subtle flex items-center justify-between">
+            <div className="mt-4 pt-3.5 border-t border-white/[0.05] flex items-center justify-between">
               <span className="text-xs font-mono text-ink-muted">Illustrator · Photoshop · Media Encoder</span>
               <a
                 href={profile.instagramUrl}

@@ -74,10 +74,10 @@ export function HeroSection() {
   ];
 
   return (
-    <section id="overview" className="relative pt-32 sm:pt-40 pb-16 px-5 sm:px-8 max-w-5xl mx-auto w-full">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-10 items-center">
+    <section id="overview" className="relative pt-20 sm:pt-24 pb-8 px-5 sm:px-8 max-w-5xl mx-auto w-full scroll-mt-20">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
         {/* Left Column: Core Narrative (6 Cols on Desktop) */}
-        <div className="lg:col-span-6 flex flex-col items-start gap-6">
+        <div className="lg:col-span-6 flex flex-col items-start gap-5 sm:gap-6">
           {/* Status Eyebrow */}
           <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full border border-border-subtle bg-surface-1 text-ink-secondary text-xs">
             <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
@@ -107,7 +107,7 @@ export function HeroSection() {
           </p>
 
           {/* High-Acceptance Action Row */}
-          <div className="flex flex-wrap items-center gap-2.5 pt-2 w-full">
+          <div className="flex flex-wrap items-center gap-2.5 pt-1 w-full">
             {/* Primary CTA */}
             <a
               href={profile.instagramUrl}
@@ -162,25 +162,26 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Right Column: Dark Luxury Portrait Frame (6 Cols on Desktop) */}
+        {/* Right Column: Seamless Invisible-Box Portrait Frame (6 Cols on Desktop) */}
         <div className="lg:col-span-6 flex justify-center lg:justify-end w-full">
-          <div className="w-full max-w-lg lg:max-w-none luxury-card rounded-2xl shadow-xl group overflow-hidden">
-            <div className="specular-top-light" />
-
-            <div className="relative aspect-[4/3] w-full overflow-hidden bg-surface-2">
+          <div className="w-full max-w-md lg:max-w-none relative group overflow-hidden rounded-2xl border border-white/[0.05] bg-white/[0.015]">
+            <div className="relative aspect-[4/5] w-full overflow-hidden">
               <Image
                 src={profile.avatar}
                 alt={`${profile.fullName} — Motion Designer`}
-                width={1024}
-                height={768}
+                width={824}
+                height={1024}
                 priority
-                className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 500px, 540px"
+                className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 440px, 460px"
               />
+              {/* Seamless Canvas Vignette Fade */}
+              <div className="portrait-vignette" />
+              <div className="specular-top-light" />
             </div>
 
             {/* Editorial Caption Strip */}
-            <div className="px-4 py-3 border-t border-border-subtle bg-surface-solid flex items-center justify-between text-[11px] font-mono tracking-wider uppercase text-ink-muted">
+            <div className="px-4 py-2 border-t border-white/[0.05] bg-white/[0.02] flex items-center justify-between text-[11px] font-mono tracking-wider uppercase text-ink-muted">
               <div className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
                 <span className="text-ink-primary font-medium">{profile.fullName}</span>
@@ -191,30 +192,58 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Bottom Monochrome SVG Stack Strip with Gradient Edge Masks */}
-      <div className="mt-14 pt-8 border-t border-border-subtle relative overflow-hidden">
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-r from-canvas to-transparent" />
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-l from-canvas to-transparent" />
+      {/* Bottom Monochrome SVG Stack Strip with Gradient Edge Masks & Right-to-Left Hover-Pause Marquee */}
+      <div className="mt-8 sm:mt-10 py-4 border-y border-border-subtle relative overflow-hidden marquee-container select-none group/marquee">
+        {/* Left & Right Smooth Edge Fade Masks */}
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-24 z-10 bg-gradient-to-r from-canvas via-canvas/80 to-transparent" />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-24 z-10 bg-gradient-to-l from-canvas via-canvas/80 to-transparent" />
 
-        <div className="flex items-center justify-between flex-wrap gap-6 sm:gap-10">
-          <span className="text-[10px] font-mono uppercase tracking-widest text-ink-muted">
-            Motion Production Suite:
-          </span>
+        <div className="flex items-center gap-6">
+          {/* Static Label on the Left */}
+          <div className="shrink-0 flex items-center gap-2 pr-4 border-r border-border-subtle z-20 bg-canvas">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+            <span className="text-[10px] font-mono uppercase tracking-widest text-ink-muted whitespace-nowrap">
+              Motion Production Suite:
+            </span>
+          </div>
 
-          <div className="flex items-center gap-6 sm:gap-10 flex-wrap">
-            {MONO_LOGOS.map((item, idx) => (
-              <div
-                key={idx}
-                className="flex items-center gap-2 text-ink-secondary hover:text-ink-primary transition-colors cursor-default group"
-              >
-                <div className="text-ink-muted group-hover:text-accent group-hover:scale-110 transition-all">
-                  {item.svg}
-                </div>
-                <span className="text-xs font-mono tracking-wider uppercase text-ink-muted group-hover:text-ink-primary transition-colors">
-                  {item.label}
-                </span>
+          {/* Continuous Infinite Marquee Track (Right to Left) */}
+          <div className="overflow-hidden flex-1">
+            <div className="animate-marquee-rtl group-hover/marquee:[animation-play-state:paused] flex items-center gap-10">
+              {/* Primary Group */}
+              <div className="flex items-center gap-10 shrink-0">
+                {MONO_LOGOS.map((item, idx) => (
+                  <div
+                    key={`suite-a-${idx}`}
+                    className="flex items-center gap-2 text-ink-secondary hover:text-ink-primary transition-colors cursor-pointer group/item shrink-0"
+                  >
+                    <div className="text-ink-muted group-hover/item:text-accent group-hover/item:scale-110 transition-all duration-200">
+                      {item.svg}
+                    </div>
+                    <span className="text-xs font-mono tracking-wider uppercase text-ink-muted group-hover/item:text-ink-primary transition-colors whitespace-nowrap">
+                      {item.label}
+                    </span>
+                  </div>
+                ))}
               </div>
-            ))}
+
+              {/* Seamless Duplicate Group for Infinite Loop */}
+              <div className="flex items-center gap-10 shrink-0" aria-hidden="true">
+                {MONO_LOGOS.map((item, idx) => (
+                  <div
+                    key={`suite-b-${idx}`}
+                    className="flex items-center gap-2 text-ink-secondary hover:text-ink-primary transition-colors cursor-pointer group/item shrink-0"
+                  >
+                    <div className="text-ink-muted group-hover/item:text-accent group-hover/item:scale-110 transition-all duration-200">
+                      {item.svg}
+                    </div>
+                    <span className="text-xs font-mono tracking-wider uppercase text-ink-muted group-hover/item:text-ink-primary transition-colors whitespace-nowrap">
+                      {item.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

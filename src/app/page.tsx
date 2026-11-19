@@ -27,17 +27,17 @@ export default function Home() {
         {/* [3] Interactive Graph Editor Easing Lab (Real AE Curve Physics) */}
         <MotionPlaygroundSection />
 
-        {/* [4] Consolidated Capabilities & Production Standards (4 Luxury Bento Cards) */}
+        {/* [4] Consolidated Capabilities and Production Standards (4 Luxury Bento Cards) */}
         <ServicesBentoSection />
 
-        {/* [5] Verified Credentials, 4-Step Cadence & Delivery Guarantees */}
+        {/* [5] Verified Credentials, 4-Step Cadence and Delivery Guarantees */}
         <ProcessSection />
 
-        {/* [6] Secure Interactive Project Scoper & Concise 4-Item FAQ */}
+        {/* [6] Secure Interactive Project Scoper and Concise 4-Item FAQ */}
         <ProjectInquirySection />
       </div>
 
-      {/* [7] Clean Closing Gateway & Footer with Universal Return Gateway */}
+      {/* [7] Clean Closing Gateway and Footer with Universal Return Gateway */}
       <Footer />
     </main>
   );

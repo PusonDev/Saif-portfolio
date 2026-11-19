@@ -6,13 +6,14 @@
 
 :root,
 .dark {
-  /* Dark Luxury System (Default) */
+  /* Dark Luxury System (Default) - Seamless Invisible-Box & Hairline Tokens */
   --bg-canvas: #09090B;
-  --bg-surface-1: rgba(24, 24, 27, 0.65);
-  --bg-surface-solid: #121215;
-  --bg-surface-2: #18181B;
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.16);
+  --bg-surface-1: rgba(255, 255, 255, 0.015);
+  --bg-surface-hover: rgba(255, 255, 255, 0.035);
+  --bg-surface-solid: #111114;
+  --bg-surface-2: #141418;
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --border-strong: rgba(255, 255, 255, 0.1);
   --text-primary: #FAFAFA;
   --text-secondary: #A1A1AA;
   --text-muted: #71717A;
@@ -30,13 +31,14 @@
 }
 
 .light {
-  /* Clean Architectural Light System */
+  /* Clean Architectural Light System - Invisible-Box & Hairline Tokens */
   --bg-canvas: #FAFAFA;
-  --bg-surface-1: rgba(255, 255, 255, 0.9);
+  --bg-surface-1: rgba(0, 0, 0, 0.015);
+  --bg-surface-hover: rgba(0, 0, 0, 0.035);
   --bg-surface-solid: #FFFFFF;
   --bg-surface-2: #F4F4F5;
-  --border-subtle: #E4E4E7;
-  --border-strong: #D4D4D8;
+  --border-subtle: rgba(24, 24, 27, 0.06);
+  --border-strong: rgba(24, 24, 27, 0.12);
   --text-primary: #18181B;
   --text-secondary: #52525B;
   --text-muted: #71717A;
@@ -104,17 +106,16 @@ body {
   border-radius: 9999px;
 }
 
-/* Dark Luxury Card Base */
+/* Seamless Invisible-Box & Hairline Editorial Surfaces */
 .luxury-card {
   position: relative;
   background-color: var(--bg-surface-1);
   border: 1px solid var(--border-subtle);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .luxury-card:hover {
+  background-color: var(--bg-surface-hover);
   border-color: var(--border-strong);
 }
 
@@ -125,12 +126,12 @@ body {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.25) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.15) 50%, transparent 100%);
   pointer-events: none;
 }
 
 .light .specular-top-light {
-  background: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.08) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.06) 50%, transparent 100%);
 }
 
 /* 3D Hardware Perspective Stage */
@@ -143,23 +144,37 @@ body {
   transform-style: preserve-3d;
 }
 
-/* Hardware-Accelerated Smooth Marquee */
-@keyframes marquee {
+/* Hardware-Accelerated Smooth Marquee (Right to Left) */
+@keyframes marquee-rtl {
   0% {
-    transform: translateX(0%);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
+.animate-marquee-rtl,
 .animate-marquee {
-  animation: marquee 24s linear infinite;
+  display: flex;
+  width: max-content;
+  animation: marquee-rtl 22s linear infinite;
   will-change: transform;
 }
 
+.marquee-container:hover .animate-marquee-rtl,
+.marquee-container:hover .animate-marquee,
+.animate-marquee-rtl:hover,
 .animate-marquee:hover {
-  animation-play-state: paused;
+  animation-play-state: paused !important;
+}
+
+/* Seamless Portrait Canvas Blend Vignette */
+.portrait-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to top, var(--bg-canvas) 0%, transparent 45%, transparent 100%);
 }
 
 /* Custom Cursor Optimization */

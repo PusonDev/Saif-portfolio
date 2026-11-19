@@ -41,10 +41,10 @@ export function MotionPlaygroundSection() {
   };
 
   return (
-    <section id="playground" className="py-20 sm:py-28 px-5 sm:px-8 max-w-5xl mx-auto w-full">
+    <section id="playground" className="py-10 sm:py-14 px-5 sm:px-8 max-w-5xl mx-auto w-full scroll-mt-20">
       {/* Section Header */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12 pb-6 border-b border-border-subtle">
-        <div className="space-y-1.5">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-5 sm:mb-7 pb-4 border-b border-white/[0.05]">
+        <div className="space-y-1">
           <div className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-accent">
             <Activity className="w-3.5 h-3.5" />
             <span>03 / Easing Lab</span>
@@ -60,16 +60,16 @@ export function MotionPlaygroundSection() {
       </div>
 
       {/* Playground Stage Card */}
-      <div className="luxury-card rounded-2xl sm:rounded-3xl p-6 sm:p-10 border border-border-subtle bg-surface-1 shadow-2xl relative overflow-hidden">
+      <div className="rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/[0.05] bg-white/[0.015] relative overflow-hidden">
         <div className="specular-top-light" />
 
         {/* Top Control Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-8 border-b border-border-subtle">
+        <div className="flex flex-wrap items-center justify-between gap-4 pb-5 mb-6 border-b border-white/[0.05]">
           <div className="flex items-center gap-2.5">
             <span className="text-xs font-mono uppercase tracking-wider text-ink-muted">
               Select Curve:
             </span>
-            <div className="flex rounded-xl bg-surface-2 p-1 border border-border-subtle">
+            <div className="flex rounded-xl bg-white/[0.03] p-1 border border-white/[0.06]">
               {(["cinema", "snappy", "smooth"] as const).map((type) => (
                 <button
                   key={type}
@@ -90,14 +90,14 @@ export function MotionPlaygroundSection() {
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5">
             <button
               type="button"
               onClick={() => {
                 setActivePhrase((prev) => (prev + 1) % PHRASES.length);
                 setPlayTrigger((prev) => prev + 1);
               }}
-              className="px-3.5 py-1.5 rounded-lg border border-border-subtle bg-surface-2 text-xs font-mono uppercase tracking-wider text-ink-secondary hover:text-ink-primary transition-colors cursor-pointer"
+              className="px-3.5 py-1.5 rounded-lg border border-white/[0.06] bg-white/[0.02] text-xs font-mono uppercase tracking-wider text-ink-secondary hover:text-ink-primary transition-colors cursor-pointer"
             >
               Next Phrase
             </button>
@@ -114,15 +114,15 @@ export function MotionPlaygroundSection() {
         </div>
 
         {/* Visual Animation Stage */}
-        <div className="relative min-h-[220px] sm:min-h-[260px] rounded-xl bg-surface-2/60 border border-border-subtle flex flex-col items-center justify-center p-8 overflow-hidden select-none">
+        <div className="relative min-h-[200px] sm:min-h-[240px] rounded-xl bg-white/[0.015] border border-white/[0.04] flex flex-col items-center justify-center p-6 sm:p-8 overflow-hidden select-none">
           {/* Subtle Grid Stage */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--border-subtle)_1px,transparent_1px),linear-gradient(to_bottom,var(--border-subtle)_1px,transparent_1px)] bg-[size:3rem_3rem] opacity-20 pointer-events-none" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:3rem_3rem] pointer-events-none" />
 
           {/* Masked Animated Kinetic Text */}
           <div className="overflow-hidden relative z-10 text-center">
             <motion.div
               key={`${playTrigger}-${easingType}-${activePhrase}`}
-              initial={{ y: 75, opacity: 0 }}
+              initial={{ y: 65, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={easingConfigs[easingType].transition}
               className="space-y-1"
@@ -137,7 +137,7 @@ export function MotionPlaygroundSection() {
           </div>
 
           {/* Timeline Playhead Simulation */}
-          <div className="absolute bottom-4 left-6 right-6 flex items-center justify-between text-[10px] font-mono uppercase tracking-wider text-ink-muted">
+          <div className="absolute bottom-3 left-5 right-5 flex items-center justify-between text-[10px] font-mono uppercase tracking-wider text-ink-muted">
             <span className="text-accent">00:00:12:08</span>
             <span>Graph Editor: {easingConfigs[easingType].curve}</span>
             <span>60.00 FPS</span>
@@ -145,7 +145,7 @@ export function MotionPlaygroundSection() {
         </div>
 
         {/* Easing Explainer Footer */}
-        <div className="mt-6 pt-4 border-t border-border-subtle flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono">
+        <div className="mt-5 pt-3.5 border-t border-white/[0.05] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 text-xs font-mono">
           <div className="flex items-center gap-2 text-ink-secondary">
             <Cpu className="w-3.5 h-3.5 text-accent" />
             <span className="font-medium text-ink-primary">{easingConfigs[easingType].name}:</span>

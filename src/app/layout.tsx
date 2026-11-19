@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://saif.zenvq.com"),
-  title: "MD Saifuddin — Motion Designer | UI Motion, SaaS Animation & Kinetic Typography",
+  title: "MD Saifuddin — Motion Designer | UI Motion, SaaS Animation and Kinetic Typography",
   description: "Portfolio of MD Saifuddin, Motion Designer crafting UI motion graphics, SaaS animations, logo animations, kinetic typography and promotional reels for SaaS products, gaming brands and social platforms.",
   keywords: [
     "MD Saifuddin",
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://saif.zenvq.com",
-    title: "MD Saifuddin — Motion Designer | Kinetic Typography & Reels",
+    title: "MD Saifuddin — Motion Designer | Kinetic Typography and Reels",
     description: "Portfolio of MD Saifuddin, Motion Designer crafting kinetic typography, short-form reels and visual storytelling in Adobe Creative Suite.",
     siteName: "MD Saifuddin Motion Portfolio",
     images: [
       {
         url: "/images/saif-portrait.webp",
-        width: 1024,
-        height: 768,
+        width: 824,
+        height: 1024,
         alt: "MD Saifuddin — Motion Designer",
       },
     ],
@@ -104,7 +104,7 @@ export default function RootLayout({
       {
         "@type": "Service",
         "@id": "https://saif.zenvq.com/#service",
-        name: "Motion Design & Kinetic Typography Production",
+        name: "Motion Design and Kinetic Typography Production",
         provider: {
           "@id": "https://saif.zenvq.com/#person",
         },
@@ -118,7 +118,7 @@ export default function RootLayout({
               "@type": "Offer",
               itemOffered: {
                 "@type": "Service",
-                name: "Kinetic Typography & Titles",
+                name: "Kinetic Typography and Titles",
               },
             },
             {
@@ -132,7 +132,7 @@ export default function RootLayout({
               "@type": "Offer",
               itemOffered: {
                 "@type": "Service",
-                name: "Vector Staging & Visual Transitions",
+                name: "Vector Staging and Visual Transitions",
               },
             },
           ],
@@ -163,7 +163,7 @@ export default function RootLayout({
         />
         {/* Preload High-Priority Studio Portrait WebP Asset */}
         <link rel="preload" as="image" href="/images/saif-portrait.webp" type="image/webp" />
-        {/* Advanced JSON-LD Structured Data for AI Search Engines & Google Knowledge Graph */}
+        {/* Advanced JSON-LD Structured Data for AI Search Engines and Google Knowledge Graph */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}

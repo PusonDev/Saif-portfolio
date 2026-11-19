@@ -2,9 +2,23 @@
 
 import React, { useState } from "react";
 import { portfolioData } from "@/data/portfolioData";
-import { motion } from "framer-motion";
 import { z } from "zod";
-import { Sliders, HelpCircle, ChevronDown, MessageCircle, Send, Copy, Check, ShieldCheck, AlertCircle } from "lucide-react";
+import {
+  Sliders,
+  HelpCircle,
+  ChevronDown,
+  MessageCircle,
+  Send,
+  Copy,
+  Check,
+  AlertCircle,
+  Mail,
+  Phone,
+  Instagram,
+  FileDown,
+  MapPin,
+  ArrowUpRight,
+} from "lucide-react";
 
 // Strict Zod Validation Schema
 const ScopingSchema = z.object({
@@ -39,7 +53,8 @@ export function ProjectInquirySection() {
 
   const [validationError, setValidationError] = useState<string | null>(null);
   const [rateLimitCooldown, setRateLimitCooldown] = useState(false);
-  const [copied, setCopied] = useState(false);
+  const [copiedBrief, setCopiedBrief] = useState(false);
+  const [copiedEmail, setCopiedEmail] = useState(false);
 
   // Accordion State (Single open at a time)
   const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -129,8 +144,14 @@ export function ProjectInquirySection() {
     const brief = validateAndGenerateBrief();
     if (!brief) return;
     navigator.clipboard.writeText(brief);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2200);
+    setCopiedBrief(true);
+    setTimeout(() => setCopiedBrief(false), 2200);
+  };
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(profile.email);
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2200);
   };
 
   // Schema.org FAQPage JSON-LD
@@ -148,7 +169,7 @@ export function ProjectInquirySection() {
   };
 
   return (
-    <section id="contact" className="py-20 sm:py-28 px-5 sm:px-8 max-w-5xl mx-auto w-full">
+    <section id="contact" className="py-10 sm:py-14 px-5 sm:px-8 max-w-5xl mx-auto w-full scroll-mt-20">
       {/* Schema.org FAQPage structured data */}
       <script
         type="application/ld+json"
@@ -156,14 +177,14 @@ export function ProjectInquirySection() {
       />
 
       {/* Section Header */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14 pb-6 border-b border-border-subtle">
-        <div className="space-y-1.5">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-5 sm:mb-7 pb-4 border-b border-white/[0.05]">
+        <div className="space-y-1">
           <div className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-accent">
             <Sliders className="w-3.5 h-3.5" />
-            <span>06 / Project Scoper & FAQs</span>
+            <span>06 / Project Scoper and Contact</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-ink-primary">
-            Scope your project & review direct <span className="font-serif italic font-normal">terms.</span>
+            Scope your project and review direct <span className="font-serif italic font-normal">terms.</span>
           </h2>
         </div>
 
@@ -172,15 +193,15 @@ export function ProjectInquirySection() {
         </span>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
         {/* =========================================================================
             LEFT COLUMN: Direct Interactive Scoping Widget (7 Cols)
             ========================================================================= */}
         <div className="lg:col-span-7">
-          <div className="luxury-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-border-subtle bg-surface-1 shadow-2xl relative overflow-hidden space-y-6">
+          <div className="rounded-2xl sm:rounded-3xl p-6 sm:p-7 border border-white/[0.05] bg-white/[0.015] relative overflow-hidden space-y-5">
             <div className="specular-top-light" />
 
-            <div className="flex items-center justify-between pb-3 border-b border-border-subtle text-xs font-mono">
+            <div className="flex items-center justify-between pb-3 border-b border-white/[0.05] text-xs font-mono">
               <span className="text-accent uppercase tracking-wider font-semibold">Motion Project Scoper</span>
               <span className="text-ink-muted">Direct to Saifuddin</span>
             </div>
@@ -194,20 +215,20 @@ export function ProjectInquirySection() {
             )}
 
             {/* Step 1: Project Type */}
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               <label className="text-xs font-mono uppercase tracking-wider text-ink-muted">
                 1. Select Motion Type:
               </label>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1.5">
                 {PROJECT_TYPES.map((t) => (
                   <button
                     key={t}
                     type="button"
                     onClick={() => setProjectType(t)}
-                    className={`px-3 py-1.5 rounded-xl text-xs font-mono uppercase tracking-wider transition-all duration-200 border cursor-pointer ${
+                    className={`px-3 py-1.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all duration-200 border cursor-pointer ${
                       projectType === t
                         ? "bg-accent text-zinc-950 font-semibold border-accent shadow-xs"
-                        : "bg-surface-2 border-border-subtle text-ink-secondary hover:text-ink-primary hover:border-border-strong"
+                        : "bg-white/[0.02] border-white/[0.06] text-ink-secondary hover:text-ink-primary hover:border-white/[0.12]"
                     }`}
                   >
                     {t}
@@ -217,20 +238,20 @@ export function ProjectInquirySection() {
             </div>
 
             {/* Step 2: Format Output */}
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               <label className="text-xs font-mono uppercase tracking-wider text-ink-muted">
                 2. Target Aspect Ratio:
               </label>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1.5">
                 {FORMATS.map((f) => (
                   <button
                     key={f}
                     type="button"
                     onClick={() => setFormat(f)}
-                    className={`px-3 py-1.5 rounded-xl text-xs font-mono uppercase tracking-wider transition-all duration-200 border cursor-pointer ${
+                    className={`px-3 py-1.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all duration-200 border cursor-pointer ${
                       format === f
                         ? "bg-accent text-zinc-950 font-semibold border-accent shadow-xs"
-                        : "bg-surface-2 border-border-subtle text-ink-secondary hover:text-ink-primary hover:border-border-strong"
+                        : "bg-white/[0.02] border-white/[0.06] text-ink-secondary hover:text-ink-primary hover:border-white/[0.12]"
                     }`}
                   >
                     {f}
@@ -240,20 +261,20 @@ export function ProjectInquirySection() {
             </div>
 
             {/* Step 3: Target Timeline */}
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               <label className="text-xs font-mono uppercase tracking-wider text-ink-muted">
                 3. Production Timeline:
               </label>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1.5">
                 {TIMELINES.map((tm) => (
                   <button
                     key={tm}
                     type="button"
                     onClick={() => setTimeline(tm)}
-                    className={`px-3 py-1.5 rounded-xl text-xs font-mono uppercase tracking-wider transition-all duration-200 border cursor-pointer ${
+                    className={`px-3 py-1.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all duration-200 border cursor-pointer ${
                       timeline === tm
                         ? "bg-accent text-zinc-950 font-semibold border-accent shadow-xs"
-                        : "bg-surface-2 border-border-subtle text-ink-secondary hover:text-ink-primary hover:border-border-strong"
+                        : "bg-white/[0.02] border-white/[0.06] text-ink-secondary hover:text-ink-primary hover:border-white/[0.12]"
                     }`}
                   >
                     {tm}
@@ -275,8 +296,8 @@ export function ProjectInquirySection() {
             />
 
             {/* Step 4: Client Inputs */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <div className="space-y-1.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+              <div className="space-y-1">
                 <label className="text-xs font-mono uppercase tracking-wider text-ink-muted">
                   Your Name *
                 </label>
@@ -285,11 +306,11 @@ export function ProjectInquirySection() {
                   placeholder="e.g. Alex Vance"
                   value={clientName}
                   onChange={(e) => setClientName(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-surface-2 border border-border-subtle text-sm text-ink-primary placeholder:text-ink-muted focus:outline-hidden focus:border-accent"
+                  className="w-full px-3.5 py-2 rounded-lg bg-white/[0.02] border border-white/[0.06] text-sm text-ink-primary placeholder:text-ink-muted focus:outline-hidden focus:border-accent"
                 />
               </div>
 
-              <div className="space-y-1.5">
+              <div className="space-y-1">
                 <label className="text-xs font-mono uppercase tracking-wider text-ink-muted">
                   WhatsApp or Email *
                 </label>
@@ -298,12 +319,12 @@ export function ProjectInquirySection() {
                   placeholder="e.g. +1 555... or name@co.com"
                   value={contactHandle}
                   onChange={(e) => setContactHandle(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-surface-2 border border-border-subtle text-sm text-ink-primary placeholder:text-ink-muted focus:outline-hidden focus:border-accent"
+                  className="w-full px-3.5 py-2 rounded-lg bg-white/[0.02] border border-white/[0.06] text-sm text-ink-primary placeholder:text-ink-muted focus:outline-hidden focus:border-accent"
                 />
               </div>
             </div>
 
-            <div className="space-y-1.5">
+            <div className="space-y-1">
               <label className="text-xs font-mono uppercase tracking-wider text-ink-muted">
                 Brief Scope Note (Optional)
               </label>
@@ -312,16 +333,16 @@ export function ProjectInquirySection() {
                 placeholder="Mention script length, visual references or project goals..."
                 value={projectBrief}
                 onChange={(e) => setProjectBrief(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-surface-2 border border-border-subtle text-sm text-ink-primary placeholder:text-ink-muted focus:outline-hidden focus:border-accent resize-none"
+                className="w-full px-3.5 py-2 rounded-lg bg-white/[0.02] border border-white/[0.06] text-sm text-ink-primary placeholder:text-ink-muted focus:outline-hidden focus:border-accent resize-none"
               />
             </div>
 
             {/* Action Buttons */}
-            <div className="pt-2 space-y-2.5">
+            <div className="pt-2 space-y-2">
               <button
                 type="button"
                 onClick={handleWhatsAppSend}
-                className="w-full py-3 px-4 rounded-xl bg-cta-bg text-cta-text hover:opacity-90 text-xs font-mono uppercase tracking-wider flex items-center justify-center gap-2 font-semibold cursor-pointer shadow-sm transition-opacity"
+                className="w-full py-2.5 px-4 rounded-xl bg-cta-bg text-cta-text hover:opacity-90 text-xs font-mono uppercase tracking-wider flex items-center justify-center gap-2 font-semibold cursor-pointer shadow-xs transition-opacity"
               >
                 <MessageCircle className="w-4 h-4 text-accent" />
                 <span>Send Scope via WhatsApp</span>
@@ -331,7 +352,7 @@ export function ProjectInquirySection() {
                 <button
                   type="button"
                   onClick={handleEmailSend}
-                  className="py-2.5 px-3 rounded-xl bg-surface-2 border border-border-subtle hover:border-border-strong text-xs font-mono uppercase tracking-wider text-ink-primary flex items-center justify-center gap-1.5 cursor-pointer transition-colors"
+                  className="py-2 px-3 rounded-lg bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.15] text-xs font-mono uppercase tracking-wider text-ink-primary flex items-center justify-center gap-1.5 cursor-pointer transition-colors"
                 >
                   <Send className="w-3.5 h-3.5 text-accent" />
                   <span>Send Email</span>
@@ -340,9 +361,9 @@ export function ProjectInquirySection() {
                 <button
                   type="button"
                   onClick={handleCopyBrief}
-                  className="py-2.5 px-3 rounded-xl bg-surface-2 border border-border-subtle hover:border-border-strong text-xs font-mono uppercase tracking-wider text-ink-primary flex items-center justify-center gap-1.5 cursor-pointer transition-colors"
+                  className="py-2 px-3 rounded-lg bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.15] text-xs font-mono uppercase tracking-wider text-ink-primary flex items-center justify-center gap-1.5 cursor-pointer transition-colors"
                 >
-                  {copied ? (
+                  {copiedBrief ? (
                     <>
                       <Check className="w-3.5 h-3.5 text-accent" />
                       <span className="text-accent font-medium">Copied!</span>
@@ -360,73 +381,157 @@ export function ProjectInquirySection() {
         </div>
 
         {/* =========================================================================
-            RIGHT COLUMN: Concise 4-Item Single-Accordion FAQ (5 Cols)
+            RIGHT COLUMN: Direct Contact Ledger + 4-Item FAQ Accordion (5 Cols)
             ========================================================================= */}
         <div className="lg:col-span-5 space-y-4">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-ink-muted pb-2">
-            <HelpCircle className="w-4 h-4 text-accent" />
-            <span>Frequently Asked Questions</span>
-          </div>
+          {/* Direct Contact Ledger Card */}
+          <div className="rounded-2xl p-5 border border-white/[0.05] bg-white/[0.015] relative overflow-hidden space-y-3">
+            <div className="specular-top-light" />
 
-          <div className="space-y-3">
-            {faqs.map((faq, idx) => {
-              const isOpen = openFaq === idx;
-              return (
-                <div
-                  key={idx}
-                  className={`luxury-card rounded-2xl border transition-all duration-200 overflow-hidden relative ${
-                    isOpen
-                      ? "border-accent/80 bg-surface-1 shadow-md"
-                      : "border-border-subtle bg-surface-1 hover:border-border-strong"
-                  }`}
-                >
-                  <div className="specular-top-light" />
+            <div className="flex items-center justify-between pb-2 border-b border-white/[0.05] text-xs font-mono">
+              <span className="text-accent uppercase tracking-wider font-semibold">Direct Contact Channels</span>
+              <span className="text-ink-muted">Verified</span>
+            </div>
 
+            <div className="space-y-2 text-xs font-mono">
+              {/* Email */}
+              <div className="flex items-center justify-between py-1 border-b border-white/[0.04]">
+                <div className="flex items-center gap-2 text-ink-muted">
+                  <Mail className="w-3.5 h-3.5 text-accent" />
+                  <span>Email:</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <a
+                    href={`mailto:${profile.email}`}
+                    className="text-ink-primary hover:text-accent transition-colors"
+                  >
+                    {profile.email}
+                  </a>
                   <button
                     type="button"
-                    onClick={() => setOpenFaq(isOpen ? null : idx)}
-                    aria-expanded={isOpen}
-                    className="w-full p-5 text-left flex items-center justify-between gap-3 cursor-pointer"
+                    onClick={handleCopyEmail}
+                    title="Copy Email"
+                    className="p-1 rounded hover:bg-white/[0.05] text-ink-muted hover:text-accent transition-colors cursor-pointer"
                   >
-                    <div className="flex items-center gap-2.5">
-                      <span className="text-xs font-mono text-accent">
-                        0{idx + 1}
-                      </span>
-                      <span className="text-xs sm:text-sm font-semibold text-ink-primary tracking-tight">
-                        {faq.question}
-                      </span>
-                    </div>
-
-                    <div
-                      className={`w-6 h-6 rounded-full bg-surface-2 flex items-center justify-center shrink-0 transition-transform duration-200 ${
-                        isOpen ? "rotate-180 text-accent" : "text-ink-muted"
-                      }`}
-                    >
-                      <ChevronDown className="w-3.5 h-3.5" />
-                    </div>
+                    {copiedEmail ? <Check className="w-3 h-3 text-accent" /> : <Copy className="w-3 h-3" />}
                   </button>
-
-                  {isOpen && (
-                    <div className="px-5 pb-5 pt-1 text-xs text-ink-secondary leading-relaxed border-t border-border-subtle/50 font-normal">
-                      {faq.answer}
-                    </div>
-                  )}
                 </div>
-              );
-            })}
+              </div>
+
+              {/* Phone & WhatsApp */}
+              <div className="flex items-center justify-between py-1 border-b border-white/[0.04]">
+                <div className="flex items-center gap-2 text-ink-muted">
+                  <Phone className="w-3.5 h-3.5 text-accent" />
+                  <span>Phone / WA:</span>
+                </div>
+                <a
+                  href={profile.whatsappUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-ink-primary hover:text-accent transition-colors inline-flex items-center gap-1"
+                >
+                  <span>{profile.phone}</span>
+                  <ArrowUpRight className="w-3 h-3 text-accent" />
+                </a>
+              </div>
+
+              {/* Instagram */}
+              <div className="flex items-center justify-between py-1 border-b border-white/[0.04]">
+                <div className="flex items-center gap-2 text-ink-muted">
+                  <Instagram className="w-3.5 h-3.5 text-accent" />
+                  <span>Instagram:</span>
+                </div>
+                <a
+                  href={profile.instagramUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-ink-primary hover:text-accent transition-colors inline-flex items-center gap-1"
+                >
+                  <span>{profile.instagramHandle}</span>
+                  <ArrowUpRight className="w-3 h-3 text-accent" />
+                </a>
+              </div>
+
+              {/* Resume Download */}
+              <div className="flex items-center justify-between py-1 border-b border-white/[0.04]">
+                <div className="flex items-center gap-2 text-ink-muted">
+                  <FileDown className="w-3.5 h-3.5 text-accent" />
+                  <span>CV Document:</span>
+                </div>
+                <a
+                  href={profile.resumePdfUrl}
+                  download="MD-SAIFUDDIN-Resume.pdf"
+                  className="text-accent hover:underline inline-flex items-center gap-1 font-medium"
+                >
+                  <span>Download PDF ↗</span>
+                </a>
+              </div>
+
+              {/* Location */}
+              <div className="flex items-center justify-between py-1">
+                <div className="flex items-center gap-2 text-ink-muted">
+                  <MapPin className="w-3.5 h-3.5 text-accent" />
+                  <span>Base:</span>
+                </div>
+                <span className="text-ink-secondary">{profile.location}</span>
+              </div>
+            </div>
           </div>
 
-          {/* Direct WhatsApp Pill */}
-          <div className="p-4 rounded-xl bg-surface-1 border border-border-subtle flex items-center justify-between text-xs font-mono">
-            <span className="text-ink-muted">Have a specific launch date?</span>
-            <a
-              href={profile.whatsappUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="text-accent hover:underline inline-flex items-center gap-1 font-medium"
-            >
-              <span>Chat Direct ↗</span>
-            </a>
+          {/* FAQ Accordion */}
+          <div className="space-y-2">
+            <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-ink-muted px-1">
+              <HelpCircle className="w-3.5 h-3.5 text-accent" />
+              <span>Frequently Asked Questions</span>
+            </div>
+
+            <div className="space-y-2">
+              {faqs.map((faq, idx) => {
+                const isOpen = openFaq === idx;
+                return (
+                  <div
+                    key={idx}
+                    className={`rounded-xl border transition-all duration-200 overflow-hidden relative ${
+                      isOpen
+                        ? "border-white/[0.12] bg-white/[0.025]"
+                        : "border-white/[0.05] bg-white/[0.015] hover:border-white/[0.08]"
+                    }`}
+                  >
+                    <div className="specular-top-light" />
+
+                    <button
+                      type="button"
+                      onClick={() => setOpenFaq(isOpen ? null : idx)}
+                      aria-expanded={isOpen}
+                      className="w-full p-4 text-left flex items-center justify-between gap-3 cursor-pointer"
+                    >
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-mono text-accent">
+                          0{idx + 1}
+                        </span>
+                        <span className="text-xs sm:text-sm font-semibold text-ink-primary tracking-tight">
+                          {faq.question}
+                        </span>
+                      </div>
+
+                      <div
+                        className={`w-5 h-5 rounded-full bg-white/[0.03] flex items-center justify-center shrink-0 transition-transform duration-200 ${
+                          isOpen ? "rotate-180 text-accent" : "text-ink-muted"
+                        }`}
+                      >
+                        <ChevronDown className="w-3 h-3" />
+                      </div>
+                    </button>
+
+                    {isOpen && (
+                      <div className="px-4 pb-4 pt-1 text-xs text-ink-secondary leading-relaxed border-t border-white/[0.04] font-normal">
+                        {faq.answer}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

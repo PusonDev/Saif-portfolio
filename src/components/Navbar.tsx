@@ -18,12 +18,12 @@ export function Navbar() {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 flex justify-center px-4 sm:px-6 pt-3.5 sm:pt-4 transition-all duration-300">
+    <header className="fixed top-0 left-0 right-0 z-40 flex justify-center px-4 sm:px-6 pt-3 transition-all duration-300">
       <nav
-        className={`w-full max-w-5xl transition-all duration-300 rounded-full px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between border ${
+        className={`w-full max-w-5xl h-14 transition-all duration-300 rounded-full px-4 sm:px-6 flex items-center justify-between border ${
           isScrolled
             ? "bg-canvas/90 backdrop-blur-xl border-border-strong shadow-lg"
-            : "bg-surface-1/70 backdrop-blur-md border-border-subtle"
+            : "bg-surface-1/90 backdrop-blur-md border-border-subtle"
         }`}
       >
         {/* Brand Wordmark + Universal Return Gateway */}

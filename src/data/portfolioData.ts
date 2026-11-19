@@ -61,13 +61,13 @@ export const portfolioData = {
     { label: "Easing Lab", href: "#playground" },
     { label: "Capabilities", href: "#services" },
     { label: "Process", href: "#process" },
-    { label: "Scope", href: "#contact" },
+    { label: "Contact", href: "#contact" },
   ],
   works: [
     {
       id: "ui-motion-saas",
       index: "01",
-      title: "UI Motion, SaaS Animation & Kinetic Typography",
+      title: "UI Motion, SaaS Animation and Kinetic Typography",
       italicTitle: "Flow",
       category: "UI Motion & SaaS",
       description: "Interactive SaaS product interface motion and kinetic typography choreography engineered in After Effects.",
@@ -78,7 +78,7 @@ export const portfolioData = {
     {
       id: "gaming-social-reels",
       index: "02",
-      title: "Promotional Reels for Gaming Brands & Social Platforms",
+      title: "Promotional Reels for Gaming Brands and Social Platforms",
       italicTitle: "Hooks",
       category: "Gaming & Social",
       description: "High-retention 9:16 promotional reel pacing built for SaaS launches, gaming channels, Instagram Reels and YouTube Shorts.",
@@ -89,7 +89,7 @@ export const portfolioData = {
     {
       id: "logo-vector-transitions",
       index: "03",
-      title: "Logo Animations, Vector Staging & Transitions",
+      title: "Logo Animations, Vector Staging and Transitions",
       italicTitle: "Depth",
       category: "Logo & Staging",
       description: "Layered vector logo reveals and transitions prepared in Illustrator and Photoshop, animated in After Effects and rendered via Media Encoder.",
@@ -101,28 +101,28 @@ export const portfolioData = {
   capabilities: [
     {
       index: "01",
-      title: "UI Motion & SaaS Animation",
+      title: "UI Motion and SaaS Animation",
       description: "Interactive product teasers, dashboard walkthroughs and clean UI motion built for SaaS launches.",
       tools: ["After Effects", "UI Motion"],
       highlight: "SaaS Launches",
     },
     {
       index: "02",
-      title: "Kinetic Typography & Logo Animation",
+      title: "Kinetic Typography and Logo Animation",
       description: "Expressive text choreography, custom brand logo reveals and weighted Graph Editor easing.",
       tools: ["After Effects", "Illustrator"],
       highlight: "Brand Identity",
     },
     {
       index: "03",
-      title: "Gaming & Social Promotional Reels",
+      title: "Gaming and Social Promotional Reels",
       description: "High-retention 9:16 and 16:9 promotional videos engineered for gaming brands, creators and social platforms.",
       tools: ["After Effects", "Photoshop"],
       highlight: "High Retention",
     },
     {
       index: "04",
-      title: "Vector Staging & Media Encoder Masters",
+      title: "Vector Staging and Media Encoder Masters",
       description: "End-to-end vector prep in Illustrator and Photoshop to crisp multi-platform ProRes/MP4 exports and organized .AEP source handover.",
       tools: ["Illustrator", "Media Encoder"],
       highlight: "Clean Source",
@@ -131,14 +131,14 @@ export const portfolioData = {
   processCadence: [
     {
       step: "01",
-      title: "Brief & Visual Direction",
+      title: "Brief and Visual Direction",
       description: "Analyzing script narrative, pacing benchmarks and typography moodboard before opening project files.",
       deliverable: "Visual Direction Sheet",
       tools: "Concept Framing",
     },
     {
       step: "02",
-      title: "Vector & Typography Prep",
+      title: "Vector and Typography Prep",
       description: "Designing vector artwork, text styles and layered assets in Illustrator and Photoshop for crisp scaling.",
       deliverable: "Layered Vector Artboards",
       tools: "Illustrator · Photoshop",
@@ -152,7 +152,7 @@ export const portfolioData = {
     },
     {
       step: "04",
-      title: "Voiceover Sync & Final Masters",
+      title: "Voiceover Sync and Final Masters",
       description: "Locking visual hits to spoken narration beats, rendering 4K/1080p outputs and packaging organized .AEP files.",
       deliverable: "Masters + Clean Source",
       tools: "Media Encoder",
@@ -188,7 +188,7 @@ export const portfolioData = {
     strengths: [
       "Creative Thinking",
       "Time Management",
-      "Adaptability & Continuous Learning",
+      "Adaptability and Continuous Learning",
     ],
     interests: [
       "Motion Design",
@@ -218,7 +218,7 @@ export const portfolioData = {
     },
     {
       question: "In what resolutions and aspect ratios do you export?",
-      answer: "I export in full 1080p and 4K ProRes or web-optimized H.264 via Adobe Media Encoder, tailored for both 9:16 vertical (Instagram Reels, Shorts) and 16:9 widescreen (Web, YouTube).",
+      answer: "I export in full 1080p and 4K ProRes or web-optimized H.264 via Adobe Media Encoder, tailored for both 9:16 vertical (Instagram Reels and YouTube Shorts) and 16:9 widescreen (Web and YouTube).",
     },
   ] as FAQItem[],
 };
