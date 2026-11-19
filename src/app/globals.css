@@ -121,3 +121,23 @@ body {
   background-color: var(--bg-surface-1);
   overflow: hidden;
 }
+
+/* Hardware-Accelerated Smooth Marquee */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
