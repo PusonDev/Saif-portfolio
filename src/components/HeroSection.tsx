@@ -92,37 +92,22 @@ export function HeroSection() {
 
           {/* Single Semantic <h1> Law */}
           <div className="space-y-1">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-ink-primary leading-[1.08]"
-            >
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-ink-primary leading-[1.08]">
               MD Saifuddin — <br />
               Clean, high-retention{" "}
               <span className="font-serif italic font-normal text-ink-primary">
                 motion.
               </span>
-            </motion.h1>
+            </h1>
           </div>
 
           {/* Concise 3-Line Plain-English Pitch */}
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-base sm:text-lg text-ink-secondary leading-relaxed max-w-xl font-normal"
-          >
+          <p className="text-base sm:text-lg text-ink-secondary leading-relaxed max-w-xl font-normal">
             Motion Designer crafting UI motion graphics, SaaS animations, logo animations, kinetic typography and promotional reels for SaaS products, gaming brands and social platforms.
-          </motion.p>
+          </p>
 
           {/* High-Acceptance Action Row */}
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-wrap items-center gap-2.5 pt-2 w-full"
-          >
+          <div className="flex flex-wrap items-center gap-2.5 pt-2 w-full">
             {/* Primary CTA */}
             <a
               href={profile.instagramUrl}
@@ -174,16 +159,11 @@ export function HeroSection() {
               <Download className="w-3.5 h-3.5 text-accent" />
               <span>Resume PDF ↓</span>
             </a>
-          </motion.div>
+          </div>
         </div>
 
         {/* Right Column: Dark Luxury Portrait Frame (6 Cols on Desktop) */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="lg:col-span-6 flex justify-center lg:justify-end w-full"
-        >
+        <div className="lg:col-span-6 flex justify-center lg:justify-end w-full">
           <div className="w-full max-w-lg lg:max-w-none luxury-card rounded-2xl shadow-xl group overflow-hidden">
             <div className="specular-top-light" />
 
@@ -208,7 +188,7 @@ export function HeroSection() {
               <span className="text-ink-secondary">Motion Designer · Dhaka</span>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Bottom Monochrome SVG Stack Strip with Gradient Edge Masks */}
