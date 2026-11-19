@@ -88,7 +88,7 @@ export function ProcessSection() {
                 <span className="text-accent">{credentials.experience.period}</span>
               </div>
               <p className="text-xs font-mono text-ink-muted">
-                Personal Motion Studio: {credentials.experience.handle}
+                Client & Creative Projects: {credentials.experience.handle}
               </p>
               <ul className="space-y-1.5 text-xs text-ink-secondary font-normal pt-1">
                 {credentials.experience.points.map((pt, idx) => (
@@ -120,10 +120,22 @@ export function ProcessSection() {
               </div>
             </div>
 
-            {/* Languages */}
+            {/* Languages (All 4 Verified) */}
+            <div className="pt-3 border-t border-border-subtle flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs font-mono">
+              <span className="text-ink-muted uppercase tracking-wider shrink-0">Languages:</span>
+              <span className="text-ink-primary font-medium text-right">{credentials.languages}</span>
+            </div>
+
+            {/* Professional Strengths */}
+            <div className="pt-3 border-t border-border-subtle flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs font-mono">
+              <span className="text-ink-muted uppercase tracking-wider shrink-0">Professional Skills:</span>
+              <span className="text-ink-secondary text-[11px] sm:text-right">{credentials.strengths.join(" · ")}</span>
+            </div>
+
+            {/* Interests */}
             <div className="pt-3 border-t border-border-subtle flex items-center justify-between text-xs font-mono">
-              <span className="text-ink-muted uppercase tracking-wider">Languages:</span>
-              <span className="text-ink-primary font-medium">{credentials.languages}</span>
+              <span className="text-ink-muted uppercase tracking-wider">Interests:</span>
+              <span className="text-ink-secondary text-[11px]">{credentials.interests.join(" · ")}</span>
             </div>
           </div>
 

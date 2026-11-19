@@ -5,32 +5,45 @@
 - Full Name: MD Saifuddin
 - Preferred Name: Saif
 - Professional Role: Motion Designer
-- Specialization: Kinetic Typography, 9:16 High-Retention Social Reels, Visual Storytelling and Vector Animation
+- Specialization: UI Motion Design, SaaS Animation, Kinetic Typography, Logo Animation, Gaming Promotional Reels and Vector Staging
 - Studio Location: Uttara, Dhaka, Bangladesh
 - Operating Scope: Worldwide remote commissions
 - Portfolio URL: https://saif.zenvq.com
 - Instagram Showcase: https://www.instagram.com/motion.bysaif/ (@motion.bysaif)
 - Parent Ecosystem: Part of ZenVQ Creative & Engineering Network (https://zenvq.com)
 
+## Professional Summary
+Creative and detail-oriented Motion Designer focused on visual storytelling, dynamic typography and engaging video content. Skilled in Adobe After Effects, Illustrator and Photoshop to transform concepts into clean, modern motion graphics for digital and social media platforms.
+
 ## Core Capabilities & Services
-1. Kinetic Typography & Title Sequences: Expressive text choreography, weighted cubic-bezier easing curves and custom graph editor pacing in Adobe After Effects.
-2. 9:16 High-Retention Social Reels: Vertical motion graphics engineered to hold viewer attention during the critical first 3 seconds on Instagram Reels and YouTube Shorts.
-3. Vector Asset Staging & Transitions: Custom layered artwork prepared from scratch in Adobe Illustrator and Photoshop before keyframe animation.
-4. Multi-Platform Masters & Clean Source Files: Lossless ProRes and lightweight web MP4 exports in 9:16 and 16:9 with organized .AEP project folders.
+1. UI Motion & SaaS Animation: Interactive product teasers, dashboard walkthroughs and clean UI motion engineered in After Effects for SaaS product launches.
+2. Kinetic Typography & Logo Animation: Expressive text choreography, custom brand logo reveals and weighted Graph Editor easing curves.
+3. Gaming & Social Promotional Reels: High-retention 9:16 vertical and 16:9 widescreen promotional videos tailored for gaming brands, creators and social platforms.
+4. Vector Staging & Media Encoder Masters: End-to-end vector preparation in Illustrator and Photoshop to crisp multi-platform ProRes/MP4 exports and organized .AEP source archives.
 
 ## Production Suite
-- Primary Animation Engine: Adobe After Effects (Graph Editor, expressions, track mattes, shape morphs)
+- Animation & Motion Engine: Adobe After Effects (Graph Editor, expressions, track mattes, shape morphs)
 - Vector & Asset Design: Adobe Illustrator (vector paths, typography layout, color palettes)
 - Matte & Color Treatment: Adobe Photoshop (texture synthesis, photo touch-ups, color balancing)
 - Export Pipeline: Adobe Media Encoder (ProRes 422, H.264, WebM)
 
+## Verified Experience
+- Role: Freelance Motion Designer — Client & Creative Projects (@motion.bysaif) | 2026 – Present
+  - Designs and animates high-impact UI motion graphics, kinetic typography, logo animations and smooth transitions using Adobe After Effects.
+  - Produces engaging promotional videos and short-form visual storytelling content tailored for SaaS products, gaming brands and social media platforms.
+  - Manages end-to-end motion production workflows from concept ideation and vector asset preparation in Illustrator and Photoshop to final rendering in Adobe Media Encoder.
+
 ## Verified Education & Qualifications
 - IELTS Preparation Course — British Council (2025): Completed structured English communication and language proficiency training.
 - Higher Secondary Certificate (HSC) — Milestone College (2024): Completed curriculum with academic excellence.
-- Languages: Bangla (Native) and English (Working Proficiency).
+- Languages: Bangla (Native), English (Working Proficiency), Hindi (Fluent) and Urdu (Fluent).
+
+## Professional Skills & Interests
+- Professional Skills: Creative Thinking, Time Management, Adaptability & Continuous Learning
+- Interests: Motion Design, Technology, Gaming and Movies
 
 ## Direct Contact & Inquiries
 - WhatsApp Direct: https://wa.me/8801876422288 (+880 1876 422 288)
 - Direct Email: madas3709@gmail.com
 - Resume PDF: https://saif.zenvq.com/MD-SAIFUDDIN-Resume.pdf
-- Network Hub: https://zenvq.com
+- Network Hub: https://zenvq.com and https://templates.zenvq.com

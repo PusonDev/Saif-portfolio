@@ -63,15 +63,15 @@ export function WorksSection() {
               </div>
 
               <h3 className="text-xl sm:text-2xl font-bold text-ink-primary tracking-tight">
-                Kinetic Typography & Brand Storytelling
+                UI Motion, SaaS Animation & Kinetic Typography
               </h3>
 
               <p className="text-xs sm:text-sm text-ink-secondary leading-relaxed font-normal">
-                Expressive text choreography, weighted cubic-bezier easing curves and clean narrative hierarchy engineered in After Effects.
+                Interactive SaaS product interface motion and kinetic typography choreography engineered in After Effects.
               </p>
 
               <div className="flex flex-wrap gap-2 pt-2">
-                {["After Effects", "Kinetic Timing", "Graph Editor"].map((t, i) => (
+                {["After Effects", "UI Motion", "SaaS Animation"].map((t, i) => (
                   <span
                     key={i}
                     className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-md bg-surface-2 text-ink-muted border border-border-subtle"
@@ -176,11 +176,11 @@ export function WorksSection() {
               </div>
 
               <h3 className="text-lg sm:text-xl font-bold text-ink-primary tracking-tight">
-                High-Retention Social Reels
+                Promotional Reels for Gaming Brands & Social Platforms
               </h3>
 
               <p className="text-xs sm:text-sm text-ink-secondary leading-relaxed font-normal">
-                Vertical motion graphics engineered to hold viewer attention during the critical first 3 seconds on Instagram Reels and YouTube Shorts.
+                High-retention 9:16 promotional reel pacing built for SaaS launches, gaming channels, Instagram Reels and YouTube Shorts.
               </p>
             </div>
 
@@ -223,7 +223,7 @@ export function WorksSection() {
             </div>
 
             <div className="mt-4 pt-4 border-t border-border-subtle flex items-center justify-between">
-              <span className="text-xs font-mono text-ink-muted">After Effects · Illustrator</span>
+              <span className="text-xs font-mono text-ink-muted">After Effects · Short-Form · Gaming Brands</span>
               <a
                 href={profile.instagramUrl}
                 target="_blank"
@@ -257,11 +257,11 @@ export function WorksSection() {
               </div>
 
               <h3 className="text-lg sm:text-xl font-bold text-ink-primary tracking-tight">
-                Vector Staging & Transitions
+                Logo Animations, Vector Staging & Transitions
               </h3>
 
               <p className="text-xs sm:text-sm text-ink-secondary leading-relaxed font-normal">
-                Custom layered vector artwork prepared from scratch in Illustrator and Photoshop, animated with clean camera moves and alpha reveals.
+                Layered vector logo reveals and transitions prepared in Illustrator and Photoshop, animated in After Effects and rendered via Media Encoder.
               </p>
             </div>
 
@@ -304,7 +304,7 @@ export function WorksSection() {
             </div>
 
             <div className="mt-4 pt-4 border-t border-border-subtle flex items-center justify-between">
-              <span className="text-xs font-mono text-ink-muted">Illustrator · Photoshop · AE</span>
+              <span className="text-xs font-mono text-ink-muted">Illustrator · Photoshop · Media Encoder</span>
               <a
                 href={profile.instagramUrl}
                 target="_blank"

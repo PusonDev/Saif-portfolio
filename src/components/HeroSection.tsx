@@ -45,6 +45,15 @@ export function HeroSection() {
       ),
     },
     {
+      name: "Adobe Media Encoder",
+      label: "Media Encoder",
+      svg: (
+        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+          <path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm6.5 12.8V6.2H8.7l-2.2 6.5-2.2-6.5H2.5v9.6h1.8v-6.3l1.8 5.4h1.5l1.8-5.4v6.3h1.1zm8.5 0h-4.8c.1 1.1.7 1.6 1.8 1.6.7 0 1.3-.2 1.8-.6l.7 1.1c-.7.6-1.6.8-2.7.8-2.1 0-3.3-1.3-3.3-3.5 0-2.2 1.3-3.6 3.2-3.6 1.9 0 3.3 1.4 3.3 3.6v.6zm-1.6-1.2c0-.9-.6-1.5-1.6-1.5-1 0-1.6.6-1.7 1.5h3.3z" />
+        </svg>
+      ),
+    },
+    {
       name: "Instagram Reels",
       label: "Instagram Reels",
       svg: (
@@ -104,7 +113,7 @@ export function HeroSection() {
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="text-base sm:text-lg text-ink-secondary leading-relaxed max-w-xl font-normal"
           >
-            Motion Designer crafting kinetic typography, short-form social reels and visual storytelling for brands, founders and creators using Adobe After Effects, Illustrator and Photoshop.
+            Motion Designer crafting UI motion graphics, SaaS animations, logo animations, kinetic typography and promotional reels for SaaS products, gaming brands and social platforms.
           </motion.p>
 
           {/* High-Acceptance Action Row */}
@@ -163,7 +172,7 @@ export function HeroSection() {
               className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-mono uppercase tracking-wider border border-border-subtle bg-surface-1 hover:border-border-strong text-ink-secondary hover:text-ink-primary transition-colors"
             >
               <Download className="w-3.5 h-3.5 text-accent" />
-              <span>Resume PDF</span>
+              <span>Resume PDF ↓</span>
             </a>
           </motion.div>
         </div>
@@ -178,14 +187,14 @@ export function HeroSection() {
           <div className="w-full max-w-lg lg:max-w-none luxury-card rounded-2xl shadow-xl group overflow-hidden">
             <div className="specular-top-light" />
 
-            <div className="relative aspect-[3/2] w-full overflow-hidden bg-surface-2">
+            <div className="relative aspect-[4/5] w-full overflow-hidden bg-surface-2">
               <Image
                 src={profile.avatar}
                 alt={`${profile.fullName} at Motion Design Studio Workstation`}
                 width={1024}
                 height={686}
                 priority
-                className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 500px, 540px"
               />
             </div>

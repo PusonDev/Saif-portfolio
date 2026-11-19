@@ -9,10 +9,11 @@ import { Sliders, HelpCircle, ChevronDown, MessageCircle, Send, Copy, Check, Shi
 // Strict Zod Validation Schema
 const ScopingSchema = z.object({
   projectType: z.enum([
+    "UI Motion / SaaS Animation",
+    "Logo Animation",
     "Kinetic Typography",
-    "9:16 Social Reel",
-    "Product Teaser",
-    "Transitions & VFX",
+    "Gaming / Promo Reel",
+    "Transitions & Motion Package",
   ]),
   format: z.enum(["9:16 Vertical", "16:9 Widescreen", "Both (9:16 + 16:9)"]),
   timeline: z.enum(["Rush 48-Hours", "1 – 2 Weeks", "Monthly Retainer"]),
@@ -26,7 +27,9 @@ export function ProjectInquirySection() {
   const { profile, faqs } = portfolioData;
 
   // Form State
-  const [projectType, setProjectType] = useState<"Kinetic Typography" | "9:16 Social Reel" | "Product Teaser" | "Transitions & VFX">("Kinetic Typography");
+  const [projectType, setProjectType] = useState<
+    "UI Motion / SaaS Animation" | "Logo Animation" | "Kinetic Typography" | "Gaming / Promo Reel" | "Transitions & Motion Package"
+  >("UI Motion / SaaS Animation");
   const [format, setFormat] = useState<"9:16 Vertical" | "16:9 Widescreen" | "Both (9:16 + 16:9)">("Both (9:16 + 16:9)");
   const [timeline, setTimeline] = useState<"Rush 48-Hours" | "1 – 2 Weeks" | "Monthly Retainer">("1 – 2 Weeks");
   const [clientName, setClientName] = useState("");
@@ -42,10 +45,11 @@ export function ProjectInquirySection() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const PROJECT_TYPES = [
+    "UI Motion / SaaS Animation",
+    "Logo Animation",
     "Kinetic Typography",
-    "9:16 Social Reel",
-    "Product Teaser",
-    "Transitions & VFX",
+    "Gaming / Promo Reel",
+    "Transitions & Motion Package",
   ] as const;
 
   const FORMATS = [
@@ -164,13 +168,13 @@ export function ProjectInquirySection() {
         </div>
 
         <span className="text-xs font-mono uppercase tracking-wider text-ink-muted">
-          Zod-Validated Scope · 4-Item FAQ
+          Direct Project Brief · Quick Answers
         </span>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         {/* =========================================================================
-            LEFT COLUMN: Zod-Validated Interactive Scoping Widget (7 Cols)
+            LEFT COLUMN: Direct Interactive Scoping Widget (7 Cols)
             ========================================================================= */}
         <div className="lg:col-span-7">
           <div className="luxury-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-border-subtle bg-surface-1 shadow-2xl relative overflow-hidden space-y-6">

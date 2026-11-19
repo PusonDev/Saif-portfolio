@@ -30,7 +30,7 @@ export function ServicesBentoSection() {
         </div>
 
         <span className="text-xs font-mono uppercase tracking-wider text-ink-muted">
-          4 Core Disciplines · Zero Repetition
+          After Effects · Illustrator · Photoshop · Media Encoder
         </span>
       </div>
 
