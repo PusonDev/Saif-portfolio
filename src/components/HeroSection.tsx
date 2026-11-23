@@ -162,7 +162,7 @@ export function HeroSection() {
 
         {/* Right Column: Seamless Studio Portrait Frame (6 Cols on Desktop) */}
         <div className="lg:col-span-6 flex justify-center lg:justify-end w-full">
-          <div className="w-full max-w-[340px] sm:max-w-lg lg:max-w-none relative group overflow-hidden rounded-2xl border border-white/[0.05] bg-white/[0.015]">
+          <div className="w-full max-w-[340px] sm:max-w-lg lg:max-w-none relative group overflow-hidden rounded-2xl border border-border-subtle bg-surface-1 shadow-lg shadow-black/[0.03] dark:shadow-none">
             <div className="relative aspect-[4/3] w-full overflow-hidden">
               <Image
                 src={profile.avatar}
@@ -179,7 +179,7 @@ export function HeroSection() {
             </div>
 
             {/* Editorial Caption Strip */}
-            <div className="px-3.5 sm:px-4 py-2 border-t border-white/[0.05] bg-white/[0.02] flex items-center justify-between text-[10px] sm:text-[11px] font-mono tracking-wider uppercase text-ink-muted">
+            <div className="px-3.5 sm:px-4 py-2 border-t border-border-subtle bg-surface-2/80 flex items-center justify-between text-[10px] sm:text-[11px] font-mono tracking-wider uppercase text-ink-muted">
               <div className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
                 <span className="text-ink-primary font-medium">{profile.fullName}</span>
@@ -191,8 +191,8 @@ export function HeroSection() {
       </div>
 
       {/* =========================================================================
-          MOTION PRODUCTION SUITE — CONTAINER MARGIN ALIGNED MARQUEE (RIGHT-TO-LEFT)
-          Strictly follows section container margin (max-w-5xl px-4 sm:px-8)
+          MOTION PRODUCTION SUITE — SEAMLESS OPEN STRIP (RIGHT-TO-LEFT)
+          Zero side borders, strictly aligned to container margin, blended into bg
           ========================================================================= */}
       <div className="mt-8 sm:mt-11 select-none w-full">
         {/* Sleek Corner Label Above the Strip */}
@@ -204,12 +204,11 @@ export function HeroSection() {
           <span className="text-[9px] text-ink-muted hidden xs:inline">Right-to-Left · Hover to Pause</span>
         </div>
 
-        {/* Container-Constrained Strip: follows exact section margin */}
-        <div className="relative w-full overflow-hidden rounded-xl border border-white/[0.06] py-3 sm:py-3.5 bg-white/[0.015] backdrop-blur-sm group/marquee">
-          <div className="specular-top-light" />
-          {/* Left & Right Smooth Edge Fade Masks */}
-          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-16 z-10 bg-gradient-to-r from-canvas via-canvas/80 to-transparent rounded-l-xl" />
-          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-16 z-10 bg-gradient-to-l from-canvas via-canvas/80 to-transparent rounded-r-xl" />
+        {/* Seamless Open Strip: No side borders, smoothly blended into bg */}
+        <div className="relative w-full overflow-hidden border-y border-border-subtle py-3 sm:py-3.5 bg-transparent group/marquee">
+          {/* Left & Right Smooth Edge Fade Masks that blend into canvas on both sides */}
+          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-24 z-10 bg-gradient-to-r from-canvas via-canvas/90 to-transparent" />
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-24 z-10 bg-gradient-to-l from-canvas via-canvas/90 to-transparent" />
 
           {/* Continuous Infinite Marquee Track (Right to Left across 100% width) */}
           <div className="flex animate-marquee-rtl group-hover/marquee:[animation-play-state:paused] items-center gap-8 sm:gap-12 w-max">
@@ -223,7 +222,7 @@ export function HeroSection() {
                   <div className="text-ink-muted group-hover/item:text-accent group-hover/item:scale-110 transition-all duration-200">
                     {item.svg}
                   </div>
-                  <span className="text-xs font-mono tracking-wider uppercase text-ink-muted group-hover/item:text-ink-primary transition-colors whitespace-nowrap">
+                  <span className="text-xs font-mono tracking-wider uppercase text-ink-secondary group-hover/item:text-ink-primary transition-colors whitespace-nowrap">
                     {item.label}
                   </span>
                 </div>
@@ -240,7 +239,7 @@ export function HeroSection() {
                   <div className="text-ink-muted group-hover/item:text-accent group-hover/item:scale-110 transition-all duration-200">
                     {item.svg}
                   </div>
-                  <span className="text-xs font-mono tracking-wider uppercase text-ink-muted group-hover/item:text-ink-primary transition-colors whitespace-nowrap">
+                  <span className="text-xs font-mono tracking-wider uppercase text-ink-secondary group-hover/item:text-ink-primary transition-colors whitespace-nowrap">
                     {item.label}
                   </span>
                 </div>

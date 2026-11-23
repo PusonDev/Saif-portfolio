@@ -178,7 +178,15 @@ body {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(to top, var(--bg-canvas) 0%, transparent 45%, transparent 100%);
+  background: linear-gradient(to top, #09090B 0%, rgba(9, 9, 11, 0.45) 25%, transparent 55%);
+}
+
+.light .portrait-vignette,
+[data-theme="light"] .portrait-vignette,
+[data-mode="light"] .portrait-vignette {
+  /* In Light Mode, eliminate milky white wash.
+     Use subtle contrast grounding so the dark cafe portrait stays crisp and natural */
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.28) 0%, transparent 22%);
 }
 
 /* Custom Cursor Optimization */
