@@ -191,12 +191,12 @@ export function HeroSection() {
       </div>
 
       {/* =========================================================================
-          MOTION PRODUCTION SUITE — FULL-WIDTH EDGE-TO-EDGE MARQUEE (RIGHT-TO-LEFT)
-          Corner label sits cleanly above the strip so logos have 100vw to glide
+          MOTION PRODUCTION SUITE — CONTAINER MARGIN ALIGNED MARQUEE (RIGHT-TO-LEFT)
+          Strictly follows section container margin (max-w-5xl px-4 sm:px-8)
           ========================================================================= */}
-      <div className="mt-7 sm:mt-10 select-none">
+      <div className="mt-8 sm:mt-11 select-none w-full">
         {/* Sleek Corner Label Above the Strip */}
-        <div className="flex items-center justify-between px-1 mb-2 text-[10px] font-mono uppercase tracking-widest text-ink-muted">
+        <div className="flex items-center justify-between px-1 mb-2.5 text-[10px] font-mono uppercase tracking-widest text-ink-muted">
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
             <span className="text-ink-primary font-medium">Motion Production Suite</span>
@@ -204,11 +204,12 @@ export function HeroSection() {
           <span className="text-[9px] text-ink-muted hidden xs:inline">Right-to-Left · Hover to Pause</span>
         </div>
 
-        {/* Full Viewport Width Strip: edge-to-edge across screen */}
-        <div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] overflow-hidden border-y border-white/[0.05] py-3 sm:py-3.5 bg-canvas/60 group/marquee">
+        {/* Container-Constrained Strip: follows exact section margin */}
+        <div className="relative w-full overflow-hidden rounded-xl border border-white/[0.06] py-3 sm:py-3.5 bg-white/[0.015] backdrop-blur-sm group/marquee">
+          <div className="specular-top-light" />
           {/* Left & Right Smooth Edge Fade Masks */}
-          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-10 sm:w-28 z-10 bg-gradient-to-r from-canvas via-canvas/80 to-transparent" />
-          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-10 sm:w-28 z-10 bg-gradient-to-l from-canvas via-canvas/80 to-transparent" />
+          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-16 z-10 bg-gradient-to-r from-canvas via-canvas/80 to-transparent rounded-l-xl" />
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-16 z-10 bg-gradient-to-l from-canvas via-canvas/80 to-transparent rounded-r-xl" />
 
           {/* Continuous Infinite Marquee Track (Right to Left across 100% width) */}
           <div className="flex animate-marquee-rtl group-hover/marquee:[animation-play-state:paused] items-center gap-8 sm:gap-12 w-max">
