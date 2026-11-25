@@ -35,7 +35,7 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-40 flex justify-center px-3 sm:px-6 pt-2.5 sm:pt-3 transition-all duration-300">
       <nav
-        className={`w-full max-w-5xl h-12 sm:h-14 transition-all duration-300 rounded-full px-3.5 sm:px-6 flex items-center justify-between border ${
+        className={`w-full max-w-6xl h-12 sm:h-14 transition-all duration-300 rounded-full px-3.5 sm:px-6 flex items-center justify-between gap-4 border ${
           isScrolled
             ? "bg-canvas/90 backdrop-blur-xl border-border-strong shadow-lg"
             : "bg-surface-1/90 backdrop-blur-md border-border-subtle"
@@ -58,7 +58,7 @@ export function Navbar() {
             <span className="font-serif text-lg sm:text-2xl tracking-tight text-ink-primary">
               Saif<span className="text-accent">.</span>
             </span>
-            <span className="hidden xl:inline-block font-mono text-[11px] text-ink-muted uppercase tracking-wider whitespace-nowrap">
+            <span className="hidden 2xl:inline-block font-mono text-[11px] text-ink-muted uppercase tracking-wider whitespace-nowrap">
               {portfolioData.profile.role}
             </span>
           </a>
