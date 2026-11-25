@@ -35,7 +35,7 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-40 flex justify-center px-3 sm:px-6 pt-2.5 sm:pt-3 transition-all duration-300">
       <nav
-        className={`w-full max-w-5xl h-13 sm:h-14 transition-all duration-300 rounded-full px-3.5 sm:px-6 flex items-center justify-between border ${
+        className={`w-full max-w-5xl h-12 sm:h-14 transition-all duration-300 rounded-full px-3.5 sm:px-6 flex items-center justify-between border ${
           isScrolled
             ? "bg-canvas/90 backdrop-blur-xl border-border-strong shadow-lg"
             : "bg-surface-1/90 backdrop-blur-md border-border-subtle"
@@ -113,10 +113,9 @@ export function Navbar() {
           <a
             href="#contact"
             onClick={(e) => handleNavClick(e, "#contact")}
-            className="hidden xs:inline-flex items-center gap-1 px-2.5 sm:px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs font-mono uppercase tracking-wider bg-cta-bg text-cta-text hover:opacity-90 transition-opacity duration-200 font-medium shadow-xs shrink-0 cursor-pointer"
+            className="hidden sm:inline-flex items-center gap-1 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider bg-cta-bg text-cta-text hover:opacity-90 transition-opacity duration-200 font-medium shadow-sm shrink-0 cursor-pointer"
           >
-            <span className="hidden sm:inline">Start Project</span>
-            <span className="sm:hidden">Start</span>
+            <span>Start Project</span>
             <ArrowUpRight className="w-3 h-3 shrink-0" />
           </a>
 
@@ -149,6 +148,15 @@ export function Navbar() {
           </div>
 
           <div className="pt-2 flex flex-col gap-2.5">
+            <a
+              href="#contact"
+              onClick={(e) => handleNavClick(e, "#contact")}
+              className="py-2.5 px-4 rounded-xl bg-cta-bg text-cta-text text-xs font-mono uppercase tracking-wider font-medium flex items-center justify-center gap-1.5 shadow-sm"
+            >
+              <span>Start Project</span>
+              <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
+            </a>
+
             <a
               href={portfolioData.profile.resumePdfUrl}
               download="MD-SAIFUDDIN-Resume.pdf"

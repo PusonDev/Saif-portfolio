@@ -193,8 +193,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
         />
-        {/* ZenVQ Precision Laser Cursor Engine */}
-        <script src="/lib/zenvq-laser.js" data-auto-laser="true" data-theme="motion" defer></script>
         {/* ZenVQ Universal Live Translation Engine */}
         <script src="/lib/zenvq-translate.js" defer></script>
       </head>

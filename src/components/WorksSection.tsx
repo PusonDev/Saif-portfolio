@@ -42,10 +42,10 @@ export function WorksSection() {
             ITEM 1: 3D Widescreen Studio Display Frame (16:9) — Kinetic Typography
             ========================================================================= */}
         <motion.div
-          initial={{ opacity: 0, y: 25, scale: 0.99 }}
+          initial={{ opacity: 0, y: 20, scale: 0.99 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: false, amount: 0.12 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: false, amount: 0.05 }}
+          transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
           className="rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-border-subtle bg-surface-1 hover:bg-surface-hover transition-colors relative overflow-hidden group perspective-stage"
         >
           <div className="specular-top-light" />
@@ -96,7 +96,7 @@ export function WorksSection() {
 
             {/* Right: Authentic 3D Widescreen Studio Display */}
             <div className="lg:col-span-7 flex justify-center">
-              <div className="w-full max-w-lg rounded-xl border border-border-subtle bg-[#0B0B0E] p-2 sm:p-2.5 shadow-2xl transition-transform duration-700 group-hover:rotate-x-2 group-hover:scale-[1.02]">
+              <div className="w-full max-w-lg rounded-xl border border-border-subtle bg-[#0B0B0E] p-2 sm:p-2.5 shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]">
                 {/* Hardware Bezel Header */}
                 <div className="flex items-center justify-between px-2.5 sm:px-3 py-1 sm:py-1.5 border-b border-border-subtle text-[10px] font-mono text-ink-muted">
                   <div className="flex items-center gap-1.5">
@@ -161,10 +161,10 @@ export function WorksSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           {/* Card 2: 3D Mobile Smartphone Frame (9:16) */}
           <motion.div
-            initial={{ opacity: 0, y: 25, scale: 0.99 }}
+            initial={{ opacity: 0, y: 20, scale: 0.99 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: false, amount: 0.12 }}
-            transition={{ duration: 0.7, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: false, amount: 0.05 }}
+            transition={{ duration: 0.55, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
             className="rounded-2xl sm:rounded-3xl p-5 sm:p-7 border border-border-subtle bg-surface-1 hover:bg-surface-hover transition-colors relative overflow-hidden group flex flex-col justify-between"
           >
             <div className="specular-top-light" />
@@ -191,14 +191,14 @@ export function WorksSection() {
 
             {/* Realistic 3D Smartphone Frame (9:16) */}
             <div className="flex justify-center my-3">
-              <div className="w-38 sm:w-46 rounded-[22px] sm:rounded-[26px] border-[2.5px] border-zinc-700/80 bg-black p-1.5 sm:p-2 shadow-2xl relative transition-transform duration-700 group-hover:scale-105 group-hover:-rotate-1">
+              <div className="w-44 sm:w-52 rounded-[22px] sm:rounded-[26px] border-[2.5px] border-zinc-700/80 bg-black p-1.5 sm:p-2 shadow-2xl relative transition-transform duration-700 group-hover:scale-105 group-hover:-rotate-1">
                 {/* Dynamic Camera Island */}
                 <div className="w-12 sm:w-14 h-2.5 sm:h-3 bg-zinc-900 rounded-full mx-auto mb-1.5 flex items-center justify-end pr-1.5">
                   <span className="w-1 h-1 rounded-full bg-zinc-800" />
                 </div>
 
                 {/* 9:16 Screen Area */}
-                <div className="relative aspect-[9/16] w-full rounded-[15px] sm:rounded-[18px] bg-zinc-950 overflow-hidden flex flex-col justify-between p-3 border border-white/5">
+                <div className="relative aspect-[9/16] w-full rounded-[15px] sm:rounded-[18px] bg-zinc-950 overflow-hidden flex flex-col justify-between p-3 border border-white/10">
                   <div className="flex justify-between items-center text-[9px] font-mono text-zinc-400">
                     <span className="text-accent font-semibold">REEL 01</span>
                     <span>0:03 HOOK</span>
@@ -242,10 +242,10 @@ export function WorksSection() {
 
           {/* Card 3: 3D Layered Comp Studio Frame */}
           <motion.div
-            initial={{ opacity: 0, y: 25, scale: 0.99 }}
+            initial={{ opacity: 0, y: 20, scale: 0.99 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: false, amount: 0.12 }}
-            transition={{ duration: 0.7, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: false, amount: 0.05 }}
+            transition={{ duration: 0.55, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
             className="rounded-2xl sm:rounded-3xl p-5 sm:p-7 border border-border-subtle bg-surface-1 hover:bg-surface-hover transition-colors relative overflow-hidden group flex flex-col justify-between"
           >
             <div className="specular-top-light" />
@@ -271,10 +271,10 @@ export function WorksSection() {
             </div>
 
             {/* 3D Stacked Layered Artboard Visual */}
-            <div className="flex justify-center items-center my-3">
-              <div className="relative w-full max-w-[240px] sm:max-w-[260px] h-38 sm:h-44 preserve-3d transition-transform duration-700 group-hover:rotate-y-3 group-hover:scale-105">
+            <div className="flex justify-center items-center my-4 py-2">
+              <div className="relative w-full max-w-[250px] sm:max-w-[270px] h-44 sm:h-48 preserve-3d transition-transform duration-700 group-hover:scale-[1.03]">
                 {/* Layer 3 (Back) */}
-                <div className="absolute inset-x-3 sm:inset-x-4 top-0 h-28 sm:h-32 rounded-xl border border-zinc-700/40 bg-zinc-900/60 p-2.5 sm:p-3 transform -translate-y-2 scale-95 shadow-md">
+                <div className="absolute inset-x-3 sm:inset-x-4 top-1 h-28 sm:h-32 rounded-xl border border-zinc-700/40 bg-zinc-900/60 p-2.5 sm:p-3 transform -translate-y-2 scale-95 shadow-md">
                   <div className="flex justify-between text-[8px] sm:text-[9px] font-mono text-zinc-500">
                     <span>LAYER 03: COLOR MATTE</span>
                     <span>PS COLOR</span>
@@ -282,7 +282,7 @@ export function WorksSection() {
                 </div>
 
                 {/* Layer 2 (Middle) */}
-                <div className="absolute inset-x-1.5 sm:inset-x-2 top-2.5 sm:top-3 h-28 sm:h-32 rounded-xl border border-zinc-700/60 bg-zinc-900/80 p-2.5 sm:p-3 transform translate-y-0 scale-98 shadow-lg">
+                <div className="absolute inset-x-1.5 sm:inset-x-2 top-3.5 sm:top-4 h-28 sm:h-32 rounded-xl border border-zinc-700/60 bg-zinc-900/80 p-2.5 sm:p-3 transform translate-y-0 scale-[0.98] shadow-lg">
                   <div className="flex justify-between text-[8px] sm:text-[9px] font-mono text-zinc-400">
                     <span>LAYER 02: VECTOR PATHS</span>
                     <span>AI VECTORS</span>
@@ -290,7 +290,7 @@ export function WorksSection() {
                 </div>
 
                 {/* Layer 1 (Front Active) */}
-                <div className="absolute inset-x-0 top-5 sm:top-6 h-28 sm:h-32 rounded-xl border border-accent/40 bg-zinc-950 p-3 transform translate-y-2 shadow-2xl flex flex-col justify-between">
+                <div className="absolute inset-x-0 top-6 sm:top-7 h-28 sm:h-32 rounded-xl border border-accent/40 bg-zinc-950 p-3 transform translate-y-2 shadow-2xl flex flex-col justify-between">
                   <div className="flex justify-between text-[9px] sm:text-[10px] font-mono text-accent">
                     <span>LAYER 01: CAMERA TRANSITION</span>
                     <span>AE COMP</span>

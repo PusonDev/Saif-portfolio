@@ -19,7 +19,7 @@ export function Footer() {
     <footer className="border-t border-border-subtle bg-canvas py-6 px-4 sm:px-8 mt-auto select-none">
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-ink-muted">
         {/* Left: Copyright & Location */}
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-2 gap-y-1 text-center">
           <span>© {currentYear} {profile.fullName}</span>
           <span className="text-ink-muted/40">·</span>
           <span>Uttara, Dhaka, Bangladesh</span>

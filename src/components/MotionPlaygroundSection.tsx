@@ -65,7 +65,7 @@ export function MotionPlaygroundSection() {
 
         {/* Top Control Bar (Mobile Responsive) */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 mb-4 sm:mb-6 border-b border-border-subtle">
-          <div className="flex flex-col xs:flex-row xs:items-center gap-2 w-full sm:w-auto">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 w-full sm:w-auto">
             <span className="text-[11px] font-mono uppercase tracking-wider text-ink-muted shrink-0">
               Curve:
             </span>
@@ -80,7 +80,7 @@ export function MotionPlaygroundSection() {
                   }}
                   className={`px-2 sm:px-3 py-1.5 rounded-lg text-[10px] sm:text-xs font-mono uppercase tracking-wider transition-colors cursor-pointer text-center ${
                     easingType === type
-                      ? "bg-accent text-zinc-950 font-semibold shadow-xs"
+                      ? "bg-accent text-zinc-950 font-semibold shadow-sm"
                       : "text-ink-muted hover:text-ink-primary"
                   }`}
                 >
@@ -105,7 +105,7 @@ export function MotionPlaygroundSection() {
             <button
               type="button"
               onClick={handleReplay}
-              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-cta-bg text-cta-text text-[11px] sm:text-xs font-mono uppercase tracking-wider hover:opacity-90 transition-opacity cursor-pointer font-medium shadow-xs"
+              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-cta-bg text-cta-text text-[11px] sm:text-xs font-mono uppercase tracking-wider hover:opacity-90 transition-opacity cursor-pointer font-medium shadow-sm"
             >
               <RotateCcw className="w-3.5 h-3.5 text-accent" />
               <span>Trigger</span>

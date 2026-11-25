@@ -9,10 +9,10 @@ export function ServicesBentoSection() {
   const { capabilities, profile } = portfolioData;
 
   const iconMap: Record<string, React.ReactNode> = {
-    "01": <Type className="w-4 h-4 text-accent" />,
-    "02": <Video className="w-4 h-4 text-accent" />,
-    "03": <PenTool className="w-4 h-4 text-accent" />,
-    "04": <MonitorPlay className="w-4 h-4 text-accent" />,
+    "01": <MonitorPlay className="w-4 h-4 text-accent" />,
+    "02": <Type className="w-4 h-4 text-accent" />,
+    "03": <Video className="w-4 h-4 text-accent" />,
+    "04": <PenTool className="w-4 h-4 text-accent" />,
   };
 
   return (
@@ -39,10 +39,10 @@ export function ServicesBentoSection() {
         {capabilities.map((cap, idx) => (
           <motion.div
             key={cap.index}
-            initial={{ opacity: 0, y: 18 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.12 }}
-            transition={{ duration: 0.55, delay: idx * 0.06, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: false, amount: 0.06 }}
+            transition={{ duration: 0.5, delay: idx * 0.05, ease: [0.16, 1, 0.3, 1] }}
             className="rounded-2xl p-5 sm:p-7 border border-border-subtle bg-surface-1 hover:bg-surface-hover transition-colors flex flex-col justify-between group relative overflow-hidden"
           >
             {/* 1px Top Specular Edge Light */}

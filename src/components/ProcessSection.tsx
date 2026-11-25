@@ -50,7 +50,7 @@ export function ProcessSection() {
                   </div>
 
                   <div className="space-y-0.5 flex-1 min-w-0">
-                    <div className="flex flex-col xs:flex-row xs:items-center justify-between text-xs font-mono gap-0.5 sm:gap-1">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between text-xs font-mono gap-0.5 sm:gap-1">
                       <span className="font-semibold text-ink-primary text-xs sm:text-sm">{step.title}</span>
                       <span className="text-[10px] text-ink-muted shrink-0">{step.tools}</span>
                     </div>
@@ -106,7 +106,7 @@ export function ProcessSection() {
                   <span className="text-accent">{credentials.experience.period}</span>
                 </div>
                 <p className="text-xs font-mono text-ink-muted">
-                  Client & Creative Projects: {credentials.experience.handle}
+                  {credentials.experience.subRole}: {credentials.experience.handle}
                 </p>
                 <ul className="space-y-1 text-xs text-ink-secondary font-normal pt-1">
                   {credentials.experience.points.map((pt, idx) => (
@@ -144,7 +144,7 @@ export function ProcessSection() {
               {/* Languages (All 4 Verified) */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs font-mono">
                 <span className="text-ink-muted uppercase tracking-wider shrink-0">Languages:</span>
-                <span className="text-ink-primary font-medium text-right">{credentials.languages}</span>
+                <span className="text-ink-primary font-medium sm:text-right">{credentials.languages}</span>
               </div>
 
               {/* Professional Skills */}
@@ -154,9 +154,9 @@ export function ProcessSection() {
               </div>
 
               {/* Interests */}
-              <div className="flex items-center justify-between text-xs font-mono">
-                <span className="text-ink-muted uppercase tracking-wider">Interests:</span>
-                <span className="text-ink-secondary text-[11px]">{credentials.interests.join(" · ")}</span>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs font-mono">
+                <span className="text-ink-muted uppercase tracking-wider shrink-0">Interests:</span>
+                <span className="text-ink-secondary text-[11px] sm:text-right">{credentials.interests.join(" · ")}</span>
               </div>
             </div>
           </div>

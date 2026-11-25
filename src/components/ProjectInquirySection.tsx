@@ -130,7 +130,7 @@ export function ProjectInquirySection() {
     const brief = validateAndGenerateBrief();
     if (!brief) return;
     const url = `https://wa.me/8801876422288?text=${encodeURIComponent(brief)}`;
-    window.open(url, "_blank");
+    window.open(url, "_blank", "noopener,noreferrer");
   };
 
   const handleEmailSend = () => {
@@ -227,7 +227,7 @@ export function ProjectInquirySection() {
                     onClick={() => setProjectType(t)}
                     className={`px-3 py-1.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all duration-200 border cursor-pointer ${
                       projectType === t
-                        ? "bg-accent text-zinc-950 font-semibold border-accent shadow-xs"
+                        ? "bg-accent text-zinc-950 font-semibold border-accent shadow-sm"
                         : "bg-surface-1 border-border-subtle text-ink-secondary hover:text-ink-primary hover:border-border-strong"
                     }`}
                   >
@@ -250,7 +250,7 @@ export function ProjectInquirySection() {
                     onClick={() => setFormat(f)}
                     className={`px-3 py-1.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all duration-200 border cursor-pointer ${
                       format === f
-                        ? "bg-accent text-zinc-950 font-semibold border-accent shadow-xs"
+                        ? "bg-accent text-zinc-950 font-semibold border-accent shadow-sm"
                         : "bg-surface-1 border-border-subtle text-ink-secondary hover:text-ink-primary hover:border-border-strong"
                     }`}
                   >
@@ -273,7 +273,7 @@ export function ProjectInquirySection() {
                     onClick={() => setTimeline(tm)}
                     className={`px-3 py-1.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all duration-200 border cursor-pointer ${
                       timeline === tm
-                        ? "bg-accent text-zinc-950 font-semibold border-accent shadow-xs"
+                        ? "bg-accent text-zinc-950 font-semibold border-accent shadow-sm"
                         : "bg-surface-1 border-border-subtle text-ink-secondary hover:text-ink-primary hover:border-border-strong"
                     }`}
                   >
@@ -306,7 +306,7 @@ export function ProjectInquirySection() {
                   placeholder="e.g. Alex Vance"
                   value={clientName}
                   onChange={(e) => setClientName(e.target.value)}
-                  className="w-full px-3.5 py-2 rounded-lg bg-surface-1 border border-border-subtle text-base sm:text-sm text-ink-primary placeholder:text-ink-muted focus:outline-hidden focus:border-accent"
+                  className="w-full px-3.5 py-2 rounded-lg bg-surface-1 border border-border-subtle text-base sm:text-sm text-ink-primary placeholder:text-ink-muted focus:outline-none focus:border-accent"
                 />
               </div>
 
@@ -319,7 +319,7 @@ export function ProjectInquirySection() {
                   placeholder="e.g. +1 555... or name@co.com"
                   value={contactHandle}
                   onChange={(e) => setContactHandle(e.target.value)}
-                  className="w-full px-3.5 py-2 rounded-lg bg-surface-1 border border-border-subtle text-base sm:text-sm text-ink-primary placeholder:text-ink-muted focus:outline-hidden focus:border-accent"
+                  className="w-full px-3.5 py-2 rounded-lg bg-surface-1 border border-border-subtle text-base sm:text-sm text-ink-primary placeholder:text-ink-muted focus:outline-none focus:border-accent"
                 />
               </div>
             </div>
@@ -333,7 +333,7 @@ export function ProjectInquirySection() {
                 placeholder="Mention script length, visual references or project goals..."
                 value={projectBrief}
                 onChange={(e) => setProjectBrief(e.target.value)}
-                className="w-full px-3.5 py-2 rounded-lg bg-surface-1 border border-border-subtle text-base sm:text-sm text-ink-primary placeholder:text-ink-muted focus:outline-hidden focus:border-accent resize-none"
+                className="w-full px-3.5 py-2 rounded-lg bg-surface-1 border border-border-subtle text-base sm:text-sm text-ink-primary placeholder:text-ink-muted focus:outline-none focus:border-accent resize-none"
               />
             </div>
 
@@ -342,7 +342,7 @@ export function ProjectInquirySection() {
               <button
                 type="button"
                 onClick={handleWhatsAppSend}
-                className="w-full py-2.5 px-4 rounded-xl bg-cta-bg text-cta-text hover:opacity-90 text-xs font-mono uppercase tracking-wider flex items-center justify-center gap-2 font-semibold cursor-pointer shadow-xs transition-opacity"
+                className="w-full py-2.5 px-4 rounded-xl bg-cta-bg text-cta-text hover:opacity-90 text-xs font-mono uppercase tracking-wider flex items-center justify-center gap-2 font-semibold cursor-pointer shadow-sm transition-opacity"
               >
                 <MessageCircle className="w-4 h-4 text-accent" />
                 <span>Send Scope via WhatsApp</span>

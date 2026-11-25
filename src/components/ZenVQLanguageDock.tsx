@@ -476,7 +476,7 @@ export function ZenVQLanguageDock({
                 onClick={() => setThemeExplicit("dark")}
                 className={`px-2.5 py-1 rounded-md flex items-center gap-1.5 transition-colors cursor-pointer ${
                   !isLight
-                    ? "bg-[#27272A] text-white font-medium shadow-xs border border-white/10"
+                    ? "bg-[#27272A] text-white font-medium shadow-sm border border-white/10"
                     : "text-slate-500 hover:text-slate-900"
                 }`}
               >
@@ -488,7 +488,7 @@ export function ZenVQLanguageDock({
                 onClick={() => setThemeExplicit("light")}
                 className={`px-2.5 py-1 rounded-md flex items-center gap-1.5 transition-colors cursor-pointer ${
                   isLight
-                    ? "bg-white text-slate-900 font-medium shadow-xs border border-slate-200"
+                    ? "bg-white text-slate-900 font-medium shadow-sm border border-slate-200"
                     : "text-zinc-400 hover:text-white"
                 }`}
               >
@@ -525,8 +525,8 @@ export function ZenVQLanguageDock({
                   className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-left text-xs transition-all cursor-pointer ${
                     isSelected
                       ? isLight
-                        ? "bg-slate-100 text-slate-900 font-semibold border border-slate-200 shadow-xs"
-                        : "bg-white/[0.08] text-white font-semibold border border-white/15 shadow-xs"
+                        ? "bg-slate-100 text-slate-900 font-semibold border border-slate-200 shadow-sm"
+                        : "bg-white/[0.08] text-white font-semibold border border-white/15 shadow-sm"
                       : isLight
                       ? "text-slate-700 hover:text-slate-900 hover:bg-slate-50 border border-transparent"
                       : "text-zinc-300 hover:text-white hover:bg-white/[0.04] border border-transparent"
