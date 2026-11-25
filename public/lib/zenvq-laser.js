@@ -260,27 +260,44 @@
 
   function isLightTheme() {
     if (typeof document === "undefined") return false;
+    const rootAttr = (document.documentElement.getAttribute("data-theme") || "").toLowerCase();
+    const bodyAttr = (document.body && document.body.getAttribute("data-theme") ? document.body.getAttribute("data-theme") : "").toLowerCase();
     if (
       document.documentElement.classList.contains("dark") ||
-      document.documentElement.getAttribute("data-theme") === "dark" ||
+      rootAttr === "dark" ||
+      rootAttr === "noir" ||
       (document.body && document.body.classList.contains("dark")) ||
-      (document.body && document.body.getAttribute("data-theme") === "dark")
+      bodyAttr === "dark" ||
+      bodyAttr === "noir"
     ) {
       return false;
     }
-    if (typeof window !== "undefined") {
-      const host = window.location.hostname.toLowerCase();
-      if (host.includes("drjerin") || host.includes("dental") || host.includes("natures-intimacy") || host.includes("naturesintimacy") || host.includes("saif")) {
-        return !document.documentElement.classList.contains("dark");
-      }
-    }
     if (
       document.documentElement.classList.contains("light") ||
-      document.documentElement.getAttribute("data-theme") === "light" ||
+      rootAttr === "light" ||
+      rootAttr === "purple" ||
+      rootAttr === "ivory" ||
       (document.body && document.body.classList.contains("light")) ||
-      (document.body && document.body.getAttribute("data-theme") === "light")
+      bodyAttr === "light" ||
+      bodyAttr === "purple" ||
+      bodyAttr === "ivory"
     ) {
       return true;
+    }
+    if (typeof window !== "undefined") {
+      const host = window.location.hostname.toLowerCase();
+      if (
+        host.includes("drjerin") ||
+        host.includes("dental") ||
+        host.includes("natures-intimacy") ||
+        host.includes("naturesintimacy") ||
+        host.includes("saif") ||
+        host.includes("rafij") ||
+        host.includes("kawsar") ||
+        host.includes("boutique-templates")
+      ) {
+        return !document.documentElement.classList.contains("dark") && rootAttr !== "noir";
+      }
     }
     try {
       if (typeof window !== "undefined") {
@@ -352,6 +369,28 @@
     return false;
   }
 
+  function isSuggestsSite() {
+    if (typeof window === "undefined") return false;
+    const host = window.location.hostname.toLowerCase();
+    if (host.includes("suggests")) return true;
+    if (typeof document !== "undefined") {
+      if (document.body && document.body.getAttribute("data-site") === "suggests") return true;
+      if (document.title && document.title.toLowerCase().includes("suggests")) return true;
+    }
+    return false;
+  }
+
+  function isBoutiqueSite() {
+    if (typeof window === "undefined") return false;
+    const host = window.location.hostname.toLowerCase();
+    if (host.includes("boutique")) return true;
+    if (typeof document !== "undefined") {
+      if (document.body && document.body.getAttribute("data-site") === "boutique") return true;
+      if (document.title && document.title.toLowerCase().includes("jennah")) return true;
+    }
+    return false;
+  }
+
   function resolveCurrentTheme() {
     // 1. Strict Creative Route Guard
     if (isCreativeRoute()) {
@@ -383,12 +422,23 @@
       return "motion";
     }
 
-    // 7. Agency Ecosystem Detection: default on agency homepage is Engineering Cyan
+    // 7. ZenVQ Suggests Detection: Creative Purple on lavender theme, Emerald Motion on light/dark themes
+    if (isSuggestsSite()) {
+      const tAttr = (document.documentElement.getAttribute("data-theme") || "purple").toLowerCase();
+      return tAttr === "purple" ? "creative" : "motion";
+    }
+
+    // 8. Maison JENNAH Boutique Detection: Luxury Gold matching Parisian couture
+    if (isBoutiqueSite()) {
+      return "luxury";
+    }
+
+    // 9. Agency Ecosystem Detection: default on agency homepage is Engineering Cyan
     if (isAgencySite()) {
       return "engineering";
     }
 
-    // 8. URL Route Presets
+    // 10. URL Route Presets
     if (typeof window !== "undefined") {
       const p = window.location.pathname.toLowerCase();
       const s = window.location.search.toLowerCase();
@@ -396,7 +446,7 @@
       if (p.includes("/cyber") || s.includes("theme=cyberpunk")) return "cyberpunk";
     }
 
-    // 9. Universal Default: White on dark canvas and Black on light canvas
+    // 11. Universal Default: White on dark canvas and Black on light canvas
     return "white";
   }
 
@@ -514,8 +564,8 @@
         x: state.mouseX,
         y: state.mouseY,
         radius: 2.5,
-        maxRadius: state.isHoveringInteractive ? (light ? 10 : 20) : (light ? 7 : 15),
-        alpha: light ? 0.35 : 0.85,
+        maxRadius: state.isHoveringInteractive ? (light ? 10 : 19) : (light ? 7 : 14),
+        alpha: light ? 0.38 : 0.85,
         color: light ? themeConfig.glowLight : themeConfig.glowDark,
         rgb: light ? themeConfig.rgbLight : themeConfig.rgbDark
       });
@@ -586,8 +636,8 @@
         x: state.mouseX,
         y: state.mouseY,
         radius: 2.5,
-        maxRadius: isInteractive ? (light ? 11 : 24) : (light ? 8 : 18),
-        alpha: light ? 0.35 : 0.9,
+        maxRadius: isInteractive ? (light ? 11 : 20) : (light ? 8 : 15),
+        alpha: light ? 0.35 : 0.85,
         color: light ? themeConfig.glowLight : themeConfig.glowDark,
         rgb: light ? themeConfig.rgbLight : themeConfig.rgbDark
       });
@@ -835,8 +885,8 @@
 
       const isHover = state.isHoveringInteractive;
 
-      // Subtle Micro Bloom Halo (Compact calibrated radius: 5.0px-6.0px normal, 6.5px-7.5px hover)
-      const glowRadius = isHover ? (light ? 6.5 : 7.5) : (light ? 5.0 : 6.0);
+      // A. Outer Optical Bloom Halo (Calibrated compact radius: 5.5px-6.5px normal, 7.5px-8.5px hover)
+      const glowRadius = isHover ? (light ? 7.5 : 8.5) : (light ? 5.5 : 6.5);
       const gradient = ctx.createRadialGradient(
         state.mouseX,
         state.mouseY,
@@ -845,8 +895,8 @@
         state.mouseY,
         glowRadius
       );
-      gradient.addColorStop(0, `rgba(${laserRgbGlow}, ${light ? 0.45 : 0.60})`);
-      gradient.addColorStop(0.45, `rgba(${laserRgbSecondary}, ${light ? 0.18 : 0.25})`);
+      gradient.addColorStop(0, `rgba(${laserRgbGlow}, ${light ? 0.42 : 0.55})`);
+      gradient.addColorStop(0.5, `rgba(${laserRgbSecondary}, ${light ? 0.16 : 0.24})`);
       gradient.addColorStop(1, `rgba(${laserRgbGlow}, 0)`);
 
       ctx.fillStyle = gradient;
@@ -854,9 +904,28 @@
       ctx.arc(state.mouseX, state.mouseY, glowRadius, 0, Math.PI * 2);
       ctx.fill();
 
-      // Precision Laser Focal Dot (Needle-sharp calibrated: 2.0px normal, 2.6px hover)
+      // B. Inner Crisp Laser Corona (Crisp luminous core glow)
+      const innerRadius = isHover ? (light ? 4.2 : 5.0) : (light ? 3.2 : 3.8);
+      const innerGrad = ctx.createRadialGradient(
+        state.mouseX,
+        state.mouseY,
+        0,
+        state.mouseX,
+        state.mouseY,
+        innerRadius
+      );
+      innerGrad.addColorStop(0, `rgba(${laserRgbSecondary}, ${light ? 0.55 : 0.68})`);
+      innerGrad.addColorStop(0.6, `rgba(${laserRgbGlow}, ${light ? 0.22 : 0.32})`);
+      innerGrad.addColorStop(1, `rgba(${laserRgbGlow}, 0)`);
+
+      ctx.fillStyle = innerGrad;
+      ctx.beginPath();
+      ctx.arc(state.mouseX, state.mouseY, innerRadius, 0, Math.PI * 2);
+      ctx.fill();
+
+      // C. Precision Laser Focal Dot (Needle-sharp unified: 2.0px normal, 2.6px hover)
       ctx.shadowColor = laserGlowColor;
-      ctx.shadowBlur = (isHover ? (light ? 5 : 7) : (light ? 3.5 : 5)) * state.options.bloomIntensity;
+      ctx.shadowBlur = (isHover ? (light ? 5.5 : 7.5) : (light ? 4.0 : 5.5)) * state.options.bloomIntensity;
       ctx.fillStyle = laserCoreColor;
       ctx.beginPath();
       ctx.arc(state.mouseX, state.mouseY, isHover ? 2.6 : 2.0, 0, Math.PI * 2);
@@ -1095,7 +1164,7 @@
     const runAutoInit = () => {
       const scriptTag =
         document.currentScript ||
-        document.querySelector("script[src*='zenvq-laser']", "script[src*='laser.js']");
+        document.querySelector("script[src*='zenvq-laser'], script[src*='laser.js']");
 
       if (scriptTag) {
         const auto = scriptTag.getAttribute("data-auto-laser");

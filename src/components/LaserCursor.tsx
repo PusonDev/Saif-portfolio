@@ -277,6 +277,28 @@ export function LaserCursor({
       return false;
     };
 
+    const isSuggestsSite = () => {
+      if (typeof window === "undefined") return false;
+      const host = window.location.hostname.toLowerCase();
+      if (host.includes("suggests")) return true;
+      if (typeof document !== "undefined") {
+        if (document.body?.getAttribute("data-site") === "suggests") return true;
+        if (document.title.toLowerCase().includes("suggests")) return true;
+      }
+      return false;
+    };
+
+    const isBoutiqueSite = () => {
+      if (typeof window === "undefined") return false;
+      const host = window.location.hostname.toLowerCase();
+      if (host.includes("boutique")) return true;
+      if (typeof document !== "undefined") {
+        if (document.body?.getAttribute("data-site") === "boutique") return true;
+        if (document.title.toLowerCase().includes("jennah")) return true;
+      }
+      return false;
+    };
+
     const resolveThemeKey = (): keyof typeof THEME_DATA => {
       // 1. Strict Creative Route Guard: On /creative, laser is ALWAYS creative purple
       if (isCreativeRoute()) {
@@ -308,12 +330,23 @@ export function LaserCursor({
         return "motion";
       }
 
-      // 7. Agency Ecosystem Detection: default on agency homepage is Engineering Cyan
+      // 7. ZenVQ Suggests Detection: Creative Purple on lavender theme, Emerald Motion on light/dark themes
+      if (isSuggestsSite()) {
+        const tAttr = (document.documentElement.getAttribute("data-theme") || "purple").toLowerCase();
+        return tAttr === "purple" ? "creative" : "motion";
+      }
+
+      // 8. Maison JENNAH Boutique Detection: Luxury Gold matching Parisian couture
+      if (isBoutiqueSite()) {
+        return "luxury";
+      }
+
+      // 9. Agency Ecosystem Detection: default on agency homepage is Engineering Cyan
       if (isAgencySite()) {
         return "engineering";
       }
 
-      // 7. URL Route Preset checks
+      // 10. URL Route Preset checks
       if (typeof window !== "undefined") {
         const p = window.location.pathname.toLowerCase();
         const s = window.location.search.toLowerCase();
@@ -321,7 +354,7 @@ export function LaserCursor({
         if (p.includes("/cyber") || s.includes("theme=cyberpunk")) return "cyberpunk";
       }
 
-      // 8. Universal Default: White on dark canvas and Black on light canvas
+      // 11. Universal Default: White on dark canvas and Black on light canvas
       return "white";
     };
 
@@ -363,28 +396,46 @@ export function LaserCursor({
     };
 
     const isLightTheme = () => {
+      let rootAttr = "";
       if (typeof document !== "undefined") {
+        rootAttr = (document.documentElement.getAttribute("data-theme") || "").toLowerCase();
+        const bodyAttr = (document.body?.getAttribute("data-theme") || "").toLowerCase();
         if (
           document.documentElement.classList.contains("dark") ||
-          document.documentElement.getAttribute("data-theme") === "dark" ||
+          rootAttr === "dark" ||
+          rootAttr === "noir" ||
           document.body?.classList.contains("dark") ||
-          document.body?.getAttribute("data-theme") === "dark"
+          bodyAttr === "dark" ||
+          bodyAttr === "noir"
         ) {
           return false;
         }
         if (
           document.documentElement.classList.contains("light") ||
-          document.documentElement.getAttribute("data-theme") === "light" ||
+          rootAttr === "light" ||
+          rootAttr === "purple" ||
+          rootAttr === "ivory" ||
           document.body?.classList.contains("light") ||
-          document.body?.getAttribute("data-theme") === "light"
+          bodyAttr === "light" ||
+          bodyAttr === "purple" ||
+          bodyAttr === "ivory"
         ) {
           return true;
         }
       }
       if (typeof window !== "undefined") {
         const host = window.location.hostname.toLowerCase();
-        if (host.includes("drjerin") || host.includes("dental") || host.includes("natures-intimacy") || host.includes("naturesintimacy") || host.includes("saif")) {
-          return !document.documentElement.classList.contains("dark");
+        if (
+          host.includes("drjerin") ||
+          host.includes("dental") ||
+          host.includes("natures-intimacy") ||
+          host.includes("naturesintimacy") ||
+          host.includes("saif") ||
+          host.includes("rafij") ||
+          host.includes("kawsar") ||
+          host.includes("boutique-templates")
+        ) {
+          return !document.documentElement.classList.contains("dark") && rootAttr !== "noir";
         }
       }
       try {
@@ -468,8 +519,8 @@ export function LaserCursor({
           x: mouseX,
           y: mouseY,
           radius: 2.5,
-          maxRadius: isHoveringInteractive ? (light ? 10 : 20) : (light ? 7 : 15),
-          alpha: light ? 0.35 : 0.85,
+          maxRadius: isHoveringInteractive ? (light ? 10 : 19) : (light ? 7 : 14),
+          alpha: light ? 0.38 : 0.85,
           color: light ? currentConfig.glowLight : currentConfig.glowDark,
           rgb: light ? currentConfig.rgbLight : currentConfig.rgbDark,
         });
@@ -525,14 +576,14 @@ export function LaserCursor({
       const currentConfig = THEME_DATA[currentThemeKey];
       const light = isLightTheme();
 
-      // Tactile laser shockwave ripple under finger (compact & delicate on light mode)
+      // Tactile laser shockwave ripple under finger (compact & delicate)
       if (shockwavesEnabled) {
         waves.push({
           x: mouseX,
           y: mouseY,
           radius: 2.5,
-          maxRadius: isHoveringInteractive ? (light ? 11 : 24) : (light ? 8 : 18),
-          alpha: light ? 0.35 : 0.9,
+          maxRadius: isHoveringInteractive ? (light ? 11 : 20) : (light ? 8 : 15),
+          alpha: light ? 0.35 : 0.85,
           color: light ? currentConfig.glowLight : currentConfig.glowDark,
           rgb: light ? currentConfig.rgbLight : currentConfig.rgbDark,
         });
@@ -788,8 +839,8 @@ export function LaserCursor({
 
         const isHover = isHoveringInteractive;
 
-        // Subtle Micro Bloom Halo (Compact calibrated radius: 5.0px-6.0px normal, 6.5px-7.5px hover)
-        const glowRadius = isHover ? (light ? 6.5 : 7.5) : (light ? 5.0 : 6.0);
+        // A. Outer Optical Bloom Halo (Calibrated compact radius: 5.5px-6.5px normal, 7.5px-8.5px hover)
+        const glowRadius = isHover ? (light ? 7.5 : 8.5) : (light ? 5.5 : 6.5);
         const gradient = ctx.createRadialGradient(
           mouseX,
           mouseY,
@@ -798,8 +849,8 @@ export function LaserCursor({
           mouseY,
           glowRadius
         );
-        gradient.addColorStop(0, `rgba(${laserRgbGlow}, ${light ? 0.45 : 0.60})`);
-        gradient.addColorStop(0.45, `rgba(${laserRgbSecondary}, ${light ? 0.18 : 0.25})`);
+        gradient.addColorStop(0, `rgba(${laserRgbGlow}, ${light ? 0.42 : 0.55})`);
+        gradient.addColorStop(0.5, `rgba(${laserRgbSecondary}, ${light ? 0.16 : 0.24})`);
         gradient.addColorStop(1, `rgba(${laserRgbGlow}, 0)`);
 
         ctx.fillStyle = gradient;
@@ -807,9 +858,28 @@ export function LaserCursor({
         ctx.arc(mouseX, mouseY, glowRadius, 0, Math.PI * 2);
         ctx.fill();
 
-        // Precision Laser Focal Dot (Needle-sharp calibrated: 2.0px normal, 2.6px hover)
+        // B. Inner Crisp Laser Corona (Crisp luminous core glow)
+        const innerRadius = isHover ? (light ? 4.2 : 5.0) : (light ? 3.2 : 3.8);
+        const innerGrad = ctx.createRadialGradient(
+          mouseX,
+          mouseY,
+          0,
+          mouseX,
+          mouseY,
+          innerRadius
+        );
+        innerGrad.addColorStop(0, `rgba(${laserRgbSecondary}, ${light ? 0.55 : 0.68})`);
+        innerGrad.addColorStop(0.6, `rgba(${laserRgbGlow}, ${light ? 0.22 : 0.32})`);
+        innerGrad.addColorStop(1, `rgba(${laserRgbGlow}, 0)`);
+
+        ctx.fillStyle = innerGrad;
+        ctx.beginPath();
+        ctx.arc(mouseX, mouseY, innerRadius, 0, Math.PI * 2);
+        ctx.fill();
+
+        // C. Precision Laser Focal Dot (Needle-sharp unified: 2.0px normal, 2.6px hover)
         ctx.shadowColor = laserGlowColor;
-        ctx.shadowBlur = (isHover ? (light ? 5 : 7) : (light ? 3.5 : 5)) * bloomIntensity;
+        ctx.shadowBlur = (isHover ? (light ? 5.5 : 7.5) : (light ? 4.0 : 5.5)) * bloomIntensity;
         ctx.fillStyle = laserCoreColor;
         ctx.beginPath();
         ctx.arc(mouseX, mouseY, isHover ? 2.6 : 2.0, 0, Math.PI * 2);
