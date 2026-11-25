@@ -69,7 +69,7 @@ export const portfolioData = {
       index: "01",
       title: "UI Motion, SaaS Animation and Kinetic Typography",
       italicTitle: "Flow",
-      category: "UI Motion & SaaS",
+      category: "UI Motion and SaaS",
       description: "Interactive SaaS product interface motion and kinetic typography choreography engineered in After Effects.",
       tools: ["After Effects", "UI Motion", "SaaS Animation"],
       link: "https://www.instagram.com/motion.bysaif/",
@@ -80,7 +80,7 @@ export const portfolioData = {
       index: "02",
       title: "Promotional Reels for Gaming Brands and Social Platforms",
       italicTitle: "Hooks",
-      category: "Gaming & Social",
+      category: "Gaming and Social",
       description: "High-retention 9:16 promotional reel pacing built for SaaS launches, gaming channels, Instagram Reels and YouTube Shorts.",
       tools: ["After Effects", "Short-Form", "Gaming Brands"],
       link: "https://www.instagram.com/motion.bysaif/",
@@ -91,7 +91,7 @@ export const portfolioData = {
       index: "03",
       title: "Logo Animations, Vector Staging and Transitions",
       italicTitle: "Depth",
-      category: "Logo & Staging",
+      category: "Logo and Staging",
       description: "Layered vector logo reveals and transitions prepared in Illustrator and Photoshop, animated in After Effects and rendered via Media Encoder.",
       tools: ["Illustrator", "Photoshop", "Media Encoder"],
       link: "https://www.instagram.com/motion.bysaif/",
@@ -161,7 +161,7 @@ export const portfolioData = {
   credentials: {
     experience: {
       role: "Freelance Motion Designer",
-      subRole: "Client & Creative Projects",
+      subRole: "Client and Creative Projects",
       handle: "@motion.bysaif",
       period: "2026 – Present",
       points: [

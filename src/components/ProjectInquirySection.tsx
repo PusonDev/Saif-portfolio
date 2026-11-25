@@ -177,7 +177,7 @@ export function ProjectInquirySection() {
       />
 
       {/* Section Header */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2.5 mb-5 sm:mb-7 pb-4 border-b border-white/[0.05]">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2.5 mb-5 sm:mb-7 pb-4 border-b border-border-subtle">
         <div className="space-y-1">
           <div className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-accent">
             <Sliders className="w-3.5 h-3.5" />
@@ -198,10 +198,10 @@ export function ProjectInquirySection() {
             LEFT COLUMN: Direct Interactive Scoping Widget (7 Cols)
             ========================================================================= */}
         <div className="lg:col-span-7">
-          <div className="rounded-2xl sm:rounded-3xl p-5 sm:p-7 border border-white/[0.05] bg-white/[0.015] relative overflow-hidden space-y-4 sm:space-y-5">
+          <div className="rounded-2xl sm:rounded-3xl p-5 sm:p-7 border border-border-subtle bg-surface-1 relative overflow-hidden space-y-4 sm:space-y-5">
             <div className="specular-top-light" />
 
-            <div className="flex items-center justify-between pb-3 border-b border-white/[0.05] text-xs font-mono">
+            <div className="flex items-center justify-between pb-3 border-b border-border-subtle text-xs font-mono">
               <span className="text-accent uppercase tracking-wider font-semibold">Motion Project Scoper</span>
               <span className="text-ink-muted">Direct to Saifuddin</span>
             </div>
@@ -228,7 +228,7 @@ export function ProjectInquirySection() {
                     className={`px-3 py-1.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all duration-200 border cursor-pointer ${
                       projectType === t
                         ? "bg-accent text-zinc-950 font-semibold border-accent shadow-xs"
-                        : "bg-white/[0.02] border-white/[0.06] text-ink-secondary hover:text-ink-primary hover:border-white/[0.12]"
+                        : "bg-surface-1 border-border-subtle text-ink-secondary hover:text-ink-primary hover:border-border-strong"
                     }`}
                   >
                     {t}
@@ -251,7 +251,7 @@ export function ProjectInquirySection() {
                     className={`px-3 py-1.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all duration-200 border cursor-pointer ${
                       format === f
                         ? "bg-accent text-zinc-950 font-semibold border-accent shadow-xs"
-                        : "bg-white/[0.02] border-white/[0.06] text-ink-secondary hover:text-ink-primary hover:border-white/[0.12]"
+                        : "bg-surface-1 border-border-subtle text-ink-secondary hover:text-ink-primary hover:border-border-strong"
                     }`}
                   >
                     {f}
@@ -274,7 +274,7 @@ export function ProjectInquirySection() {
                     className={`px-3 py-1.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all duration-200 border cursor-pointer ${
                       timeline === tm
                         ? "bg-accent text-zinc-950 font-semibold border-accent shadow-xs"
-                        : "bg-white/[0.02] border-white/[0.06] text-ink-secondary hover:text-ink-primary hover:border-white/[0.12]"
+                        : "bg-surface-1 border-border-subtle text-ink-secondary hover:text-ink-primary hover:border-border-strong"
                     }`}
                   >
                     {tm}
@@ -306,7 +306,7 @@ export function ProjectInquirySection() {
                   placeholder="e.g. Alex Vance"
                   value={clientName}
                   onChange={(e) => setClientName(e.target.value)}
-                  className="w-full px-3.5 py-2 rounded-lg bg-white/[0.02] border border-white/[0.06] text-base sm:text-sm text-ink-primary placeholder:text-ink-muted focus:outline-hidden focus:border-accent"
+                  className="w-full px-3.5 py-2 rounded-lg bg-surface-1 border border-border-subtle text-base sm:text-sm text-ink-primary placeholder:text-ink-muted focus:outline-hidden focus:border-accent"
                 />
               </div>
 
@@ -319,7 +319,7 @@ export function ProjectInquirySection() {
                   placeholder="e.g. +1 555... or name@co.com"
                   value={contactHandle}
                   onChange={(e) => setContactHandle(e.target.value)}
-                  className="w-full px-3.5 py-2 rounded-lg bg-white/[0.02] border border-white/[0.06] text-base sm:text-sm text-ink-primary placeholder:text-ink-muted focus:outline-hidden focus:border-accent"
+                  className="w-full px-3.5 py-2 rounded-lg bg-surface-1 border border-border-subtle text-base sm:text-sm text-ink-primary placeholder:text-ink-muted focus:outline-hidden focus:border-accent"
                 />
               </div>
             </div>
@@ -333,7 +333,7 @@ export function ProjectInquirySection() {
                 placeholder="Mention script length, visual references or project goals..."
                 value={projectBrief}
                 onChange={(e) => setProjectBrief(e.target.value)}
-                className="w-full px-3.5 py-2 rounded-lg bg-white/[0.02] border border-white/[0.06] text-base sm:text-sm text-ink-primary placeholder:text-ink-muted focus:outline-hidden focus:border-accent resize-none"
+                className="w-full px-3.5 py-2 rounded-lg bg-surface-1 border border-border-subtle text-base sm:text-sm text-ink-primary placeholder:text-ink-muted focus:outline-hidden focus:border-accent resize-none"
               />
             </div>
 
@@ -352,7 +352,7 @@ export function ProjectInquirySection() {
                 <button
                   type="button"
                   onClick={handleEmailSend}
-                  className="py-2 px-3 rounded-lg bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.15] text-xs font-mono uppercase tracking-wider text-ink-primary flex items-center justify-center gap-1.5 cursor-pointer transition-colors"
+                  className="py-2 px-3 rounded-lg bg-surface-1 border border-border-subtle hover:border-border-strong text-xs font-mono uppercase tracking-wider text-ink-primary flex items-center justify-center gap-1.5 cursor-pointer transition-colors"
                 >
                   <Send className="w-3.5 h-3.5 text-accent" />
                   <span>Send Email</span>
@@ -361,7 +361,7 @@ export function ProjectInquirySection() {
                 <button
                   type="button"
                   onClick={handleCopyBrief}
-                  className="py-2 px-3 rounded-lg bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.15] text-xs font-mono uppercase tracking-wider text-ink-primary flex items-center justify-center gap-1.5 cursor-pointer transition-colors"
+                  className="py-2 px-3 rounded-lg bg-surface-1 border border-border-subtle hover:border-border-strong text-xs font-mono uppercase tracking-wider text-ink-primary flex items-center justify-center gap-1.5 cursor-pointer transition-colors"
                 >
                   {copiedBrief ? (
                     <>
@@ -385,17 +385,17 @@ export function ProjectInquirySection() {
             ========================================================================= */}
         <div className="lg:col-span-5 space-y-4">
           {/* Direct Contact Ledger Card */}
-          <div className="rounded-2xl p-5 border border-white/[0.05] bg-white/[0.015] relative overflow-hidden space-y-3">
+          <div className="rounded-2xl p-5 border border-border-subtle bg-surface-1 relative overflow-hidden space-y-3">
             <div className="specular-top-light" />
 
-            <div className="flex items-center justify-between pb-2 border-b border-white/[0.05] text-xs font-mono">
+            <div className="flex items-center justify-between pb-2 border-b border-border-subtle text-xs font-mono">
               <span className="text-accent uppercase tracking-wider font-semibold">Direct Contact Channels</span>
               <span className="text-ink-muted">Verified</span>
             </div>
 
             <div className="space-y-2 text-xs font-mono">
               {/* Email */}
-              <div className="flex items-center justify-between py-1 border-b border-white/[0.04]">
+              <div className="flex items-center justify-between py-1 border-b border-border-subtle">
                 <div className="flex items-center gap-2 text-ink-muted">
                   <Mail className="w-3.5 h-3.5 text-accent" />
                   <span>Email:</span>
@@ -411,7 +411,7 @@ export function ProjectInquirySection() {
                     type="button"
                     onClick={handleCopyEmail}
                     title="Copy Email"
-                    className="p-1 rounded hover:bg-white/[0.05] text-ink-muted hover:text-accent transition-colors cursor-pointer"
+                    className="p-1 rounded hover:bg-surface-hover text-ink-muted hover:text-accent transition-colors cursor-pointer"
                   >
                     {copiedEmail ? <Check className="w-3 h-3 text-accent" /> : <Copy className="w-3 h-3" />}
                   </button>
@@ -419,7 +419,7 @@ export function ProjectInquirySection() {
               </div>
 
               {/* Phone & WhatsApp */}
-              <div className="flex items-center justify-between py-1 border-b border-white/[0.04]">
+              <div className="flex items-center justify-between py-1 border-b border-border-subtle">
                 <div className="flex items-center gap-2 text-ink-muted">
                   <Phone className="w-3.5 h-3.5 text-accent" />
                   <span>Phone / WA:</span>
@@ -436,7 +436,7 @@ export function ProjectInquirySection() {
               </div>
 
               {/* Instagram */}
-              <div className="flex items-center justify-between py-1 border-b border-white/[0.04]">
+              <div className="flex items-center justify-between py-1 border-b border-border-subtle">
                 <div className="flex items-center gap-2 text-ink-muted">
                   <Instagram className="w-3.5 h-3.5 text-accent" />
                   <span>Instagram:</span>
@@ -453,7 +453,7 @@ export function ProjectInquirySection() {
               </div>
 
               {/* Resume Download */}
-              <div className="flex items-center justify-between py-1 border-b border-white/[0.04]">
+              <div className="flex items-center justify-between py-1 border-b border-border-subtle">
                 <div className="flex items-center gap-2 text-ink-muted">
                   <FileDown className="w-3.5 h-3.5 text-accent" />
                   <span>CV Document:</span>
@@ -493,8 +493,8 @@ export function ProjectInquirySection() {
                     key={idx}
                     className={`rounded-xl border transition-all duration-200 overflow-hidden relative ${
                       isOpen
-                        ? "border-white/[0.12] bg-white/[0.025]"
-                        : "border-white/[0.05] bg-white/[0.015] hover:border-white/[0.08]"
+                        ? "border-border-strong bg-surface-hover"
+                        : "border-border-subtle bg-surface-1 hover:border-border-subtle"
                     }`}
                   >
                     <div className="specular-top-light" />
@@ -515,7 +515,7 @@ export function ProjectInquirySection() {
                       </div>
 
                       <div
-                        className={`w-5 h-5 rounded-full bg-white/[0.03] flex items-center justify-center shrink-0 transition-transform duration-200 ${
+                        className={`w-5 h-5 rounded-full bg-surface-2 flex items-center justify-center shrink-0 transition-transform duration-200 ${
                           isOpen ? "rotate-180 text-accent" : "text-ink-muted"
                         }`}
                       >
@@ -524,7 +524,7 @@ export function ProjectInquirySection() {
                     </button>
 
                     {isOpen && (
-                      <div className="px-4 pb-4 pt-1 text-xs text-ink-secondary leading-relaxed border-t border-white/[0.04] font-normal">
+                      <div className="px-4 pb-4 pt-1 text-xs text-ink-secondary leading-relaxed border-t border-border-subtle font-normal">
                         {faq.answer}
                       </div>
                     )}

@@ -15,7 +15,7 @@ export function WorksSection() {
   return (
     <section id="works" className="py-10 sm:py-14 px-4 sm:px-8 max-w-5xl mx-auto w-full scroll-mt-20">
       {/* Section Header */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2.5 mb-5 sm:mb-7 pb-4 border-b border-white/[0.05]">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2.5 mb-5 sm:mb-7 pb-4 border-b border-border-subtle">
         <div className="space-y-1">
           <div className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-accent">
             <Film className="w-3.5 h-3.5" />
@@ -46,7 +46,7 @@ export function WorksSection() {
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: false, amount: 0.12 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-white/[0.05] bg-white/[0.015] hover:bg-white/[0.025] transition-colors relative overflow-hidden group perspective-stage"
+          className="rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-border-subtle bg-surface-1 hover:bg-surface-hover transition-colors relative overflow-hidden group perspective-stage"
         >
           <div className="specular-top-light" />
 
@@ -57,7 +57,7 @@ export function WorksSection() {
                 <span className="font-mono text-xs text-accent uppercase tracking-widest">
                   01 /
                 </span>
-                <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-white/[0.03] text-ink-muted border border-white/[0.06]">
+                <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-surface-2 text-ink-muted border border-border-subtle">
                   Widescreen 16:9
                 </span>
               </div>
@@ -74,7 +74,7 @@ export function WorksSection() {
                 {["After Effects", "UI Motion", "SaaS Walkthrough"].map((t, i) => (
                   <span
                     key={i}
-                    className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-white/[0.03] text-ink-muted border border-white/[0.06]"
+                    className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-surface-2 text-ink-muted border border-border-subtle"
                   >
                     {t}
                   </span>
@@ -96,9 +96,9 @@ export function WorksSection() {
 
             {/* Right: Authentic 3D Widescreen Studio Display */}
             <div className="lg:col-span-7 flex justify-center">
-              <div className="w-full max-w-lg rounded-xl border border-white/[0.08] bg-[#0B0B0E] p-2 sm:p-2.5 shadow-2xl transition-transform duration-700 group-hover:rotate-x-2 group-hover:scale-[1.02]">
+              <div className="w-full max-w-lg rounded-xl border border-border-subtle bg-[#0B0B0E] p-2 sm:p-2.5 shadow-2xl transition-transform duration-700 group-hover:rotate-x-2 group-hover:scale-[1.02]">
                 {/* Hardware Bezel Header */}
-                <div className="flex items-center justify-between px-2.5 sm:px-3 py-1 sm:py-1.5 border-b border-white/[0.06] text-[10px] font-mono text-ink-muted">
+                <div className="flex items-center justify-between px-2.5 sm:px-3 py-1 sm:py-1.5 border-b border-border-subtle text-[10px] font-mono text-ink-muted">
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-red-500/80" />
                     <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-yellow-500/80" />
@@ -114,7 +114,7 @@ export function WorksSection() {
                   className="relative aspect-[16/9] min-h-[170px] w-full rounded-lg bg-zinc-950 flex flex-col items-center justify-between overflow-hidden cursor-pointer select-none p-3 sm:p-5"
                 >
                   {/* Subtle Grid Canvas */}
-                  <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:2rem_2rem] pointer-events-none" />
+                  <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--border-subtle)_1px,transparent_1px),linear-gradient(to_bottom,var(--border-subtle)_1px,transparent_1px)] bg-[size:2rem_2rem] pointer-events-none" />
 
                   {/* Top indicator on canvas */}
                   <div className="w-full flex justify-end">
@@ -165,7 +165,7 @@ export function WorksSection() {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: false, amount: 0.12 }}
             transition={{ duration: 0.7, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
-            className="rounded-2xl sm:rounded-3xl p-5 sm:p-7 border border-white/[0.05] bg-white/[0.015] hover:bg-white/[0.025] transition-colors relative overflow-hidden group flex flex-col justify-between"
+            className="rounded-2xl sm:rounded-3xl p-5 sm:p-7 border border-border-subtle bg-surface-1 hover:bg-surface-hover transition-colors relative overflow-hidden group flex flex-col justify-between"
           >
             <div className="specular-top-light" />
 
@@ -174,7 +174,7 @@ export function WorksSection() {
                 <span className="font-mono text-xs text-accent uppercase tracking-widest">
                   02 /
                 </span>
-                <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-white/[0.03] text-ink-muted border border-white/[0.06] flex items-center gap-1">
+                <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-surface-2 text-ink-muted border border-border-subtle flex items-center gap-1">
                   <Smartphone className="w-3 h-3 text-accent" />
                   <span>Vertical 9:16</span>
                 </span>
@@ -227,7 +227,7 @@ export function WorksSection() {
               </div>
             </div>
 
-            <div className="mt-3.5 pt-3 border-t border-white/[0.05] flex items-center justify-between">
+            <div className="mt-3.5 pt-3 border-t border-border-subtle flex items-center justify-between">
               <span className="text-[11px] sm:text-xs font-mono text-ink-muted">After Effects · Vertical Hook</span>
               <a
                 href={profile.instagramUrl}
@@ -246,7 +246,7 @@ export function WorksSection() {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: false, amount: 0.12 }}
             transition={{ duration: 0.7, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
-            className="rounded-2xl sm:rounded-3xl p-5 sm:p-7 border border-white/[0.05] bg-white/[0.015] hover:bg-white/[0.025] transition-colors relative overflow-hidden group flex flex-col justify-between"
+            className="rounded-2xl sm:rounded-3xl p-5 sm:p-7 border border-border-subtle bg-surface-1 hover:bg-surface-hover transition-colors relative overflow-hidden group flex flex-col justify-between"
           >
             <div className="specular-top-light" />
 
@@ -255,7 +255,7 @@ export function WorksSection() {
                 <span className="font-mono text-xs text-accent uppercase tracking-widest">
                   03 /
                 </span>
-                <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-white/[0.03] text-ink-muted border border-white/[0.06] flex items-center gap-1">
+                <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-surface-2 text-ink-muted border border-border-subtle flex items-center gap-1">
                   <Layers className="w-3 h-3 text-accent" />
                   <span>Layered Comp</span>
                 </span>
@@ -308,7 +308,7 @@ export function WorksSection() {
               </div>
             </div>
 
-            <div className="mt-3.5 pt-3 border-t border-white/[0.05] flex items-center justify-between">
+            <div className="mt-3.5 pt-3 border-t border-border-subtle flex items-center justify-between">
               <span className="text-[11px] sm:text-xs font-mono text-ink-muted">Illustrator · Photoshop Staging</span>
               <a
                 href={profile.instagramUrl}

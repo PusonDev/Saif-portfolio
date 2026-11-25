@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { Sun, Moon, Globe, ChevronDown, Check } from "lucide-react";
 
 export interface LanguageItem {
   code: string;
@@ -32,57 +31,175 @@ export const ZENVQ_LANGUAGES: LanguageItem[] = [
 
   // 4. Regional South Asian & GCC Diaspora Markets
   { code: "ur", name: "Urdu", native: "اردو", region: "South Asia / GCC", dir: "rtl", badge: "ار" },
-  { code: "hi", name: "Hindi", native: "हिन्दी", region: "South Asia", dir: "ltr", badge: "हि" },
+  { code: "hi", name: "Hindi", native: "हिन्दी", region: "South Asia", dir: "ltr", badge: "हि" }
 ];
+
+// Universal Inline SVGs (Zero external package dependencies)
+function GlobeIcon({ className = "w-3.5 h-3.5", style }: { className?: string; style?: React.CSSProperties }) {
+  return (
+    <svg className={className} style={style} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+      <circle cx="12" cy="12" r="10" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+    </svg>
+  );
+}
+
+function ChevronDownIcon({ className = "w-3 h-3" }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+    </svg>
+  );
+}
+
+function MoonIcon({ className = "w-3.5 h-3.5" }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.9}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+    </svg>
+  );
+}
+
+function SunIcon({ className = "w-3.5 h-3.5" }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.9}>
+      <circle cx="12" cy="12" r="4" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41" />
+    </svg>
+  );
+}
+
+function CheckIcon({ className = "w-3.5 h-3.5", style }: { className?: string; style?: React.CSSProperties }) {
+  return (
+    <svg className={className} style={style} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.4}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+    </svg>
+  );
+}
 
 interface ZenVQLanguageDockProps {
   variant?: "header" | "mobile" | "standalone";
+  theme?: "engineering" | "creative" | "auto" | "botanical";
   className?: string;
   dropDirection?: "down" | "up";
 }
 
 export function ZenVQLanguageDock({
   variant = "header",
+  theme = "engineering",
   className = "",
-  dropDirection = "down",
+  dropDirection = "down"
 }: ZenVQLanguageDockProps) {
   const [currentCode, setCurrentCode] = useState<string>("en");
   const [isOpen, setIsOpen] = useState(false);
   const [isTranslating, setIsTranslating] = useState(false);
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [mode, setMode] = useState<"dark" | "light">("dark");
   const [mounted, setMounted] = useState(false);
+  const [isCreative, setIsCreative] = useState(theme === "creative");
   const dockRef = useRef<HTMLDivElement>(null);
 
-  // Sync theme with documentElement and localStorage
+  // Sync theme with documentElement, body and localStorage
+  const applyThemeMode = (targetMode: "dark" | "light") => {
+    setMode(targetMode);
+    if (typeof window === "undefined") return;
+
+    const root = document.documentElement;
+    const body = document.body;
+
+    root.classList.remove("dark", "light", "dark-theme", "light-theme");
+    root.classList.add(targetMode);
+    root.setAttribute("data-theme", targetMode);
+    root.setAttribute("data-mode", targetMode);
+
+    if (body) {
+      body.classList.remove("dark", "light", "dark-theme", "light-theme");
+      body.classList.add(targetMode);
+    }
+
+    try {
+      localStorage.setItem("theme", targetMode);
+      localStorage.setItem("zenvq_theme", targetMode);
+      localStorage.setItem("saif-portfolio-theme", targetMode);
+      localStorage.setItem("zenvq_tools_theme", targetMode);
+      localStorage.setItem("theme-preference", targetMode);
+    } catch {}
+
+    window.dispatchEvent(new CustomEvent("theme-change", { detail: { theme: targetMode } }));
+    window.dispatchEvent(new CustomEvent("zenvq-theme-changed", { detail: { theme: targetMode } }));
+  };
+
   useEffect(() => {
     setMounted(true);
-    const storedTheme = localStorage.getItem("saif-portfolio-theme") as "dark" | "light" | null;
-    if (storedTheme) {
-      setTheme(storedTheme);
-      document.documentElement.classList.remove("dark", "light");
-      document.documentElement.classList.add(storedTheme);
-    } else {
-      document.documentElement.classList.add("dark");
-    }
+    if (typeof window === "undefined") return;
+
+    const detectCurrentMode = (): "dark" | "light" => {
+      try {
+        const root = document.documentElement;
+        if (root.classList.contains("light") || root.getAttribute("data-theme") === "light") {
+          return "light";
+        }
+        if (root.classList.contains("dark") || root.getAttribute("data-theme") === "dark") {
+          return "dark";
+        }
+        const stored =
+          localStorage.getItem("zenvq_theme") ||
+          localStorage.getItem("theme") ||
+          localStorage.getItem("saif-portfolio-theme") ||
+          localStorage.getItem("zenvq_tools_theme") ||
+          localStorage.getItem("theme-preference");
+        if (stored === "light" || stored === "dark") {
+          return stored;
+        }
+        if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
+          return "light";
+        }
+      } catch {}
+      return "dark";
+    };
+
+    const initialMode = detectCurrentMode();
+    setMode(initialMode);
+    applyThemeMode(initialMode);
+
+    // Watch for external theme changes
+    const observer = new MutationObserver(() => {
+      const root = document.documentElement;
+      const isLight = root.classList.contains("light") || root.getAttribute("data-theme") === "light";
+      setMode(isLight ? "light" : "dark");
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class", "data-theme", "data-mode"]
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   const toggleTheme = (e: React.MouseEvent) => {
     e.stopPropagation();
-    const nextTheme = theme === "dark" ? "light" : "dark";
-    setTheme(nextTheme);
-    document.documentElement.classList.remove("dark", "light");
-    document.documentElement.classList.add(nextTheme);
-    localStorage.setItem("saif-portfolio-theme", nextTheme);
+    const nextMode = mode === "dark" ? "light" : "dark";
+    applyThemeMode(nextMode);
   };
 
-  const setThemeExplicit = (targetTheme: "dark" | "light") => {
-    setTheme(targetTheme);
-    document.documentElement.classList.remove("dark", "light");
-    document.documentElement.classList.add(targetTheme);
-    localStorage.setItem("saif-portfolio-theme", targetTheme);
+  const setThemeExplicit = (targetMode: "dark" | "light") => {
+    applyThemeMode(targetMode);
   };
 
-  // Helper to match browser locale
+  // Detect route for dynamic theme accent
+  useEffect(() => {
+    if (theme === "creative") {
+      setIsCreative(true);
+    } else if (theme === "engineering") {
+      setIsCreative(false);
+    } else if (typeof window !== "undefined") {
+      const p = window.location.pathname;
+      const s = window.location.search;
+      setIsCreative(p.includes("/creative") || s.includes("tab=creative"));
+    }
+  }, [theme]);
+
+  // Helper to match browser locale to supported languages
   const matchSupportedLanguage = (localeStr: string): string | null => {
     if (!localeStr || typeof localeStr !== "string") return null;
     const clean = localeStr.toLowerCase().trim();
@@ -135,7 +252,7 @@ export function ZenVQLanguageDock({
     return "en";
   };
 
-  // Sync active language on mount
+  // Sync active language from translator engine or browser detection on mount
   useEffect(() => {
     if (typeof window !== "undefined") {
       const translator = (window as unknown as {
@@ -181,32 +298,38 @@ export function ZenVQLanguageDock({
       document.addEventListener("mousedown", handleOutsideClick);
       document.addEventListener("keydown", handleEscape);
     }
+
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
       document.removeEventListener("keydown", handleEscape);
     };
   }, [isOpen]);
 
-  const selectLanguage = async (targetCode: string) => {
-    if (targetCode === currentCode) {
+  const selectLanguage = async (code: string) => {
+    if (code === currentCode) {
       setIsOpen(false);
       return;
     }
 
-    setIsTranslating(true);
+    setCurrentCode(code);
     setIsOpen(false);
+    setIsTranslating(true);
 
     try {
       if (typeof window !== "undefined") {
-        localStorage.setItem("zenvq_live_lang", targetCode);
+        localStorage.setItem("zenvq_live_lang", code);
+        localStorage.setItem("zenvq_lang_user_selected", "true");
+
         const translator = (window as unknown as {
-          ZenVQTranslate?: { setLanguage: (code: string) => Promise<boolean> };
+          ZenVQTranslate?: { setLanguage: (c: string) => Promise<void> | void };
         }).ZenVQTranslate;
 
         if (translator && typeof translator.setLanguage === "function") {
-          await translator.setLanguage(targetCode);
+          await translator.setLanguage(code);
         } else {
-          setCurrentCode(targetCode);
+          const meta = ZENVQ_LANGUAGES.find((l) => l.code === code) || ZENVQ_LANGUAGES[0];
+          document.documentElement.setAttribute("lang", code);
+          document.documentElement.setAttribute("dir", meta.dir);
         }
       }
     } catch (err) {
@@ -217,6 +340,9 @@ export function ZenVQLanguageDock({
   };
 
   const activeMeta = ZENVQ_LANGUAGES.find((l) => l.code === currentCode) || ZENVQ_LANGUAGES[0];
+  const isBotanical = theme === "botanical";
+  const accentColor = isCreative ? "#A855F7" : isBotanical ? "#10B981" : "#00E599";
+  const isLight = mode === "light";
 
   return (
     <div
@@ -234,8 +360,15 @@ export function ZenVQLanguageDock({
         ========================================================================
       */}
       <div
-        style={{ backgroundColor: "var(--bg-surface-1)" }}
-        className="inline-flex items-center rounded-full border border-border-subtle p-0.5 shadow-sm hover:border-border-strong transition-colors"
+        className={`inline-flex items-center rounded-full border p-0.5 shadow-sm transition-all duration-200 ${
+          isLight
+            ? "border-slate-200/90 bg-white/95 text-slate-900 shadow-slate-100 hover:border-slate-300"
+            : "border-white/10 bg-[#141418]/90 text-white hover:border-white/20"
+        }`}
+        style={{
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)"
+        }}
       >
         {/* Left Sub-Control: Language Trigger */}
         <button
@@ -247,52 +380,65 @@ export function ZenVQLanguageDock({
           aria-expanded={isOpen}
           aria-haspopup="true"
           aria-label="Select translation language"
-          className="inline-flex items-center gap-1.5 pl-2.5 pr-1.5 py-1 rounded-full text-xs font-mono transition-colors cursor-pointer hover:bg-surface-2"
+          className={`inline-flex items-center gap-1.5 pl-2.5 pr-1.5 py-1 rounded-full text-xs font-mono transition-colors cursor-pointer ${
+            isLight
+              ? "text-slate-800 hover:bg-slate-100/80"
+              : "text-zinc-200 hover:bg-white/[0.06]"
+          }`}
         >
           {isTranslating ? (
-            <span className="h-2 w-2 rounded-full bg-accent animate-ping shrink-0" />
+            <span
+              className="h-2 w-2 rounded-full animate-ping shrink-0"
+              style={{ backgroundColor: accentColor }}
+            />
           ) : (
-            <Globe className="w-3.5 h-3.5 text-accent shrink-0" />
+            <GlobeIcon className="w-3.5 h-3.5 shrink-0" style={{ color: accentColor }} />
           )}
 
           {/* Primary Language Name — Native script for instant recognition */}
-          <span className="font-sans font-medium text-xs text-ink-primary">
+          <span className={`font-sans font-medium text-xs ${isLight ? "text-slate-900" : "text-white"}`}>
             {activeMeta.native}
           </span>
 
           {/* Badge Label */}
-          <span className="text-[10px] font-mono uppercase tracking-wider text-ink-muted hidden sm:inline">
+          <span className={`text-[10px] font-mono uppercase tracking-wider hidden sm:inline ${
+            isLight ? "text-slate-500" : "text-zinc-400"
+          }`}>
             ({activeMeta.badge})
           </span>
 
-          <ChevronDown
-            className={`w-3 h-3 text-ink-muted transition-transform duration-200 ${
+          <ChevronDownIcon
+            className={`w-3 h-3 transition-transform duration-200 ${
               isOpen ? "rotate-180" : ""
-            }`}
+            } ${isLight ? "text-slate-500" : "text-zinc-400"}`}
           />
         </button>
 
         {/* 1px Hairline Divider Between Features */}
-        <div className="w-px h-3.5 bg-border-subtle mx-0.5 shrink-0" />
+        <div className={`w-px h-3.5 mx-0.5 shrink-0 ${isLight ? "bg-slate-200" : "bg-white/10"}`} />
 
         {/* Right Sub-Control: Theme Toggle */}
         <button
           type="button"
           onClick={toggleTheme}
-          aria-label="Toggle Cinema Dark / Swiss Light theme"
-          className="w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center text-ink-secondary hover:text-ink-primary hover:bg-surface-2 transition-colors cursor-pointer"
+          aria-label="Toggle Dark and Light theme"
+          className={`w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center transition-colors cursor-pointer ${
+            isLight
+              ? "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+              : "text-zinc-300 hover:text-white hover:bg-white/[0.08]"
+          }`}
         >
-          {mounted && theme === "dark" ? (
-            <Moon className="w-3.5 h-3.5" />
+          {mounted && isLight ? (
+            <SunIcon className="w-3.5 h-3.5 text-amber-500" />
           ) : (
-            <Sun className="w-3.5 h-3.5" />
+            <MoonIcon className="w-3.5 h-3.5 text-zinc-300" />
           )}
         </button>
       </div>
 
       {/* 
         ========================================================================
-        POPOVER PALETTE: 100% Solid Opaque Background (Zero Transparency Bug!)
+        POPOVER PALETTE: 100% Solid Opaque Background (Zero Transparency Bug)
         ========================================================================
       */}
       {isOpen && (
@@ -301,69 +447,73 @@ export function ZenVQLanguageDock({
           dir="ltr"
           style={{
             direction: "ltr",
-            unicodeBidi: "isolate",
-            backgroundColor: "var(--bg-surface-solid)",
+            unicodeBidi: "isolate"
           }}
           className={`notranslate fixed sm:absolute ${
             dropDirection === "up"
               ? "bottom-20 left-3 right-3 sm:bottom-full sm:left-auto sm:right-0 sm:mb-2.5"
               : "top-16 left-3 right-3 sm:top-full sm:left-auto sm:right-0 sm:mt-2.5"
-          } sm:w-80 rounded-2xl border border-border-strong p-3.5 z-50 animate-in fade-in zoom-in-95 duration-150 shadow-2xl text-ink-primary`}
+          } sm:w-80 rounded-2xl border p-3.5 z-50 animate-in fade-in zoom-in-95 duration-150 shadow-2xl ${
+            isLight
+              ? "border-slate-200 bg-white text-slate-900 shadow-[0_20px_50px_rgba(15,23,42,0.12)]"
+              : "border-white/10 bg-[#111114] text-white shadow-[0_20px_50px_rgba(0,0,0,0.85)]"
+          }`}
         >
           {/* Section 1: Quick Theme Mode Switcher Strip */}
-          <div className="pb-2.5 mb-2.5 border-b border-border-subtle flex items-center justify-between">
-            <span className="text-[11px] font-mono uppercase tracking-wider text-ink-muted">
+          <div className={`pb-2.5 mb-2.5 border-b flex items-center justify-between ${
+            isLight ? "border-slate-100" : "border-white/[0.08]"
+          }`}>
+            <span className={`text-[11px] font-mono uppercase tracking-wider ${
+              isLight ? "text-slate-500" : "text-zinc-400"
+            }`}>
               Display Theme
             </span>
-            <div
-              style={{ backgroundColor: "var(--bg-surface-2)" }}
-              className="inline-flex rounded-lg border border-border-subtle p-0.5 text-xs font-mono"
-            >
+            <div className={`inline-flex rounded-lg border p-0.5 text-xs font-mono ${
+              isLight ? "border-slate-200 bg-slate-100" : "border-white/10 bg-[#18181C]"
+            }`}>
               <button
                 type="button"
                 onClick={() => setThemeExplicit("dark")}
                 className={`px-2.5 py-1 rounded-md flex items-center gap-1.5 transition-colors cursor-pointer ${
-                  theme === "dark"
-                    ? "text-ink-primary font-medium shadow-xs border border-border-subtle"
-                    : "text-ink-muted hover:text-ink-primary"
+                  !isLight
+                    ? "bg-[#27272A] text-white font-medium shadow-xs border border-white/10"
+                    : "text-slate-500 hover:text-slate-900"
                 }`}
-                style={{
-                  backgroundColor: theme === "dark" ? "var(--bg-surface-1)" : "transparent",
-                }}
               >
-                <Moon className="w-3 h-3 text-accent" />
+                <MoonIcon className="w-3 h-3 text-zinc-300" />
                 <span>Dark</span>
               </button>
               <button
                 type="button"
                 onClick={() => setThemeExplicit("light")}
                 className={`px-2.5 py-1 rounded-md flex items-center gap-1.5 transition-colors cursor-pointer ${
-                  theme === "light"
-                    ? "text-ink-primary font-medium shadow-xs border border-border-subtle"
-                    : "text-ink-muted hover:text-ink-primary"
+                  isLight
+                    ? "bg-white text-slate-900 font-medium shadow-xs border border-slate-200"
+                    : "text-zinc-400 hover:text-white"
                 }`}
-                style={{
-                  backgroundColor: theme === "light" ? "var(--bg-surface-1)" : "transparent",
-                }}
               >
-                <Sun className="w-3 h-3 text-accent" />
+                <SunIcon className="w-3 h-3 text-amber-500" />
                 <span>Light</span>
               </button>
             </div>
           </div>
 
           {/* Section 2: Header of Language List */}
-          <div className="px-1 pb-2 flex items-center justify-between text-[11px] font-mono text-ink-muted">
+          <div className={`px-1 pb-2 flex items-center justify-between text-[11px] font-mono ${
+            isLight ? "text-slate-500" : "text-zinc-400"
+          }`}>
             <span className="uppercase tracking-wider">Live DOM Translator</span>
             <span
-              style={{ backgroundColor: "var(--bg-surface-2)" }}
-              className="text-accent text-[10px] font-semibold px-2 py-0.5 rounded border border-border-subtle"
+              style={{ color: accentColor }}
+              className={`text-[10px] font-semibold px-2 py-0.5 rounded border ${
+                isLight ? "bg-slate-100 border-slate-200" : "bg-[#18181B] border-white/10"
+              }`}
             >
               13 Languages
             </span>
           </div>
 
-          {/* Grid of Languages with Elegant Custom Thin Scrollbar */}
+          {/* Grid of Languages with Custom Scrollbar */}
           <div className="max-h-64 overflow-y-auto space-y-1 pr-1 custom-scroll">
             {ZENVQ_LANGUAGES.map((lang) => {
               const isSelected = lang.code === currentCode;
@@ -372,44 +522,60 @@ export function ZenVQLanguageDock({
                   key={lang.code}
                   type="button"
                   onClick={() => selectLanguage(lang.code)}
-                  style={{
-                    backgroundColor: isSelected ? "var(--bg-surface-2)" : "transparent",
-                  }}
                   className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-left text-xs transition-all cursor-pointer ${
                     isSelected
-                      ? "text-ink-primary font-semibold border border-border-strong shadow-xs"
-                      : "text-ink-secondary hover:text-ink-primary hover:bg-surface-2 border border-transparent"
+                      ? isLight
+                        ? "bg-slate-100 text-slate-900 font-semibold border border-slate-200 shadow-xs"
+                        : "bg-white/[0.08] text-white font-semibold border border-white/15 shadow-xs"
+                      : isLight
+                      ? "text-slate-700 hover:text-slate-900 hover:bg-slate-50 border border-transparent"
+                      : "text-zinc-300 hover:text-white hover:bg-white/[0.04] border border-transparent"
                   }`}
                 >
                   <div className="flex items-center gap-2.5 min-w-0">
                     <span
+                      style={{ color: isSelected ? accentColor : undefined }}
                       className={`font-mono text-[11px] w-6 shrink-0 font-semibold ${
-                        isSelected ? "text-accent" : "text-ink-muted"
+                        isSelected ? "" : isLight ? "text-slate-400" : "text-zinc-500"
                       }`}
                     >
                       {lang.badge}
                     </span>
                     <div className="min-w-0">
-                      <div className="font-sans font-medium flex items-center gap-1.5 text-ink-primary">
+                      <div className={`font-sans font-medium flex items-center gap-1.5 ${
+                        isLight ? "text-slate-900" : "text-white"
+                      }`}>
                         <span>{lang.native}</span>
                         {lang.native !== lang.name && (
-                          <span className="text-[10px] text-ink-muted font-normal">
+                          <span className={`text-[10px] font-normal ${
+                            isLight ? "text-slate-500" : "text-zinc-400"
+                          }`}>
                             ({lang.name})
                           </span>
                         )}
                       </div>
-                      <div className="text-[10px] font-mono text-ink-muted truncate">
+                      <div className={`text-[10px] font-mono truncate ${
+                        isLight ? "text-slate-500" : "text-zinc-400"
+                      }`}>
                         {lang.region}
                       </div>
                     </div>
                   </div>
 
                   {isSelected && (
-                    <Check className="w-3.5 h-3.5 text-accent shrink-0 ml-2" />
+                    <CheckIcon className="w-3.5 h-3.5 shrink-0 ml-2" style={{ color: accentColor }} />
                   )}
                 </button>
               );
             })}
+          </div>
+
+          {/* Footnote on Zero Server Load & Edge Caching */}
+          <div className={`mt-2.5 pt-2 border-t px-1 flex items-center justify-between text-[10px] font-mono ${
+            isLight ? "border-slate-100 text-slate-400" : "border-white/[0.06] text-zinc-500"
+          }`}>
+            <span>Zero Server Load</span>
+            <span style={{ color: accentColor }}>Edge Cached</span>
           </div>
         </div>
       )}

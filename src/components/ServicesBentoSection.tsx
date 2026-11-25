@@ -18,7 +18,7 @@ export function ServicesBentoSection() {
   return (
     <section id="services" className="py-10 sm:py-14 px-4 sm:px-8 max-w-5xl mx-auto w-full scroll-mt-20">
       {/* Section Header */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2.5 mb-5 sm:mb-7 pb-4 border-b border-white/[0.05]">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2.5 mb-5 sm:mb-7 pb-4 border-b border-border-subtle">
         <div className="space-y-1">
           <div className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-accent">
             <LayoutGrid className="w-3.5 h-3.5" />
@@ -43,14 +43,14 @@ export function ServicesBentoSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.12 }}
             transition={{ duration: 0.55, delay: idx * 0.06, ease: [0.16, 1, 0.3, 1] }}
-            className="rounded-2xl p-5 sm:p-7 border border-white/[0.05] bg-white/[0.015] hover:bg-white/[0.025] transition-colors flex flex-col justify-between group relative overflow-hidden"
+            className="rounded-2xl p-5 sm:p-7 border border-border-subtle bg-surface-1 hover:bg-surface-hover transition-colors flex flex-col justify-between group relative overflow-hidden"
           >
             {/* 1px Top Specular Edge Light */}
             <div className="specular-top-light" />
 
             <div className="space-y-3.5">
               <div className="flex items-center justify-between">
-                <div className="w-9 h-9 rounded-lg bg-white/[0.03] border border-white/[0.06] flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
+                <div className="w-9 h-9 rounded-lg bg-surface-2 border border-border-subtle flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
                   {iconMap[cap.index]}
                 </div>
                 <div className="flex items-center gap-2">
@@ -73,12 +73,12 @@ export function ServicesBentoSection() {
               </div>
             </div>
 
-            <div className="mt-5 pt-3.5 border-t border-white/[0.05] flex items-center justify-between">
+            <div className="mt-5 pt-3.5 border-t border-border-subtle flex items-center justify-between">
               <div className="flex items-center gap-2">
                 {cap.tools.map((t, i) => (
                   <span
                     key={i}
-                    className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-white/[0.03] text-ink-muted border border-white/[0.06]"
+                    className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-surface-2 text-ink-muted border border-border-subtle"
                   >
                     {t}
                   </span>
@@ -90,7 +90,7 @@ export function ServicesBentoSection() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={`View samples for ${cap.title}`}
-                className="w-7 h-7 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-ink-muted group-hover:text-zinc-950 group-hover:bg-accent transition-all cursor-pointer"
+                className="w-7 h-7 rounded-full bg-surface-2 border border-border-subtle flex items-center justify-center text-ink-muted group-hover:text-zinc-950 group-hover:bg-accent transition-all cursor-pointer"
               >
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </a>

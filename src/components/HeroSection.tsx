@@ -78,12 +78,12 @@ export function HeroSection() {
         {/* Left Column: Core Narrative (6 Cols on Desktop) */}
         <div className="lg:col-span-6 flex flex-col items-start gap-4 sm:gap-5">
           {/* Status Eyebrow */}
-          <div className="inline-flex items-center gap-2 px-2.5 sm:px-3 py-1 rounded-full border border-white/[0.08] bg-white/[0.02] text-ink-secondary text-xs">
+          <div className="inline-flex items-center gap-2 px-2.5 sm:px-3 py-1 rounded-full border border-border-subtle bg-surface-1 text-ink-secondary text-xs">
             <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
             <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-wider text-ink-primary font-medium">
               {profile.availabilityText}
             </span>
-            <span className="text-white/20 hidden sm:inline">·</span>
+            <span className="text-ink-muted/40 hidden sm:inline">·</span>
             <span className="text-ink-muted text-[10px] sm:text-[11px] hidden sm:inline">
               Uttara, Dhaka
             </span>
@@ -124,7 +124,7 @@ export function HeroSection() {
                 href={profile.whatsappUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-1 sm:gap-1.5 px-2.5 sm:px-3.5 py-2 rounded-full text-[10px] sm:text-xs font-mono uppercase tracking-wider border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.05] text-ink-primary transition-colors cursor-pointer text-center"
+                className="inline-flex items-center justify-center gap-1 sm:gap-1.5 px-2.5 sm:px-3.5 py-2 rounded-full text-[10px] sm:text-xs font-mono uppercase tracking-wider border border-border-subtle bg-surface-1 hover:bg-surface-hover text-ink-primary transition-colors cursor-pointer text-center"
               >
                 <MessageCircle className="w-3 h-3 text-accent shrink-0" />
                 <span className="truncate">WA</span>
@@ -133,7 +133,7 @@ export function HeroSection() {
               <button
                 onClick={handleCopyEmail}
                 type="button"
-                className="inline-flex items-center justify-center gap-1 sm:gap-1.5 px-2.5 sm:px-3.5 py-2 rounded-full text-[10px] sm:text-xs font-mono uppercase tracking-wider border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.05] text-ink-primary transition-colors cursor-pointer text-center"
+                className="inline-flex items-center justify-center gap-1 sm:gap-1.5 px-2.5 sm:px-3.5 py-2 rounded-full text-[10px] sm:text-xs font-mono uppercase tracking-wider border border-border-subtle bg-surface-1 hover:bg-surface-hover text-ink-primary transition-colors cursor-pointer text-center"
               >
                 {copied ? (
                   <>
@@ -151,7 +151,7 @@ export function HeroSection() {
               <a
                 href={profile.resumePdfUrl}
                 download="MD-SAIFUDDIN-Resume.pdf"
-                className="inline-flex items-center justify-center gap-1 sm:gap-1.5 px-2.5 sm:px-3.5 py-2 rounded-full text-[10px] sm:text-xs font-mono uppercase tracking-wider border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.05] text-ink-secondary hover:text-ink-primary transition-colors text-center"
+                className="inline-flex items-center justify-center gap-1 sm:gap-1.5 px-2.5 sm:px-3.5 py-2 rounded-full text-[10px] sm:text-xs font-mono uppercase tracking-wider border border-border-subtle bg-surface-1 hover:bg-surface-hover text-ink-secondary hover:text-ink-primary transition-colors text-center"
               >
                 <Download className="w-3 h-3 text-accent shrink-0" />
                 <span className="truncate">CV ↓</span>

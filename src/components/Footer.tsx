@@ -16,12 +16,12 @@ export function Footer() {
   };
 
   return (
-    <footer className="border-t border-white/[0.05] bg-canvas py-6 px-4 sm:px-8 mt-auto select-none">
+    <footer className="border-t border-border-subtle bg-canvas py-6 px-4 sm:px-8 mt-auto select-none">
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-ink-muted">
         {/* Left: Copyright & Location */}
         <div className="flex items-center gap-2">
           <span>© {currentYear} {profile.fullName}</span>
-          <span className="text-white/20">·</span>
+          <span className="text-ink-muted/40">·</span>
           <span>Uttara, Dhaka, Bangladesh</span>
         </div>
 
@@ -37,7 +37,7 @@ export function Footer() {
             <span>WhatsApp</span>
           </a>
 
-          <span className="text-white/20">·</span>
+          <span className="text-ink-muted/40">·</span>
 
           <button
             type="button"
@@ -57,7 +57,7 @@ export function Footer() {
             )}
           </button>
 
-          <span className="text-white/20">·</span>
+          <span className="text-ink-muted/40">·</span>
 
           <a
             href={profile.instagramUrl}
@@ -83,7 +83,7 @@ export function Footer() {
             <ExternalLink className="w-3 h-3 text-accent" />
           </a>
 
-          <span className="text-white/20">·</span>
+          <span className="text-ink-muted/40">·</span>
 
           <a
             href="https://zenvq.com"
