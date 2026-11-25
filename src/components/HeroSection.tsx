@@ -20,7 +20,7 @@ export function HeroSection() {
       name: "Adobe After Effects",
       label: "After Effects",
       svg: (
-        <svg className="w-[18px] h-[18px] fill-current" viewBox="0 0 24 24">
+        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
           <path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm6.2 12.8l-.8-2.6H6.6l-.8 2.6H4.2l3.4-9.6h1.8l3.4 9.6H10.2zm-1.3-4.2l-1.3-4.2-1.3 4.2h2.6zm9.9 1.4h-4.8c.1 1.1.7 1.6 1.8 1.6.7 0 1.3-.2 1.8-.6l.7 1.1c-.7.6-1.6.8-2.7.8-2.1 0-3.3-1.3-3.3-3.5 0-2.2 1.3-3.6 3.2-3.6 1.9 0 3.3 1.4 3.3 3.6v.6zm-1.6-1.2c0-.9-.6-1.5-1.6-1.5-1 0-1.6.6-1.7 1.5h3.3z" />
         </svg>
       ),
@@ -29,7 +29,7 @@ export function HeroSection() {
       name: "Adobe Illustrator",
       label: "Illustrator",
       svg: (
-        <svg className="w-[18px] h-[18px] fill-current" viewBox="0 0 24 24">
+        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
           <path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm6.5 12.8l-.8-2.7H6.9l-.8 2.7H4.5l3.5-9.6h1.8l3.5 9.6h-1.8zm-1.3-4.2l-1.4-4.2-1.4 4.2h2.8zm5.7-5.4h1.7v9.6h-1.7V6.2zm.8-2.2c.6 0 1 .4 1 1s-.4 1-1 1-1-.4-1-1 .4-1 1-1z" />
         </svg>
       ),
@@ -38,7 +38,7 @@ export function HeroSection() {
       name: "Adobe Photoshop",
       label: "Photoshop",
       svg: (
-        <svg className="w-[18px] h-[18px] fill-current" viewBox="0 0 24 24">
+        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
           <path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm5.2 6.5c1.4 0 2.4.7 2.4 2.1 0 1.5-1 2.2-2.5 2.2h-1.4v2.9H6V6.2h3.2zm-.3 3c.6 0 1-.3 1-.9 0-.6-.4-.9-1-.9h-1.5v1.8h1.5zm8.9 1.4c-.4-.4-1-.6-1.8-.8-.6-.2-.9-.3-.9-.6 0-.3.3-.5.8-.5.6 0 1.2.2 1.6.6l.8-1.2c-.6-.5-1.4-.7-2.3-.7-1.4 0-2.4.8-2.4 2 0 1.1.7 1.6 1.8 1.9.7.2 1 .3 1 .7 0 .4-.4.6-.9.6-.8 0-1.4-.3-1.9-.8l-.8 1.2c.7.6 1.6.9 2.6.9 1.6 0 2.6-.8 2.6-2.1 0-1.1-.6-1.7-1.8-1.9z" />
         </svg>
       ),
@@ -47,7 +47,7 @@ export function HeroSection() {
       name: "Adobe Media Encoder",
       label: "Media Encoder",
       svg: (
-        <svg className="w-[18px] h-[18px] fill-current" viewBox="0 0 24 24">
+        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
           <path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm6.5 12.8V6.2H8.7l-2.2 6.5-2.2-6.5H2.5v9.6h1.8v-6.3l1.8 5.4h1.5l1.8-5.4v6.3h1.1zm8.5 0h-4.8c.1 1.1.7 1.6 1.8 1.6.7 0 1.3-.2 1.8-.6l.7 1.1c-.7.6-1.6.8-2.7.8-2.1 0-3.3-1.3-3.3-3.5 0-2.2 1.3-3.6 3.2-3.6 1.9 0 3.3 1.4 3.3 3.6v.6zm-1.6-1.2c0-.9-.6-1.5-1.6-1.5-1 0-1.6.6-1.7 1.5h3.3z" />
         </svg>
       ),
