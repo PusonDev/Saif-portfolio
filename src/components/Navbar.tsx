@@ -42,7 +42,7 @@ export function Navbar() {
         }`}
       >
         {/* Brand Wordmark + Universal Return Gateway */}
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
           <a
             href="/"
             onClick={(e) => {
@@ -52,13 +52,13 @@ export function Navbar() {
                 history.replaceState(null, "", window.location.pathname);
               }
             }}
-            className="flex items-baseline gap-1.5 group notranslate cursor-pointer"
+            className="flex items-baseline gap-1.5 group notranslate cursor-pointer shrink-0 whitespace-nowrap"
             translate="no"
           >
             <span className="font-serif text-lg sm:text-2xl tracking-tight text-ink-primary">
               Saif<span className="text-accent">.</span>
             </span>
-            <span className="hidden sm:inline-block font-mono text-[11px] text-ink-muted uppercase tracking-wider">
+            <span className="hidden xl:inline-block font-mono text-[11px] text-ink-muted uppercase tracking-wider whitespace-nowrap">
               {portfolioData.profile.role}
             </span>
           </a>
@@ -69,7 +69,7 @@ export function Navbar() {
             target="_blank"
             rel="noreferrer"
             aria-label="Return to ZenVQ parent network"
-            className="hidden md:inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider text-ink-muted hover:text-ink-primary bg-surface-2 border border-border-subtle transition-colors notranslate"
+            className="hidden lg:inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider text-ink-muted hover:text-ink-primary bg-surface-2 border border-border-subtle transition-colors notranslate whitespace-nowrap shrink-0"
             translate="no"
           >
             <span>← zenvq.com</span>
@@ -77,13 +77,13 @@ export function Navbar() {
         </div>
 
         {/* Center Desktop Navigation Links */}
-        <div className="hidden md:flex items-center gap-5 lg:gap-7">
+        <div className="hidden lg:flex items-center gap-4 xl:gap-6">
           {portfolioData.navigation.map((item) => (
             <a
               key={item.href}
               href={item.href}
               onClick={(e) => handleNavClick(e, item.href)}
-              className="text-xs font-mono tracking-wider text-ink-secondary hover:text-ink-primary transition-colors duration-200 uppercase cursor-pointer"
+              className="text-xs font-mono tracking-wider text-ink-secondary hover:text-ink-primary transition-colors duration-200 uppercase cursor-pointer whitespace-nowrap"
             >
               {item.label}
             </a>
@@ -94,7 +94,7 @@ export function Navbar() {
         <div
           dir="ltr"
           data-zenvq-nav-anchor="true"
-          className="flex items-center gap-1.5 sm:gap-2.5"
+          className="flex items-center gap-1.5 sm:gap-2 shrink-0"
         >
           {/* Unified Language & Theme Dock */}
           <ZenVQLanguageDock variant="header" />
@@ -103,9 +103,9 @@ export function Navbar() {
           <a
             href={portfolioData.profile.resumePdfUrl}
             download="MD-SAIFUDDIN-Resume.pdf"
-            className="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider border border-border-subtle bg-surface-2 hover:border-border-strong text-ink-secondary hover:text-ink-primary transition-colors font-medium"
+            className="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider border border-border-subtle bg-surface-2 hover:border-border-strong text-ink-secondary hover:text-ink-primary transition-colors font-medium whitespace-nowrap shrink-0"
           >
-            <Download className="w-3 h-3 text-accent" />
+            <Download className="w-3 h-3 text-accent shrink-0" />
             <span>CV</span>
           </a>
 
@@ -113,27 +113,27 @@ export function Navbar() {
           <a
             href="#contact"
             onClick={(e) => handleNavClick(e, "#contact")}
-            className="hidden sm:inline-flex items-center gap-1 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider bg-cta-bg text-cta-text hover:opacity-90 transition-opacity duration-200 font-medium shadow-sm shrink-0 cursor-pointer"
+            className="hidden sm:inline-flex items-center gap-1 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider bg-cta-bg text-cta-text hover:opacity-90 transition-opacity duration-200 font-medium shadow-sm whitespace-nowrap shrink-0 cursor-pointer"
           >
             <span>Start Project</span>
             <ArrowUpRight className="w-3 h-3 shrink-0" />
           </a>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile & Tablet Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             type="button"
             aria-label="Toggle mobile navigation menu"
-            className="md:hidden w-8 h-8 rounded-full border border-border-subtle bg-surface-2 flex items-center justify-center text-ink-primary cursor-pointer shrink-0"
+            className="lg:hidden w-8 h-8 rounded-full border border-border-subtle bg-surface-2 flex items-center justify-center text-ink-primary cursor-pointer shrink-0"
           >
             {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           </button>
         </div>
       </nav>
 
-      {/* Mobile Slide-down Navigation Menu */}
+      {/* Mobile & Tablet Slide-down Navigation Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed top-20 left-4 right-4 z-40 rounded-2xl border border-border-strong bg-canvas/95 backdrop-blur-2xl p-6 shadow-2xl flex flex-col gap-4">
+        <div className="lg:hidden fixed top-20 left-4 right-4 z-40 rounded-2xl border border-border-strong bg-canvas/95 backdrop-blur-2xl p-6 shadow-2xl flex flex-col gap-4">
           <div className="flex flex-col gap-3">
             {portfolioData.navigation.map((item) => (
               <a
